@@ -1984,19 +1984,19 @@ for <code>RemarkCommandParser</code>.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">business with constantly changing networks</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">business with many contacts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">easily view the details</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">business with many contacts</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by tag</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">easily view the details</p></td>
 </tr>
@@ -2063,14 +2063,14 @@ for <code>RemarkCommandParser</code>.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add new information to my user profile</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have my own user profile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for easy contact-sharing purposes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit my user profile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">it is up-to-date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">it is kept up-to-date</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2130,7 +2130,7 @@ for <code>RemarkCommandParser</code>.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">careful businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">export data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">to keep an emergency backup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to keep as emergency backup</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -2199,6 +2199,56 @@ for <code>RemarkCommandParser</code>.</p>
 <p>3a1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-export-filepath-filename" class="discrete">Use case: Export filepath\filename</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to export Addressbook data to user-defined filepath and filename</p>
+</li>
+<li>
+<p>AddressBook exports XML file to provided location</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given filename is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. Only filename is given.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. XML file is exported to Addressbook&#8217;s main folder.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ul>
@@ -2399,7 +2449,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-10 19:06:08 UTC
+Last updated 2018-03-11 04:39:13 UTC
 </div>
 </div>
 </body>
