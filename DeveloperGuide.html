@@ -45,9 +45,10 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#sort-feature">3.2. Sort feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -869,20 +870,92 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">3.2. Sort feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort mechanism sorts the persons list alphabetically by name. It currently supports sorting in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>The internal details of the sort mechanism is handled by the <code>sort</code> method in <code>UniquePersonList</code> class. The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortingSequenceDiagram.png" alt="SortingSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>sort</code> command.</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>SortCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>sort</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The sorted list is returned and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-sortcommand-code"><a class="link" href="#aspect-implementation-of-code-sortcommand-code">Aspect: Implementation of <code>SortCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Sort persons by name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and does not need to make changes for every newly added field</p>
+</li>
+<li>
+<p>Cons: Lack flexibility in sorting by other fields</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Sort persons by other fields of a person&#8217;s contact such as email</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows flexibility in sorting</p>
+</li>
+<li>
+<p>Cons: Might be more difficult to implement as changes need to be made for every newly added field</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -913,7 +986,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2256,6 +2329,39 @@ for <code>RemarkCommandParser</code>.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-sort-all-persons-by-name" class="discrete">Use case: Sort all persons by name</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort all persons in AddressBook</p>
+</li>
+<li>
+<p>AddressBook sorts the list of persons alphabetically by name in ascending order</p>
+</li>
+<li>
+<p>AddressBook shows a list of sorted persons</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
@@ -2449,7 +2555,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-11 09:38:22 UTC
+Last updated 2018-03-12 16:19:21 UTC
 </div>
 </div>
 </body>
