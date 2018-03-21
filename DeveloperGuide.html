@@ -18,7 +18,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team T15-B4</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103JAN2018 T15-B4</code>      Since: <code>Jan 2018</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -989,6 +989,62 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+<div class="paragraph">
+<p>===Import/Export feature (since v1.1)
+==== Current Implementation
+Right now, only Export functionality is implemented.
+It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
+When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
+The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
+The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.1. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1:</strong> Allows option of exporting data into either CSV or XML files.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows greater flexibility as CSV files can be catered to importing of contacts into Google Contacts.</p>
+</li>
+<li>
+<p>Cons: Need to manually cater to popular file formats and this may require constant maintenance on the developers' end.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2 (current choice):</strong> Only allows exporting of data as XML files.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
+</li>
+<li>
+<p>Cons: Users may not know the benefits or uses of an XML file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>===Calendar View feature (since v1.2)
+==== Current Implementation
+Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.5.2. To Be Updated</a></h4>
+<div class="paragraph">
+<p>Enables event-related functionalities in Calendar.</p>
+</div>
 </div>
 </div>
 </div>
@@ -2667,7 +2723,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-21 17:13:02 UTC
+Last updated 2018-03-21 18:47:48 UTC
 </div>
 </div>
 </body>
