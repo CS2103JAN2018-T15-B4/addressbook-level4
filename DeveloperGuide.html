@@ -530,7 +530,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>stores the Address Book data.</p>
 </li>
 <li>
-<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> and an unmodifiable <code>ObservableList&lt;Task&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -2234,20 +2234,26 @@ a contact&#8217;s details.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add new item into the to-do list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track what I need to do</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add a new task</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to keep track what I need to do</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">list of items in to-do list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track what I need to do</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list all tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to view my current tasks</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove item from to-do list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a task</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">remove completed tasks</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort all tasks by priority</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily view all the tasks by importance.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2661,7 +2667,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-20 17:07:51 UTC
+Last updated 2018-03-21 17:03:54 UTC
 </div>
 </div>
 </body>
