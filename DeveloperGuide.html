@@ -49,8 +49,6 @@
 <li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
 <li><a href="#logging">3.4. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#import-export-feature-since-v1-1">3.6. Import/Export feature (since v1.1)</a></li>
-<li><a href="#calendar-view-feature-since-v1-2">3.7. Calendar View feature (since v1.2)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -992,26 +990,17 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.6. Import/Export feature (since v1.1)</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Right now, only Export functionality is implemented.
+<p>===Import/Export feature (since v1.1)
+==== Current Implementation
+Right now, only Export functionality is implemented.
 It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
 When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
 The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
 The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ExportingSequenceDiagram.png" alt="ExportingSequenceDiagram" width="800">
-</div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.1. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
 <div class="ulist">
@@ -1044,19 +1033,15 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.7. Calendar View feature (since v1.2)</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
+<p>===Calendar View feature (since v1.2)
+==== Current Implementation
+Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.7.2. To Be Updated</a></h4>
+<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.5.2. To Be Updated</a></h4>
 <div class="paragraph">
 <p>Enables event-related functionalities in Calendar.</p>
 </div>
@@ -2738,7 +2723,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 02:04:45 UTC
+Last updated 2018-03-22 06:04:28 UTC
 </div>
 </div>
 </body>
