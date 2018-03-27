@@ -3,6 +3,8 @@ package seedu.address.model.task;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import java.time.LocalDate;
+
 /**
  * Represents a Task's due date in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidTaskDueDate(String)}
@@ -10,7 +12,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class TaskDueDate {
 
     public static final String MESSAGE_TASK_DUE_DATE_CONSTRAINTS =
-            "Task due dates must be a valid date in the format yyyy-MM-dd";
+            "Task due dates must be a valid date in the format yyyy-MM-dd and after today's date";
 
     /**
      * The first character of the task due date must not be a whitespace,
@@ -40,7 +42,20 @@ public class TaskDueDate {
      * Returns true if a given string is a valid task due date.
      */
     public static boolean isValidTaskDueDate(String test) {
-        return test.matches(TASK_DUE_DATE_VALIDATION_REGEX);
+        return test.matches(TASK_DUE_DATE_VALIDATION_REGEX) && isTaskDueDateAfterTodayDate(test);
+    }
+
+    /**
+     * Validates that the task due date is after today's date.
+     *
+     * @param testDueDate A valid task due date.
+     * @return true if a given task due date is after today's date.
+     */
+    public static boolean isTaskDueDateAfterTodayDate(String testDueDate) {
+        LocalDate dueDate = LocalDate.parse(testDueDate);
+        LocalDate today = LocalDate.now();
+
+        return dueDate.isAfter(today);
     }
 
     @Override
