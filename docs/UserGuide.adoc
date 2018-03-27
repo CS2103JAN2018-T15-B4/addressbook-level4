@@ -285,7 +285,7 @@ _{explain how the user can enable/disable data encryption}_
 // end::dataencryption[]
 
 // tag::AddTask[]
-=== Adding a task: `task-add` `[since v1.3]`
+=== Adding a task: `task-add` `[coming in v2.0]`
 
 Adds a task to the address book. +
 Format: `task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/CATEGORY]...`
@@ -411,7 +411,7 @@ _{explain how the user can use the calendar}_
 
 == Command Summary
 
-* *Add a person* : `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
+* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
 e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
 * *Clear* : `clear`
 * *Delete* : `delete INDEX` +
@@ -433,5 +433,3 @@ e.g.`select 2`
 * *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
-* *Sort all persons* : `sort`
-* *Add a task* : `task-add`

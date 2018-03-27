@@ -364,8 +364,7 @@ image::UndoRedoActivityDiagram.png[width="650"]
 
 The sort mechanism sorts the persons list alphabetically by name. It currently supports sorting in ascending order.
 
-The internal details of the sort mechanism is handled by the `sort` method in `UniquePersonList` class.
-The sort mechanism is implemented using a custom comparator in JavaFX ObservableList `sort` method.
+The internal details of the sort mechanism is handled by the `sort` method in `UniquePersonList` class. The sort mechanism is implemented using a custom comparator in JavaFX ObservableList `sort` method.
 
 The following sequence diagram shows how the sort operation works.
 
@@ -387,26 +386,6 @@ image::SortingSequenceDiagram.png[width="800"]
 ** Pros: Allows flexibility in sorting
 ** Cons: Might be more difficult to implement as changes need to be made for every newly added field
 // end::sort[]
-
-// tag::task-add[]
-=== Add Task feature
-==== Current Implementation
-
-The add task feature allows user to add a new task into the Address Book by specifying the required parameters.
-
-It allows the adding of the following fields: name, priority, description, due date, status and category.
-All of the fields are compulsory except category.
-
-The following sequence diagram shows how the add feature operation works.
-
-image::TaskAddSequenceDiagram.png[width="800"]
-
-. The user executes the `task-add` command.
-. The `AddressBookParser` class creates a new `TaskAddCommandParser` class to parse the command.
-. The `TaskAddCommandParser` class parses the command and create a new `TaskAddCommand` class.
-. The `task-add` command is executed and handled by the `ModelManager` class.
-. The task is added to the list of tasks in Address Book and displayed to the user.
-// end::task-add[]
 
 // tag::dataencryption[]
 === [Proposed] Data Encryption
@@ -1082,27 +1061,6 @@ Use case ends.
 
 [none]
 * 2a. The list is empty.
-+
-Use case ends.
-
-[discrete]
-=== Use case: Add task
-
-*MSS*
-
-1.  User requests to add a new task
-2.  User enters command with required parameters
-3.  AddressBook adds the new task and updates the list of tasks
-+
-Use case ends.
-
-*Extensions*
-
-[none]
-* 2a. The command is incorrectly entered
-+
-[none]
-** 2a1. AddressBook shows an error message.
 +
 Use case ends.
 

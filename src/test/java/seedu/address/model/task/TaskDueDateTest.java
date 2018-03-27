@@ -36,7 +36,7 @@ public class TaskDueDateTest {
         assertFalse(TaskDueDate.isValidTaskDueDate("2018 05 05")); // without formatter
         assertFalse(TaskDueDate.isValidTaskDueDate("2018-02-29")); // date existing in leap year only
         assertFalse(TaskDueDate.isValidTaskDueDate("2018-12-32")); // non-existing date
-        assertFalse(TaskDueDate.isValidTaskDueDate("1898-12-31")); // valid year starts from 1900
+        assertFalse(TaskDueDate.isValidTaskDueDate("1989-12-31")); // valid year starts from 1900
 
         // valid task due date
         assertTrue(TaskDueDate.isValidTaskDueDate("2018-05-05")); // correct format

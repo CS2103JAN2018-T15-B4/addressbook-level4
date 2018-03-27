@@ -8,12 +8,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_CATEGORY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_DUE_DATE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_PRIORITY;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TASK_STATUS;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +22,6 @@ import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.task.Task;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -63,57 +56,6 @@ public class CommandTestUtil {
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for addresses
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
-
-    public static final String VALID_TASK_NAME_TASKFIRST = "First task";
-    public static final String VALID_TASK_NAME_TASKSECOND = "Second task";
-    public static final String VALID_TASK_PRIORITY_TASKFIRST = "High";
-    public static final String VALID_TASK_PRIORITY_TASKSECOND = "Low";
-    public static final String VALID_TASK_DESCRIPTION_TASKFIRST = "Create a new app";
-    public static final String VALID_TASK_DESCRIPTION_TASKSECOND = "Discuss outing details";
-    public static final String VALID_TASK_DUE_DATE_TASKFIRST = "2018-04-02";
-    public static final String VALID_TASK_DUE_DATE_TASKSECOND = "2018-05-10";
-    public static final String VALID_TASK_STATUS_TASKFIRST = "Undone";
-    public static final String VALID_TASK_STATUS_TASKSECOND = "Undone";
-    public static final String VALID_TASK_CATEGORY_PERSONAL = "personal";
-    public static final String VALID_TASK_CATEGORY_WORK = "work";
-
-    public static final String TASK_NAME_DESC_TASKFIRST =
-            " " + PREFIX_TASK_NAME + VALID_TASK_NAME_TASKFIRST;
-    public static final String TASK_NAME_DESC_TASKSECOND =
-            " " + PREFIX_TASK_NAME + VALID_TASK_NAME_TASKSECOND;
-    public static final String TASK_PRIORITY_DESC_TASKFIRST =
-            " " + PREFIX_TASK_PRIORITY + VALID_TASK_PRIORITY_TASKFIRST;
-    public static final String TASK_PRIORITY_DESC_TASKSECOND =
-            " " + PREFIX_TASK_PRIORITY + VALID_TASK_PRIORITY_TASKSECOND;
-    public static final String TASK_DESCRIPTION_DESC_TASKFIRST =
-            " " + PREFIX_TASK_DESCRIPTION + VALID_TASK_DESCRIPTION_TASKFIRST;
-    public static final String TASK_DESCRIPTION_DESC_TASKSECOND =
-            " " + PREFIX_TASK_DESCRIPTION + VALID_TASK_DESCRIPTION_TASKSECOND;
-    public static final String TASK_DUE_DATE_DESC_TASKFIRST =
-            " " + PREFIX_TASK_DUE_DATE + VALID_TASK_DUE_DATE_TASKFIRST;
-    public static final String TASK_DUE_DATE_DESC_TASKSECOND =
-            " " + PREFIX_TASK_DUE_DATE + VALID_TASK_DUE_DATE_TASKSECOND;
-    public static final String TASK_STATUS_DESC_TASKFIRST =
-            " " + PREFIX_TASK_STATUS + VALID_TASK_STATUS_TASKFIRST;
-    public static final String TASK_STATUS_DESC_TASKSECOND =
-            " " + PREFIX_TASK_STATUS + VALID_TASK_STATUS_TASKSECOND;
-    public static final String TASK_CATEGORY_DESC_PERSONAL =
-            " " + PREFIX_TASK_CATEGORY + VALID_TASK_CATEGORY_PERSONAL;
-    public static final String TASK_CATEGORY_DESC_WORK =
-            " " + PREFIX_TASK_CATEGORY + VALID_TASK_CATEGORY_WORK;
-
-    public static final String INVALID_TASK_NAME_DESC = " "
-            + PREFIX_TASK_NAME + "Task*"; // '*' not allowed in taskNames
-    public static final String INVALID_TASK_PRIORITY_DESC = " "
-            + PREFIX_TASK_PRIORITY + "random"; // only 'high', 'medium', 'low' allowed in taskPriority
-    public static final String INVALID_TASK_DESCRIPTION_DESC = " "
-            + PREFIX_TASK_DESCRIPTION + ""; // empty string not allowed in taskDescription
-    public static final String INVALID_TASK_DUE_DATE_DESC = " "
-            + PREFIX_TASK_DUE_DATE + "2018 05 10"; // date without formatter not allowed in taskDueDate
-    public static final String INVALID_TASK_STATUS_DESC = " "
-            + PREFIX_TASK_STATUS + "random"; // only 'done', 'undone' allowed in taskStatus
-    public static final String INVALID_TASK_CATEGORY_DESC = " "
-            + PREFIX_TASK_CATEGORY + "meeting & work"; // '&' not allowed in taskCategory
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
@@ -157,7 +99,6 @@ public class CommandTestUtil {
         // only do so by copying its components.
         AddressBook expectedAddressBook = new AddressBook(actualModel.getAddressBook());
         List<Person> expectedFilteredList = new ArrayList<>(actualModel.getFilteredPersonList());
-        List<Task> expectedTaskList = new ArrayList<>(actualModel.getFilteredTaskList());
 
         try {
             command.execute();
@@ -166,7 +107,6 @@ public class CommandTestUtil {
             assertEquals(expectedMessage, e.getMessage());
             assertEquals(expectedAddressBook, actualModel.getAddressBook());
             assertEquals(expectedFilteredList, actualModel.getFilteredPersonList());
-            assertEquals(expectedTaskList, actualModel.getFilteredTaskList());
         }
     }
 
