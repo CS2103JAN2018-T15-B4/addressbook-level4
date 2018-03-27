@@ -46,11 +46,12 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#sort-feature">3.2. Sort feature</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#import-export-feature-since-v1-1">3.6. Import/Export feature (since v1.1)</a></li>
-<li><a href="#calendar-view-feature-since-v1-2">3.7. Calendar View feature (since v1.2)</a></li>
+<li><a href="#add-task-feature">3.3. Add Task feature</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#import-export-feature-since-v1-1">3.7. Import/Export feature (since v1.1)</a></li>
+<li><a href="#calendar-view-feature-since-v1-2">3.8. Calendar View feature (since v1.2)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -879,7 +880,8 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <p>The sort mechanism sorts the persons list alphabetically by name. It currently supports sorting in ascending order.</p>
 </div>
 <div class="paragraph">
-<p>The internal details of the sort mechanism is handled by the <code>sort</code> method in <code>UniquePersonList</code> class. The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
+<p>The internal details of the sort mechanism is handled by the <code>sort</code> method in <code>UniquePersonList</code> class.
+The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the sort operation works.</p>
@@ -944,20 +946,60 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.3. Add Task feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add task feature allows user to add a new task into the Address Book by specifying the required parameters.</p>
+</div>
+<div class="paragraph">
+<p>It allows the adding of the following fields: name, priority, description, due date, status and category.
+All of the fields are compulsory except category.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add feature operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TaskAddSequenceDiagram.png" alt="TaskAddSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>task-add</code> command.</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command.</p>
+</li>
+<li>
+<p>The <code>TaskAddCommandParser</code> class parses the command and create a new <code>TaskAddCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>task-add</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The task is added to the list of tasks in Address Book and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -988,15 +1030,15 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.6. Import/Export feature (since v1.1)</a></h3>
+<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.7. Import/Export feature (since v1.1)</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.7.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, only Export functionality is implemented.
 It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
@@ -1011,7 +1053,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
 <div class="ulist">
@@ -1048,15 +1090,15 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.7. Calendar View feature (since v1.2)</a></h3>
+<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.8. Calendar View feature (since v1.2)</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.7.2. To Be Updated</a></h4>
+<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.8.2. To Be Updated</a></h4>
 <div class="paragraph">
 <p>Enables event-related functionalities in Calendar.</p>
 </div>
@@ -2545,6 +2587,46 @@ a contact&#8217;s details.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-add-task" class="discrete">Use case: Add task</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new task</p>
+</li>
+<li>
+<p>User enters command with required parameters</p>
+</li>
+<li>
+<p>AddressBook adds the new task and updates the list of tasks</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The command is incorrectly entered</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
 </div>
@@ -2738,7 +2820,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-22 07:06:06 UTC
+Last updated 2018-03-27 03:57:17 UTC
 </div>
 </div>
 </body>
