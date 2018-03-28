@@ -54,7 +54,9 @@
 <li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 <li><a href="#import-export-feature-since-v1-1">3.9. Import/Export feature (since v1.1)</a></li>
 <li><a href="#calendar-view-feature-since-v1-2">3.10. Calendar View feature (since v1.2)</a></li>
-<li><a href="#profile-picture-feature-since-v1-3">3.11. Profile Picture feature (since v1.3)</a></li>
+<li><a href="#add-event-feature">3.11. Add Event feature</a></li>
+<li><a href="#delete-event-feature">3.12. Delete Event feature</a></li>
+<li><a href="#profile-picture-feature-since-v1-3">3.13. Profile Picture feature (since v1.3)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1166,17 +1168,43 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 <p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.11. Add Event feature</a></h3>
 <div class="sect3">
-<h4 id="to-be-updated"><a class="link" href="#to-be-updated">3.10.2. To Be Updated</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.11.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Enables event-related functionalities in Calendar.</p>
+<p>The add event feature allows the user to add a new event into the Event Book.
+The event details required: Title, Description, Location, Datetime.
+All of the fields are compulsory, although the user can simply fill in a dummy detail.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add event feature works.</p>
+</div>
+<div class="paragraph">
+<p>Diagram and steps to be included in future.
+Pros, Cons, and Reasons to be added in future.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="profile-picture-feature-since-v1-3"><a class="link" href="#profile-picture-feature-since-v1-3">3.11. Profile Picture feature (since v1.3)</a></h3>
+<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.12. Delete Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.12.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
+Allows easy deletion of an unwanted event according to the event index listed on the Event List in the app.</p>
+</div>
+<div class="paragraph">
+<p>Diagram and steps to be included in future.
+Pros, Cons, and Reasons to be added in future.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="profile-picture-feature-since-v1-3"><a class="link" href="#profile-picture-feature-since-v1-3">3.13. Profile Picture feature (since v1.3)</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, a contact&#8217;s Profile Picture can be viewed at the right side of the contact&#8217;s profile card.</p>
 </div>
@@ -1212,7 +1240,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.11.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.13.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Storage of images of profile pictures<br></p>
 </div>
@@ -2980,7 +3008,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-03-28 18:24:09 UTC
+Last updated 2018-03-28 20:32:13 UTC
 </div>
 </div>
 </body>
