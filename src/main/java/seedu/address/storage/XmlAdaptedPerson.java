@@ -56,7 +56,9 @@ public class XmlAdaptedPerson {
         if (tagged != null) {
             this.tagged = new ArrayList<>(tagged);
         }
+        this.picture = null;
     }
+
     public XmlAdaptedPerson(String name, String phone, String email, String address, String picture,
                             List<XmlAdaptedTag> tagged) {
         this.name = name;
@@ -128,7 +130,13 @@ public class XmlAdaptedPerson {
             throw new IllegalValueException(Address.MESSAGE_ADDRESS_CONSTRAINTS);
         }
         final Address address = new Address(this.address);
-        final Picture pic = new Picture(this.picture);
+
+        Picture pic = new Picture();
+        if (this.picture != null) {
+            pic = new Picture(this.picture);
+        }
+
+        System.out.println(pic.getPath());
         final Set<Tag> tags = new HashSet<>(personTags);
         return new Person(name, phone, email, address, pic, tags);
     }
@@ -148,6 +156,7 @@ public class XmlAdaptedPerson {
                 && Objects.equals(phone, otherPerson.phone)
                 && Objects.equals(email, otherPerson.email)
                 && Objects.equals(address, otherPerson.address)
+                && Objects.equals(picture, otherPerson.picture)
                 && tagged.equals(otherPerson.tagged);
     }
 }

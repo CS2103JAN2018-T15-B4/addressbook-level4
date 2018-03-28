@@ -38,7 +38,7 @@ public class AddPictureCommandParser implements Parser<AddPictureCommand> {
         path = splitted[1];
 
         try {
-            path = ParserUtil.parseImageFilename(args);
+            path = ParserUtil.parseImageFilename(path);
             return new AddPictureCommand(index, path);
         } catch (IllegalValueException ive) {
             ive.printStackTrace();
