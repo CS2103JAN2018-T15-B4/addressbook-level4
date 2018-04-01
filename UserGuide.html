@@ -50,9 +50,9 @@
 <li><a href="#saving-the-data">3.20. Saving the data</a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
 <li><a href="#adding-a-task-code-task-add-code-code-since-v1-3-code">3.22. Adding a task: <code>task-add</code> <code>[since v1.3]</code></a></li>
-<li><a href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.23. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></li>
-<li><a href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></li>
-<li><a href="#deleting-a-task-code-task-delete-code-code-coming-in-v2-0-code">3.25. Deleting a task: <code>task-delete</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#deleting-a-task-code-task-delete-code-code-since-v1-4-code">3.23. Deleting a task: <code>task-delete</code> <code>[since v1.4]</code></a></li>
+<li><a href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.24. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></li>
+<li><a href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.25. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></li>
 <li><a href="#locating-persons-by-tag-code-find-t-code-code-coming-in-v2-0-code">3.26. Locating persons by tag: <code>find -t</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#locating-persons-by-phone-code-find-p-code-code-coming-in-v2-0-code">3.27. Locating persons by phone: <code>find -p</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#profile-picture-feature-code-coming-in-v2-0-code">3.28. Profile picture feature <code>[coming in v2.0]</code></a></li>
@@ -798,25 +798,10 @@ A task can have any number of categories (including 0)
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-tasks-code-task-list-code-code-since-v1-3-code"><a class="link" href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.23. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all tasks in the address book.<br>
-Format: <code>task-list</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code"><a class="link" href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></h3>
-<div class="paragraph">
-<p>Sorts all tasks in the address book by priority in decreasing order of importance (i.e. high &gt; medium &gt; low)
-and list them.<br>
-Format: <code>task-sort</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-task-code-task-delete-code-code-coming-in-v2-0-code"><a class="link" href="#deleting-a-task-code-task-delete-code-code-coming-in-v2-0-code">3.25. Deleting a task: <code>task-delete</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-a-task-code-task-delete-code-code-since-v1-4-code"><a class="link" href="#deleting-a-task-code-task-delete-code-code-since-v1-4-code">3.23. Deleting a task: <code>task-delete</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified task from the address book.<br>
-Format: <code>delete INDEX</code></p>
+Format: <code>task-delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -842,10 +827,25 @@ Format: <code>delete INDEX</code></p>
 <ul>
 <li>
 <p><code>task-list</code><br>
-<code>delete 2</code><br>
+<code>task-delete 2</code><br>
 Deletes the 2nd task in the address book.</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-tasks-code-task-list-code-code-since-v1-3-code"><a class="link" href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.24. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all tasks in the address book.<br>
+Format: <code>task-list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code"><a class="link" href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.25. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Sorts all tasks in the address book by priority in decreasing order of importance (i.e. high &gt; medium &gt; low)
+and list them.<br>
+Format: <code>task-sort</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1026,6 +1026,10 @@ e.g. <code>find Christmas CNY Halloween</code></p>
 e.g. <code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/Undone</code></p>
 </li>
 <li>
+<p><strong>Delete a task</strong> : <code>task-delete INDEX</code><br>
+e.g. <code>task-delete 1</code></p>
+</li>
+<li>
 <p><strong>List all tasks</strong> : <code>task-list</code></p>
 </li>
 <li>
@@ -1038,7 +1042,7 @@ e.g. <code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/U
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-01 10:59:50 UTC
+Last updated 2018-04-01 14:50:42 UTC
 </div>
 </div>
 </body>
