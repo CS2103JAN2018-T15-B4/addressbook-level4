@@ -32,7 +32,7 @@
 <li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
 <li><a href="#adding-a-profile-picture-to-a-person-code-addpicture-code">3.3. Adding a profile picture to a person: <code>addpicture</code></a></li>
 <li><a href="#listing-all-persons-code-list-code">3.4. Listing all persons : <code>list</code></a></li>
-<li><a href="#sorting-all-persons-code-sort-code">3.5. Sorting all persons : <code>sort</code></a></li>
+<li><a href="#sorting-all-persons-by-name-code-sort-code">3.5. Sorting all persons by name : <code>sort</code></a></li>
 <li><a href="#editing-a-person-code-edit-code">3.6. Editing a person : <code>edit</code></a></li>
 <li><a href="#locating-persons-by-name-code-find-code">3.7. Locating persons by name: <code>find</code></a></li>
 <li><a href="#converting-from-one-currency-to-another-code-convert-code">3.8. Converting from one currency to another: <code>convert</code></a></li>
@@ -51,7 +51,7 @@
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.21. Encrypting data files <code>[coming in v2.0]</code></a></li>
 <li><a href="#adding-a-task-code-task-add-code-code-since-v1-3-code">3.22. Adding a task: <code>task-add</code> <code>[since v1.3]</code></a></li>
 <li><a href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.23. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></li>
-<li><a href="#sorting-all-tasks-by-priority-code-task-sort-code-code-coming-in-v2-0-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[coming in v2.0]</code></a></li>
+<li><a href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></li>
 <li><a href="#deleting-a-task-code-task-delete-code-code-coming-in-v2-0-code">3.25. Deleting a task: <code>task-delete</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#locating-persons-by-tag-code-find-t-code-code-coming-in-v2-0-code">3.26. Locating persons by tag: <code>find -t</code> <code>[coming in v2.0]</code></a></li>
 <li><a href="#locating-persons-by-phone-code-find-p-code-code-coming-in-v2-0-code">3.27. Locating persons by phone: <code>find -p</code> <code>[coming in v2.0]</code></a></li>
@@ -241,7 +241,7 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-persons-code-sort-code"><a class="link" href="#sorting-all-persons-code-sort-code">3.5. Sorting all persons : <code>sort</code></a></h3>
+<h3 id="sorting-all-persons-by-name-code-sort-code"><a class="link" href="#sorting-all-persons-by-name-code-sort-code">3.5. Sorting all persons by name : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts all persons in the address book alphabetically by name in ascending order and list them.<br>
 Format: <code>sort</code></p>
@@ -805,9 +805,9 @@ Format: <code>task-list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-tasks-by-priority-code-task-sort-code-code-coming-in-v2-0-code"><a class="link" href="#sorting-all-tasks-by-priority-code-task-sort-code-code-coming-in-v2-0-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[coming in v2.0]</code></a></h3>
+<h3 id="sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code"><a class="link" href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.24. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
-<p>Sorts all tasks in the address book by priority (i.e. High, Medium, Low) in decreasing order of importance
+<p>Sorts all tasks in the address book by priority in decreasing order of importance (i.e. high &gt; medium &gt; low)
 and list them.<br>
 Format: <code>task-sort</code></p>
 </div>
@@ -964,19 +964,19 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
+<p><strong>Delete a person</strong> : <code>delete INDEX</code><br>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Delete By Name</strong> : <code>deletebyname NAME</code><br>
+<p><strong>Delete a person by name</strong> : <code>deletebyname NAME</code><br>
 e.g. <code>delete John Appleseed</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Edit a person</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find a person</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
 e.g. <code>find James Jake</code></p>
 </li>
 <li>
@@ -988,13 +988,16 @@ e.g. <code>exports data into XML file in user-defined filepath</code></p>
 e.g. <code>convert 1</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>List all persons</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>Sort all persons by name</strong> : <code>sort</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 <li>
-<p><strong>Select</strong> : <code>select INDEX</code><br>
+<p><strong>Select a person</strong> : <code>select INDEX</code><br>
 e.g.<code>select 2</code></p>
 </li>
 <li>
@@ -1005,9 +1008,6 @@ e.g.<code>select 2</code></p>
 </li>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
-</li>
-<li>
-<p><strong>Sort all persons</strong> : <code>sort</code></p>
 </li>
 <li>
 <p><strong>Add an event</strong> : <code>addevent et/TITLE ed/DESCRIPTION el/LOCATION edt/DATETIME</code><br>
@@ -1026,7 +1026,10 @@ e.g. <code>find Christmas CNY Halloween</code></p>
 e.g. <code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/Undone</code></p>
 </li>
 <li>
-<p><strong>List tasks</strong> : <code>task-list</code></p>
+<p><strong>List all tasks</strong> : <code>task-list</code></p>
+</li>
+<li>
+<p><strong>Sort all tasks</strong> : <code>task-sort</code></p>
 </li>
 </ul>
 </div>
@@ -1035,7 +1038,7 @@ e.g. <code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/U
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-01 10:31:50 UTC
+Last updated 2018-04-01 10:59:50 UTC
 </div>
 </div>
 </body>

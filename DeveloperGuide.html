@@ -45,18 +45,19 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
-<li><a href="#sort-feature">3.2. Sort feature</a></li>
+<li><a href="#sort-persons-feature">3.2. Sort Persons feature</a></li>
 <li><a href="#add-task-feature">3.3. Add Task feature</a></li>
-<li><a href="#list-tasks-feature">3.4. List tasks feature</a></li>
-<li><a href="#convert-currency-feature">3.5. Convert currency feature</a></li>
-<li><a href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
-<li><a href="#import-export-feature-since-v1-1">3.9. Import/Export feature (since v1.1)</a></li>
-<li><a href="#calendar-view-feature-since-v1-2">3.10. Calendar View feature (since v1.2)</a></li>
-<li><a href="#add-event-feature">3.11. Add Event feature</a></li>
-<li><a href="#delete-event-feature">3.12. Delete Event feature</a></li>
-<li><a href="#profile-picture-feature-since-v1-3">3.13. Profile Picture feature (since v1.3)</a></li>
+<li><a href="#list-tasks-feature">3.4. List Tasks feature</a></li>
+<li><a href="#sort-tasks-feature">3.5. Sort Tasks feature</a></li>
+<li><a href="#convert-currency-feature">3.6. Convert currency feature</a></li>
+<li><a href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#import-export-feature-since-v1-1">3.10. Import/Export feature (since v1.1)</a></li>
+<li><a href="#calendar-view-feature-since-v1-2">3.11. Calendar View feature (since v1.2)</a></li>
+<li><a href="#add-event-feature">3.12. Add Event feature</a></li>
+<li><a href="#delete-event-feature">3.13. Delete Event feature</a></li>
+<li><a href="#profile-picture-feature-since-v1-3">3.14. Profile Picture feature (since v1.3)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -878,7 +879,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">3.2. Sort feature</a></h3>
+<h3 id="sort-persons-feature"><a class="link" href="#sort-persons-feature">3.2. Sort Persons feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
@@ -889,11 +890,11 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the sort operation works.</p>
+<p>The following sequence diagram shows how the sort persons operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortingSequenceDiagram.PNG" alt="SortingSequenceDiagram" width="800">
+<img src="images/SortingSequenceDiagram.png" alt="SortingSequenceDiagram" width="800">
 </div>
 </div>
 <div class="olist arabic">
@@ -962,11 +963,11 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 All of the fields are compulsory except category.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add feature operation works.</p>
+<p>The following sequence diagram shows how the add task operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskAddSequenceDiagram.PNG" alt="TaskAddSequenceDiagram" width="800">
+<img src="images/TaskAddSequenceDiagram.png" alt="TaskAddSequenceDiagram" width="800">
 </div>
 </div>
 <div class="olist arabic">
@@ -991,18 +992,18 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.4. List tasks feature</a></h3>
+<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.4. List Tasks feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The list task feature allows user to display all the tasks in the Address Book.</p>
+<p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the add feature operation works.</p>
+<p>The following sequence diagram shows how the list tasks operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskListSequenceDiagram.PNG" alt="TaskListSequenceDiagram" width="800">
+<img src="images/TaskListSequenceDiagram.png" alt="TaskListSequenceDiagram" width="800">
 </div>
 </div>
 <div class="olist arabic">
@@ -1024,9 +1025,83 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.5. Convert currency feature</a></h3>
+<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.5. Sort Tasks feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort mechanism sorts the tasks list based on priority.
+It currently supports sorting in descending order of importance (i.e. high &gt; medium &gt; low).</p>
+</div>
+<div class="paragraph">
+<p>The internal details of the sort mechanism is handled by the <code>sortByPriority</code> method in <code>UniqueTaskList</code> class.
+The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort tasks operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TaskSortSequenceDiagram.png" alt="TaskSortSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>task-sort</code> command.</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>TaskSortCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>task-sort</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The sorted list is returned and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-tasksortcommand-code"><a class="link" href="#aspect-implementation-of-code-tasksortcommand-code">Aspect: Implementation of <code>TaskSortCommand</code></a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Sort tasks by priority</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and does not need to make changes for every newly added field</p>
+</li>
+<li>
+<p>Cons: Lack flexibility in sorting by other fields</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Sort tasks by other fields of a task such as name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows flexibility in sorting</p>
+</li>
+<li>
+<p>Cons: Might be more difficult to implement as changes need to be made for every newly added field</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.6. Convert currency feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -1057,20 +1132,20 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.6. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.7. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1101,15 +1176,15 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.9. Import/Export feature (since v1.1)</a></h3>
+<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.10. Import/Export feature (since v1.1)</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, only Export functionality is implemented.
 It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
@@ -1124,7 +1199,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.9.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.10.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
 <div class="ulist">
@@ -1161,18 +1236,18 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.10. Calendar View feature (since v1.2)</a></h3>
+<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.11. Calendar View feature (since v1.2)</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.11. Add Event feature</a></h3>
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.12. Add Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add event feature allows the user to add a new event into the Event Book.
 The event details required: Title, Description, Location, Datetime.
@@ -1188,9 +1263,9 @@ Pros, Cons, and Reasons to be added in future.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.12. Delete Event feature</a></h3>
+<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.13. Delete Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
 Allows easy deletion of an unwanted event according to the event index listed on the Event List in the app.</p>
@@ -1202,9 +1277,9 @@ Pros, Cons, and Reasons to be added in future.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="profile-picture-feature-since-v1-3"><a class="link" href="#profile-picture-feature-since-v1-3">3.13. Profile Picture feature (since v1.3)</a></h3>
+<h3 id="profile-picture-feature-since-v1-3"><a class="link" href="#profile-picture-feature-since-v1-3">3.14. Profile Picture feature (since v1.3)</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, a contact&#8217;s Profile Picture can be viewed at the right side of the contact&#8217;s profile card.</p>
 </div>
@@ -1240,7 +1315,7 @@ Pros, Cons, and Reasons to be added in future.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.13.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.14.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Storage of images of profile pictures<br></p>
 </div>
@@ -2771,7 +2846,7 @@ a contact&#8217;s details.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The command is incorrectly entered</p>
+<p>2a. The command is incorrectly entered.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2796,6 +2871,39 @@ a contact&#8217;s details.</p>
 </li>
 <li>
 <p>AddressBook shows a list of tasks</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-sort-all-tasks-by-priority" class="discrete">Use case: Sort all tasks by priority</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort all tasks in AddressBook</p>
+</li>
+<li>
+<p>AddressBook sorts the list of tasks by priority in decreasing order of importance (i.e. high &gt; medium &gt; low)</p>
+</li>
+<li>
+<p>AddressBook shows a list of sorted tasks</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3008,7 +3116,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-01 10:31:50 UTC
+Last updated 2018-04-01 10:59:50 UTC
 </div>
 </div>
 </body>
