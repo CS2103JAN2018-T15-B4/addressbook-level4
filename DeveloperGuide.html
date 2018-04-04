@@ -46,22 +46,22 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#sort-persons-feature">3.2. Sort Persons feature</a></li>
-<li><a href="#add-task-feature">3.3. Add Task feature</a></li>
-<li><a href="#delete-task-feature">3.4. Delete Task feature</a></li>
-<li><a href="#edit-task-feature">3.5. Edit Task feature</a></li>
-<li><a href="#find-tasks-feature">3.6. Find Tasks feature</a></li>
-<li><a href="#list-tasks-feature">3.7. List Tasks feature</a></li>
-<li><a href="#sort-tasks-feature">3.8. Sort Tasks feature</a></li>
-<li><a href="#convert-currency-feature">3.9. Convert currency feature</a></li>
-<li><a href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.11. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
-<li><a href="#import-export-feature-since-v1-1">3.13. Import/Export feature (since v1.1)</a></li>
-<li><a href="#calendar-view-feature-since-v1-2">3.14. Calendar View feature (since v1.2)</a></li>
-<li><a href="#add-event-feature">3.15. Add Event feature</a></li>
-<li><a href="#delete-event-feature">3.16. Delete Event feature</a></li>
-<li><a href="#profile-picture-feature-since-v1-3">3.17. Profile Picture feature (since v1.3)</a></li>
-<li><a href="#add-tag-to-contact-since-v1-4">3.18. Add Tag to Contact (Since v1.4)</a></li>
+<li><a href="#profile-picture-feature">3.3. Profile Picture feature</a></li>
+<li><a href="#add-tag-to-contact">3.4. Add Tag to Contact</a></li>
+<li><a href="#import-export-feature">3.5. Import/Export feature</a></li>
+<li><a href="#calendar-view-feature">3.6. Calendar View feature</a></li>
+<li><a href="#add-event-feature">3.7. Add Event feature</a></li>
+<li><a href="#delete-event-feature">3.8. Delete Event feature</a></li>
+<li><a href="#add-task-feature">3.9. Add Task feature</a></li>
+<li><a href="#delete-task-feature">3.10. Delete Task feature</a></li>
+<li><a href="#edit-task-feature">3.11. Edit Task feature</a></li>
+<li><a href="#find-tasks-feature">3.12. Find Tasks feature</a></li>
+<li><a href="#list-tasks-feature">3.13. List Tasks feature</a></li>
+<li><a href="#sort-tasks-feature">3.14. Sort Tasks feature</a></li>
+<li><a href="#convert-currency-feature">3.15. Convert currency feature</a></li>
+<li><a href="#proposed-data-encryption">3.16. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.17. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.18. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -956,9 +956,263 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.3. Add Task feature</a></h3>
+<h3 id="profile-picture-feature"><a class="link" href="#profile-picture-feature">3.3. Profile Picture feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">3.3.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Right now, a contact&#8217;s Profile Picture can be viewed at the right side of the contact&#8217;s profile card.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>addpicture</code> command works</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddPictureSequenceDiagram.png" alt="AddPictureSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>addpicture INDEX f/FILENAME</code> command, with parameters <code>INDEX</code> and <code>FILENAME</code></p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddPictureCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>AddPicture</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>A new <code>Picture</code> object is created, containing the image referenced by <code>FILENAME</code>.</p>
+</li>
+<li>
+<p>The new <code>Picture</code> is attached to the <code>Person</code> at <code>INDEX</code></p>
+</li>
+<li>
+<p>The new picture is displayed</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Storage of images of profile pictures<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Chosen Implementation:</strong><br>
+Store the images in a local folder. For Windows, it will be in the AppData folder, for Mac/Linux, in the home folder.<br>
+<strong>Pros:</strong><br>
+After a profile picture is set, it will continue showing even if the image source is deleted<br>
+<strong>Cons:</strong><br>
+Extra space to store the pictures, some images may be too large and use a lot of memory.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative:</strong><br>
+Not store the images<br>
+<strong>Pros:</strong><br>
+No space requirement to store the images locally<br>
+<strong>Cons:</strong><br>
+Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-tag-to-contact"><a class="link" href="#add-tag-to-contact">3.4. Add Tag to Contact</a></h3>
+<div class="paragraph">
+<p>The add tag command inherits from <code>UndoableCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>logic</code> component parses user inputs, while the <code>model</code> component updates the person in the Address Book.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the Add Tag command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTagSequenceDiagram.png" alt="AddTagSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>addtag INDEX t/TAG1 t/TAG2 &#8230;&#8203;</code> command, with parameters <code>INDEX</code> and TAG1, TAG2, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddTagCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>AddTag</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>New <code>Tag</code> object(s) (depending on the number of input tags) is created.</p>
+</li>
+<li>
+<p>The new <code>Tag</code> is attached to the <code>Person</code> at <code>INDEX</code>.</p>
+</li>
+<li>
+<p><code>updatePerson</code> in <code>ModelManager</code> updates the person at <code>INDEX</code> with a new person with the added tags.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-export-feature"><a class="link" href="#import-export-feature">3.5. Import/Export feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.5.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Right now, only Export functionality is implemented.
+It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
+When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
+The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
+The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1(current choice):</strong> Allows option of exporting data into either CSV or XML files.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows greater flexibility as CSV files can be catered to importing of contacts into Google Contacts.</p>
+</li>
+<li>
+<p>Cons: Need to manually cater to popular file formats and this may require constant maintenance on the developers' end.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Only allows exporting of data as XML files.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
+</li>
+<li>
+<p>Cons: Users may not know the benefits or uses of an XML file.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar-view-feature"><a class="link" href="#calendar-view-feature">3.6. Calendar View feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.7. Add Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The add event feature allows the user to add a new event into the Event Book.
+The event details required: Title, Description, Location, Datetime.
+All of the fields are compulsory, and the user can simply fill in a dummy value for irrelevant fields.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add event command works under LogicManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>addevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>AddEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>AddEventCommandParser</code> object parses the arguments and create a new <code>AddEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>addevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The event is finally added to the Event list in Address Book and the updated list is then displayed to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The next sequence diagram illustrates how the event is added under ModelManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.8. Delete Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
+Allows easy deletion of an event according to the event index listed in the Event list.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram shows how the delete event command works under LogicManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteEventCommandSequenceDiagram.png" alt="DeleteEventCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>deleteevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>DeleteEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>DeleteEventCommandParser</code> object parses the arguments and create a new <code>DeleteEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>deleteevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The specified event is removed from the Event list in Address Book and the updated list is then displayed to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the event is removed under ModelManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.9. Add Task feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add task feature allows user to add a new task into the Address Book by specifying the required parameters.</p>
 </div>
@@ -996,9 +1250,9 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.4. Delete Task feature</a></h3>
+<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.10. Delete Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete task feature allows user to delete any done, overdue or unwanted task from the Address Book by specifying
 the task&#8217;s index in the displayed Task List.</p>
@@ -1033,9 +1287,9 @@ the task&#8217;s index in the displayed Task List.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.5. Edit Task feature</a></h3>
+<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.11. Edit Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The edit task feature allows user to edit any fields of an existing task in the AddressBook by specifying
 the task&#8217;s index in the displayed Task List followed by the parameters of the fields to be edited.</p>
@@ -1070,9 +1324,9 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.6. Find Tasks feature</a></h3>
+<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.12. Find Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find tasks feature allows user to search for any task whose names contains any of the specified keywords in the Address Book.
 The search is case-insensitive and matches partial keyword.</p>
@@ -1107,9 +1361,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.7. List Tasks feature</a></h3>
+<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.13. List Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
 </div>
@@ -1140,9 +1394,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.8. Sort Tasks feature</a></h3>
+<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.14. Sort Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort mechanism sorts the tasks list based on priority.
 It currently supports sorting in descending order of importance (i.e. high &gt; medium &gt; low).</p>
@@ -1177,7 +1431,7 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.14.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-tasksortcommand-code"><a class="link" href="#aspect-implementation-of-code-tasksortcommand-code">Aspect: Implementation of <code>TaskSortCommand</code></a></h5>
 <div class="ulist">
@@ -1214,9 +1468,9 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.9. Convert currency feature</a></h3>
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.15. Convert currency feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -1247,20 +1501,20 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.10. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.16. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.17. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.18, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1291,204 +1545,9 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.18. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-export-feature-since-v1-1"><a class="link" href="#import-export-feature-since-v1-1">3.13. Import/Export feature (since v1.1)</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.13.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>Right now, only Export functionality is implemented.
-It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
-When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
-The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
-The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/ExportingSequenceDiagram.png" alt="ExportingSequenceDiagram" width="800">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.13.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1:</strong> Allows option of exporting data into either CSV or XML files.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Allows greater flexibility as CSV files can be catered to importing of contacts into Google Contacts.</p>
-</li>
-<li>
-<p>Cons: Need to manually cater to popular file formats and this may require constant maintenance on the developers' end.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2 (current choice):</strong> Only allows exporting of data as XML files.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
-</li>
-<li>
-<p>Cons: Users may not know the benefits or uses of an XML file.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="calendar-view-feature-since-v1-2"><a class="link" href="#calendar-view-feature-since-v1-2">3.14. Calendar View feature (since v1.2)</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.14.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.15. Add Event feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.15.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The add event feature allows the user to add a new event into the Event Book.
-The event details required: Title, Description, Location, Datetime.
-All of the fields are compulsory, although the user can simply fill in a dummy detail.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the add event feature works.</p>
-</div>
-<div class="paragraph">
-<p>Diagram and steps to be included in future.
-Pros, Cons, and Reasons to be added in future.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.16. Delete Event feature</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.16.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
-Allows easy deletion of an unwanted event according to the event index listed on the Event List in the app.</p>
-</div>
-<div class="paragraph">
-<p>Diagram and steps to be included in future.
-Pros, Cons, and Reasons to be added in future.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="profile-picture-feature-since-v1-3"><a class="link" href="#profile-picture-feature-since-v1-3">3.17. Profile Picture feature (since v1.3)</a></h3>
-<div class="sect3">
-<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.17.1. Current Implementation</a></h4>
-<div class="paragraph">
-<p>Right now, a contact&#8217;s Profile Picture can be viewed at the right side of the contact&#8217;s profile card.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the <code>addpicture</code> command works</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddPictureSequenceDiagram.png" alt="AddPictureSequenceDiagram" width="800">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user executes the <code>addpicture INDEX f/FILENAME</code> command, with parameters <code>INDEX</code> and <code>FILENAME</code></p>
-</li>
-<li>
-<p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddPictureCommand</code> class.</p>
-</li>
-<li>
-<p>The <code>AddPicture</code> command is executed and handled by the <code>ModelManager</code> class.</p>
-</li>
-<li>
-<p>A new <code>Picture</code> object is created, containing the image referenced by <code>FILENAME</code>.</p>
-</li>
-<li>
-<p>The new <code>Picture</code> is attached to the <code>Person</code> at <code>INDEX</code></p>
-</li>
-<li>
-<p>The new picture is displayed</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.17.2. Design Considerations</a></h4>
-<div class="paragraph">
-<p><strong>Aspect:</strong> Storage of images of profile pictures<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Chosen Implementation:</strong><br>
-Store the images in a local folder. For Windows, it will be in the AppData folder, for Mac/Linux, in the home folder.<br>
-<strong>Pros:</strong><br>
-After a profile picture is set, it will continue showing even if the image source is deleted<br>
-<strong>Cons:</strong><br>
-Extra space to store the pictures, some images may be too large and use a lot of memory.<br></p>
-</div>
-<div class="paragraph">
-<p><strong>Alternative:</strong><br>
-Not store the images<br>
-<strong>Pros:</strong><br>
-No space requirement to store the images locally<br>
-<strong>Cons:</strong><br>
-Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="add-tag-to-contact-since-v1-4"><a class="link" href="#add-tag-to-contact-since-v1-4">3.18. Add Tag to Contact (Since v1.4)</a></h3>
-<div class="paragraph">
-<p>The add tag command inherits from <code>UndoableCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The <code>logic</code> component parses user inputs, while the <code>model</code> component updates the person in the Address Book.</p>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram illustrates how the Add Tag command works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddTagSequenceDiagram.png" alt="AddTagSequenceDiagram" width="800">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user executes the <code>addtag INDEX t/TAG1 t/TAG2 &#8230;&#8203;</code> command, with parameters <code>INDEX</code> and TAG1, TAG2, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddTagCommand</code> class.</p>
-</li>
-<li>
-<p>The <code>AddTag</code> command is executed and handled by the <code>ModelManager</code> class.</p>
-</li>
-<li>
-<p>New <code>Tag</code> object(s) (depending on the number of input tags) is created.</p>
-</li>
-<li>
-<p>The new <code>Tag</code> is attached to the <code>Person</code> at <code>INDEX</code>.</p>
-</li>
-<li>
-<p><code>updatePerson</code> in <code>ModelManager</code> updates the person at <code>INDEX</code> with a new person with the added tags.</p>
-</li>
-</ol>
 </div>
 </div>
 </div>
@@ -3423,7 +3482,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 16:03:59 UTC
+Last updated 2018-04-04 16:10:13 UTC
 </div>
 </div>
 </body>
