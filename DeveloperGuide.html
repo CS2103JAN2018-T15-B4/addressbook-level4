@@ -977,13 +977,13 @@ All of the fields are compulsory except category.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-add</code> command.</p>
+<p>The user executes the <code>task-add</code> command and specify the required arguments.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command arguments.</p>
 </li>
 <li>
-<p>The <code>TaskAddCommandParser</code> class parses the command and create a new <code>TaskAddCommand</code> class.</p>
+<p>The <code>TaskAddCommandParser</code> class parses the arguments and create a new <code>TaskAddCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-add</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1014,13 +1014,13 @@ the task&#8217;s index in the displayed Task List.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-delete</code> command.</p>
+<p>The user executes the <code>task-delete</code> command and specify the required argument.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command argument.</p>
 </li>
 <li>
-<p>The <code>TaskDeleteCommandParser</code> class parses the command and create a new <code>TaskDeleteCommand</code> class.</p>
+<p>The <code>TaskDeleteCommandParser</code> class parses the argument and create a new <code>TaskDeleteCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-delete</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1051,13 +1051,13 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-edit</code> command.</p>
+<p>The user executes the <code>task-edit</code> command and specify the required arguments.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command arguments.</p>
 </li>
 <li>
-<p>The <code>TaskEditCommandParser</code> class parses the command and create a new <code>TaskEditCommand</code> class.</p>
+<p>The <code>TaskEditCommandParser</code> class parses the arguments and create a new <code>TaskEditCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-edit</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1088,13 +1088,13 @@ The search is case-insensitive and matches partial keyword.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-find</code> command.</p>
+<p>The user executes the <code>task-find</code> command and specify the required argument(s).</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command argument(s).</p>
 </li>
 <li>
-<p>The <code>TaskFindCommandParser</code> class parses the command and create a new <code>TaskFindCommand</code> class.</p>
+<p>The <code>TaskFindCommandParser</code> class parses the argument(s) and create a new <code>TaskFindCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-find</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -3423,7 +3423,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 06:58:40 UTC
+Last updated 2018-04-04 09:02:34 UTC
 </div>
 </div>
 </body>
