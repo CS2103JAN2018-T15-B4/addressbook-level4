@@ -61,6 +61,7 @@
 <li><a href="#add-event-feature">3.15. Add Event feature</a></li>
 <li><a href="#delete-event-feature">3.16. Delete Event feature</a></li>
 <li><a href="#profile-picture-feature-since-v1-3">3.17. Profile Picture feature (since v1.3)</a></li>
+<li><a href="#add-tag-to-contact-since-v1-4">3.18. Add Tag to Contact (Since v1.4)</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1408,7 +1409,7 @@ Pros, Cons, and Reasons to be added in future.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>addpicture INDEX f\FILENAME</code> command, with parameters <code>INDEX</code> and <code>FILENAME</code></p>
+<p>The user executes the <code>addpicture INDEX f/FILENAME</code> command, with parameters <code>INDEX</code> and <code>FILENAME</code></p>
 </li>
 <li>
 <p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddPictureCommand</code> class.</p>
@@ -1449,6 +1450,45 @@ No space requirement to store the images locally<br>
 <strong>Cons:</strong><br>
 Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-tag-to-contact-since-v1-4"><a class="link" href="#add-tag-to-contact-since-v1-4">3.18. Add Tag to Contact (Since v1.4)</a></h3>
+<div class="paragraph">
+<p>The add tag command inherits from <code>UndoableCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>logic</code> component parses user inputs, while the <code>model</code> component updates the person in the Address Book.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the Add Tag command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddTagSequenceDiagram.png" alt="AddTagSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>addtag INDEX t/TAG1 t/TAG2 &#8230;&#8203;</code> command, with parameters <code>INDEX</code> and TAG1, TAG2, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>AddTagCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>AddTag</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>New <code>Tag</code> object(s) (depending on the number of input tags) is created.</p>
+</li>
+<li>
+<p>The new <code>Tag</code> is attached to the <code>Person</code> at <code>INDEX</code>.</p>
+</li>
+<li>
+<p><code>updatePerson</code> in <code>ModelManager</code> updates the person at <code>INDEX</code> with a new person with the added tags.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -3383,7 +3423,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-04 04:52:03 UTC
+Last updated 2018-04-04 06:28:56 UTC
 </div>
 </div>
 </body>
