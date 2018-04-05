@@ -738,6 +738,9 @@ Format: <code>convert [VALUE] [CURRENCY_CODE] [CURRENCY_CODE]</code></p>
 <div class="ulist">
 <ul>
 <li>
+<p>Rates are fixed</p>
+</li>
+<li>
 <p>Comma is use as a thousand separtor and to 2 decimal places, eg 1,000.00</p>
 </li>
 <li>
@@ -771,6 +774,18 @@ USD - United States dollar</pre>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Value can be empty to get the standard rate of 1 unit of a particular currency to be convert to another
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -779,16 +794,16 @@ USD - United States dollar</pre>
 <li>
 <p><code>convert 1 SGD MYR</code><br>
 Converts 1 SGD into MYR<br>
-Returns <code>MYR 2.96</code><br></p>
+Returns <code>Converted 1 SGD to MYR 2.96</code><br></p>
 </li>
 <li>
 <p><code>convert 10000 JPY USD</code><br>
 Converts 10,000 JPY to USD<br>
-Returns <code>USD 94.50</code></p>
+Returns <code>Converted 10,000 JPY to USD 94.50</code></p>
 </li>
 <li>
 <p><code>convert SGD MYR</code><br>
-Returns `MYR 2.96 `<br>
+Returns `Converted 1 SGD to MYR 2.96 `<br>
 Get the rate of MYR given one unit of SGD</p>
 </li>
 </ul>
@@ -1363,7 +1378,7 @@ e.g. <code>task-find project agenda</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 03:22:36 UTC
+Last updated 2018-04-05 03:26:13 UTC
 </div>
 </div>
 </body>
