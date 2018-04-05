@@ -51,7 +51,7 @@
 <li><a href="#adding-an-event-code-addevent-code-code-since-v1-3-code">3.21. Adding an event: <code>addevent</code> <code>[since v1.3]</code></a></li>
 <li><a href="#deleting-an-event-code-deleteevent-code-code-since-v1-3-code">3.22. Deleting an event: <code>deleteevent</code> <code>[since v1.3]</code></a></li>
 <li><a href="#finding-an-event-code-findevent-code-code-since-v1-4-code">3.23. Finding an event: <code>findevent</code> <code>[since v1.4]</code></a></li>
-<li><a href="#listing-all-events-code-task-list-code-code-since-v1-4-code">3.24. Listing all events: <code>task-list</code> <code>[since v1.4]</code></a></li>
+<li><a href="#listing-all-events-code-listallevents-code-code-since-v1-4-code">3.24. Listing all events: <code>listallevents</code> <code>[since v1.4]</code></a></li>
 <li><a href="#switches-between-list-tabs-code-switchtab-code-code-since-v1-4-code">3.25. Switches between list tabs: <code>switchtab</code> <code>[since v1.4]</code></a></li>
 <li><a href="#adding-a-task-code-task-add-code-code-since-v1-3-code">3.26. Adding a task: <code>task-add</code> <code>[since v1.3]</code></a></li>
 <li><a href="#deleting-a-task-code-task-delete-code-code-since-v1-4-code">3.27. Deleting a task: <code>task-delete</code> <code>[since v1.4]</code></a></li>
@@ -59,11 +59,11 @@
 <li><a href="#finding-tasks-by-name-code-task-find-code-code-since-v1-4-code">3.29. Finding tasks by name: <code>task-find</code> <code>[since v1.4]</code></a></li>
 <li><a href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.30. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></li>
 <li><a href="#sorting-all-tasks-by-priority-code-task-sort-code-code-since-v1-4-code">3.31. Sorting all tasks by priority: <code>task-sort</code> <code>[since v1.4]</code></a></li>
-<li><a href="#locating-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.32. Locating persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></li>
-<li><a href="#locating-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.33. Locating persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></li>
+<li><a href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.32. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></li>
+<li><a href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.33. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></li>
 <li><a href="#autocomplete-of-command-code-coming-in-v2-0-code">3.34. Autocomplete of command <code>[coming in v2.0]</code></a></li>
 <li><a href="#list-out-possible-command-code-coming-in-v2-0-code">3.35. List out possible command <code>[coming in v2.0]</code></a></li>
-<li><a href="#hint-out-the-possible-command-sytnax-code-coming-in-v2-0-code">3.36. Hint out the possible command sytnax <code>[coming in v2.0]</code></a></li>
+<li><a href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.36. Hint out the possible command syntax <code>[coming in v2.0]</code></a></li>
 <li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.37. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
@@ -254,7 +254,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 <h3 id="deleting-a-person-by-name-code-deletebyname-code-code-since-v1-1-code"><a class="link" href="#deleting-a-person-by-name-code-deletebyname-code-code-since-v1-1-code">3.4. Deleting a person by name: <code>deletebyname</code> <code>[since v1.1]</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book by name.<br>
-Format: <code>delete NAME</code></p>
+Format: <code>deletebyname NAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -285,8 +285,7 @@ Format: <code>delete NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>deletebyname</code><br>
-<code>john doe</code><br>
+<p><code>deletebyname john doe</code><br>
 Deletes the contact whose name matches john doe.</p>
 </li>
 </ul>
@@ -376,11 +375,11 @@ Format: <code>find n/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 Returns <code>john</code> and <code>John Doe</code></p>
 </li>
 <li>
-<p><code>find /nBetsy Tim John</code><br>
+<p><code>find n/Betsy Tim John</code><br>
 Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 <li>
-<p><code>find /nJ<br>
+<p><code>find n/J<br>
 Returns any person having names `John</code>, <code>Jack</code>, or <code>Joanna</code></p>
 </li>
 </ul>
@@ -529,7 +528,7 @@ Format: <code>export FILEPATH [MORE_KEYWORDS]</code></p>
 Creates XML file in the user-defined filepath</p>
 </li>
 <li>
-<p><code>exp addressbook.xml</code><br>
+<p><code>export addressbook.xml</code><br>
 Creates XML file in the main folder of the Addressbook</p>
 </li>
 </ul>
@@ -680,7 +679,7 @@ Format: <code>addpicture INDEX f/FILENAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 f/C://pictures/janeDoe.jpg</code><br>
+<p><code>addpicture 1 f/C://pictures/janeDoe.jpg</code><br>
 Edits the profile picture of the 1st person to be the picture at C://pictures/janeDoe.jpg</p>
 </li>
 </ul>
@@ -730,8 +729,8 @@ Adds the tags <code>buddy</code>, <code>CS2103</code> and <code>NUS</code> to co
 <div class="sect2">
 <h3 id="converting-from-one-currency-to-another-code-convert-code-code-since-v1-3-code"><a class="link" href="#converting-from-one-currency-to-another-code-convert-code-code-since-v1-3-code">3.20. Converting from one currency to another: <code>convert</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
-<p>Convert any amount in terms of SGD to USD<br>
-Format: <code>convert [VALUE] [CURRENCY_CODE] [CURRENCY_CODE]</code></p>
+<p>Convert any amount from SRC_CURRENCY_CODE to DST_CURRENCY_CODE<br>
+Format: <code>convert [VALUE] SRC_CURRENCY_CODE DST_CURRENCY_CODE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -803,8 +802,8 @@ Returns <code>Converted 10,000 JPY to USD 94.50</code></p>
 </li>
 <li>
 <p><code>convert SGD MYR</code><br>
-Returns `Converted 1 SGD to MYR 2.96 `<br>
-Get the rate of MYR given one unit of SGD</p>
+Get the rate of MYR given one unit of SGD<br>
+Returns <code>Converted 1 SGD to MYR 2.96</code></p>
 </li>
 </ul>
 </div>
@@ -813,7 +812,7 @@ Get the rate of MYR given one unit of SGD</p>
 <h3 id="adding-an-event-code-addevent-code-code-since-v1-3-code"><a class="link" href="#adding-an-event-code-addevent-code-code-since-v1-3-code">3.21. Adding an event: <code>addevent</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Adds an event into event book.<br>
-Format: <code>et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p>
+Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -884,7 +883,7 @@ Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-events-code-task-list-code-code-since-v1-4-code"><a class="link" href="#listing-all-events-code-task-list-code-code-since-v1-4-code">3.24. Listing all events: <code>task-list</code> <code>[since v1.4]</code></a></h3>
+<h3 id="listing-all-events-code-listallevents-code-code-since-v1-4-code"><a class="link" href="#listing-all-events-code-listallevents-code-code-since-v1-4-code">3.24. Listing all events: <code>listallevents</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all events in the address book.<br>
 Format: <code>listallevents</code></p>
@@ -902,6 +901,23 @@ Format: <code>switchtab</code></p>
 <div class="paragraph">
 <p>Adds a task to the address book.<br>
 Format: <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/CATEGORY]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds a task if all fields have valid inputs.</p>
+</li>
+<li>
+<p>The valid values of priority are : high, medium and low.</p>
+</li>
+<li>
+<p>The valid values of status are : undone and done.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -921,10 +937,10 @@ A task can have any number of categories (including 0)
 <div class="ulist">
 <ul>
 <li>
-<p><code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/Undone</code></p>
+<p><code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/undone</code></p>
 </li>
 <li>
-<p><code>task-add n/Agenda for meeting p/High d/Discuss proposal details dd/2018-04-29 s/Undone c/Meeting</code></p>
+<p><code>task-add n/Agenda for meeting p/high d/Discuss proposal details dd/2018-04-29 s/undone c/Meeting</code></p>
 </li>
 </ul>
 </div>
@@ -1006,7 +1022,7 @@ The index refers to the index number shown in the last task listing. The index <
 Edits the priority and due date of the 1st task to be <code>medium</code> and <code>2018-05-10</code> respectively.</p>
 </li>
 <li>
-<p><code>edit 3 n/Project meeting c/</code><br>
+<p><code>task-edit 3 n/Project meeting c/</code><br>
 Edits the name of the 3rd task to be <code>Project meeting</code> and clears all existing categories.</p>
 </li>
 </ul>
@@ -1016,7 +1032,7 @@ Edits the name of the 3rd task to be <code>Project meeting</code> and clears all
 <h3 id="finding-tasks-by-name-code-task-find-code-code-since-v1-4-code"><a class="link" href="#finding-tasks-by-name-code-task-find-code-code-since-v1-4-code">3.29. Finding tasks by name: <code>task-find</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Finds the tasks whose names contain any of the given keywords.<br>
-Format: <code>task-find KEYWORD [MORE_KEYWORDS]</code></p>
+Format: <code>task-find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1071,7 +1087,7 @@ Format: <code>task-sort</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-address-code-find-a-code-code-coming-in-v1-5-code"><a class="link" href="#locating-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.32. Locating persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></h3>
+<h3 id="find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.32. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose address contain any of the given keywords.<br>
 Format: <code>find a/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -1116,7 +1132,7 @@ Returns any person having tags <code>family</code> or <code>friends</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code"><a class="link" href="#locating-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.33. Locating persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></h3>
+<h3 id="find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.33. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given value.<br>
 Format: <code>find p/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -1144,7 +1160,7 @@ Format: <code>find p/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find p/ 982039</code><br>
+<p><code>find p/982039</code><br>
 Returns any person having phone <code>98203910</code> or <code>98203950</code></p>
 </li>
 </ul>
@@ -1215,7 +1231,7 @@ Returns commands started with <code>find</code> such as `find'<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="hint-out-the-possible-command-sytnax-code-coming-in-v2-0-code"><a class="link" href="#hint-out-the-possible-command-sytnax-code-coming-in-v2-0-code">3.36. Hint out the possible command sytnax <code>[coming in v2.0]</code></a></h3>
+<h3 id="hint-out-the-possible-command-syntax-code-coming-in-v2-0-code"><a class="link" href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.36. Hint out the possible command syntax <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Guide user on the command sytnax<br></p>
 </div>
@@ -1276,9 +1292,6 @@ Returns feedback to input the currency code to be converted to<br></p>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
-<p><strong>Clear contacts list</strong> : <code>clear</code></p>
-</li>
-<li>
 <p><strong>Delete a person</strong> : <code>delete INDEX</code><br>
 e.g. <code>delete 3</code></p>
 </li>
@@ -1291,33 +1304,26 @@ e.g. <code>delete John Appleseed</code></p>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Find a person by name</strong> : <code>find n/KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find persons by name</strong> : <code>find n/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
 e.g. <code>find n/James Jake</code></p>
 </li>
 <li>
-<p><strong>Find a person by tag</strong> : <code>find n/KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find persons by tag</strong> : <code>find t/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
 e.g. <code>find t/friends</code></p>
-</li>
-<li>
-<p><strong>Export contacts list into XML or CSV file</strong> : <code>export FILEPATH</code><br>
-e.g. <code>export C:\Users\John Doe\Documents\addressbook.xml</code></p>
-</li>
-<li>
-<p><strong>Convert</strong> : <code>convert VALUE</code><br>
-e.g. <code>convert 1</code></p>
 </li>
 <li>
 <p><strong>List all persons</strong> : <code>list</code></p>
 </li>
 <li>
+<p><strong>Select a person</strong> : <code>select INDEX</code><br>
+e.g.<code>select 2</code></p>
+</li>
+<li>
 <p><strong>Sort all persons by name</strong> : <code>sort</code></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-<li>
-<p><strong>Select a person</strong> : <code>select INDEX</code><br>
-e.g.<code>select 2</code></p>
+<p><strong>Export contacts list into XML or CSV file</strong> : <code>export FILEPATH</code><br>
+e.g. <code>export C:\Users\John Doe\Documents\addressbook.xml</code></p>
 </li>
 <li>
 <p><strong>History</strong> : <code>history</code></p>
@@ -1329,6 +1335,27 @@ e.g.<code>select 2</code></p>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
+<p><strong>Clear contacts list</strong> : <code>clear</code></p>
+</li>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Exit program</strong> : <code>exit</code></p>
+</li>
+<li>
+<p><strong>Add a profile picture to a person</strong> : <code>addpicture INDEX f/FILENAME</code><br>
+e.g. <code>addpicture 1 f/C://pictures/janeDoe.jpg</code></p>
+</li>
+<li>
+<p><strong>Add tag(s) to a person</strong> : <code>addtag INDEX t/TAG [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>addtag 12 t/newFriend</code></p>
+</li>
+<li>
+<p><strong>Convert currency</strong> : <code>convert [VALUE] SRC_CURRENCY_CODE DST_CURRENCY_CODE</code><br>
+e.g. <code>convert 10000 JPY USD</code></p>
+</li>
+<li>
 <p><strong>Add an event</strong> : <code>addevent et/TITLE ed/DESCRIPTION el/LOCATION edt/DATETIME</code><br>
 e.g. <code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/25-12-2018 1830</code></p>
 </li>
@@ -1337,8 +1364,8 @@ e.g. <code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#
 e.g. <code>deleteevent 2</code></p>
 </li>
 <li>
-<p><strong>Find an event</strong> : <code>find PREFIX/KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find et/Christmas CNY Halloween</code></p>
+<p><strong>Find an event</strong> : <code>findevent PREFIX/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
+e.g. <code>findevent et/Christmas CNY Halloween</code></p>
 </li>
 <li>
 <p><strong>List all events</strong> : <code>listallevents</code></p>
@@ -1351,7 +1378,7 @@ e.g. <code>find et/Christmas CNY Halloween</code></p>
 </li>
 <li>
 <p><strong>Add a task</strong> : <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/CATEGORY]&#8230;&#8203;</code><br>
-e.g. <code>task-add n/Task 1 p/Medium d/Description for task 1 dd/2018-05-10 s/Undone</code></p>
+e.g. <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/undone</code></p>
 </li>
 <li>
 <p><strong>Delete a task</strong> : <code>task-delete INDEX</code><br>
@@ -1362,7 +1389,7 @@ e.g. <code>task-delete 1</code></p>
 e.g. <code>task-edit 1 p/medium dd/2018-05-10</code></p>
 </li>
 <li>
-<p><strong>Find tasks by name</strong> : <code>task-find KEYWORD [MORE_KEYWORDS]</code><br>
+<p><strong>Find tasks by name</strong> : <code>task-find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
 e.g. <code>task-find project agenda</code></p>
 </li>
 <li>
@@ -1378,7 +1405,7 @@ e.g. <code>task-find project agenda</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-05 05:48:17 UTC
+Last updated 2018-04-05 12:45:30 UTC
 </div>
 </div>
 </body>
