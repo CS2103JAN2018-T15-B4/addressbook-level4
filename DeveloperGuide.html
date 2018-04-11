@@ -1080,6 +1080,50 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </ol>
 </div>
 </div>
+<div class="sect3">
+<h4 id="implementation-search-by-address"><a class="link" href="#implementation-search-by-address">3.4.4. Implementation - Search by Address</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>find a/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>, given the search type <code>a/</code> and with parameters <code>KEYWORD</code></p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>FindCommandParse</code> class.</p>
+</li>
+<li>
+<p>The <code>FindCommandParse</code> will compare the search type to check if search is by tag and parse the keywords to <code>FindCommand</code></p>
+</li>
+<li>
+<p>The <code>FindCommand</code> object is created, and assisted by <code>AddressContainsKeywordsPredicate</code> to obtain the result.</p>
+</li>
+<li>
+<p>The  result is then return and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-search-by-phone"><a class="link" href="#implementation-search-by-phone">3.4.5. Implementation - Search by Phone</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>find p/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code>, given the search type <code>p/</code> and with parameters <code>KEYWORD</code></p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>FindCommandParse</code> class.</p>
+</li>
+<li>
+<p>The <code>FindCommandParse</code> will compare the search type to check if search is by tag and parse the keywords to <code>FindCommand</code></p>
+</li>
+<li>
+<p>The <code>FindCommand</code> object is created, and assisted by <code>PhoneContainsKeywordsPredicate</code> to obtain the result.</p>
+</li>
+<li>
+<p>The  result is then return and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="add-tag-to-contact"><a class="link" href="#add-tag-to-contact">3.5. Add Tag to Contact</a></h3>
@@ -3546,7 +3590,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 11:19:33 UTC
+Last updated 2018-04-11 12:16:23 UTC
 </div>
 </div>
 </body>
