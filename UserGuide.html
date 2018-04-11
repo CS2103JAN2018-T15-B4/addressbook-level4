@@ -62,12 +62,13 @@
 <li><a href="#editing-a-task-code-task-edit-code-code-since-v1-4-code">3.32. Editing a task: <code>task-edit</code> <code>[since v1.4]</code></a></li>
 <li><a href="#finding-tasks-by-name-code-task-find-code-code-since-v1-4-code">3.33. Finding tasks by name: <code>task-find</code> <code>[since v1.4]</code></a></li>
 <li><a href="#listing-all-tasks-code-task-list-code-code-since-v1-3-code">3.34. Listing all tasks: <code>task-list</code> <code>[since v1.3]</code></a></li>
-<li><a href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.35. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></li>
-<li><a href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.36. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></li>
-<li><a href="#autocomplete-of-command-code-coming-in-v2-0-code">3.37. Autocomplete of command <code>[coming in v2.0]</code></a></li>
-<li><a href="#list-out-possible-command-code-coming-in-v2-0-code">3.38. List out possible command <code>[coming in v2.0]</code></a></li>
-<li><a href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.39. Hint out the possible command syntax <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.40. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#find-persons-by-phone-code-find-p-code-code-since-v1-5rc-code">3.35. Find persons by phone: <code>find p/</code> <code>[since v1.5rc]</code></a></li>
+<li><a href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.36. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></li>
+<li><a href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.37. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></li>
+<li><a href="#autocomplete-of-command-code-coming-in-v2-0-code">3.38. Autocomplete of command <code>[coming in v2.0]</code></a></li>
+<li><a href="#list-out-possible-command-code-coming-in-v2-0-code">3.39. List out possible command <code>[coming in v2.0]</code></a></li>
+<li><a href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.40. Hint out the possible command syntax <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.41. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -1274,7 +1275,39 @@ Format: <code>task-list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.35. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></h3>
+<h3 id="find-persons-by-phone-code-find-p-code-code-since-v1-5rc-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-since-v1-5rc-code">3.35. Find persons by phone: <code>find p/</code> <code>[since v1.5rc]</code></a></h3>
+<div class="paragraph">
+<p>Reset a contact&#8217;s picture to the default picture.<br>
+Format: <code>resetpicture INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Will reset a person&#8217;s picture to the default picture.</p>
+</li>
+<li>
+<p>This command is irreversible!</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resetpicture 1</code><br>
+Resets the picture of the person at index 1 to the default picture.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">3.36. Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose address contain any of the given keywords.<br>
 Format: <code>find a/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -1319,7 +1352,7 @@ Returns any person having tags <code>family</code> or <code>friends</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.36. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></h3>
+<h3 id="find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">3.37. Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given value.<br>
 Format: <code>find p/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -1354,7 +1387,7 @@ Returns any person having phone <code>98203910</code> or <code>98203950</code></
 </div>
 </div>
 <div class="sect2">
-<h3 id="autocomplete-of-command-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-command-code-coming-in-v2-0-code">3.37. Autocomplete of command <code>[coming in v2.0]</code></a></h3>
+<h3 id="autocomplete-of-command-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-command-code-coming-in-v2-0-code">3.38. Autocomplete of command <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given value.<br></p>
 </div>
@@ -1382,7 +1415,7 @@ Returns any command <code>find</code><br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-out-possible-command-code-coming-in-v2-0-code"><a class="link" href="#list-out-possible-command-code-coming-in-v2-0-code">3.38. List out possible command <code>[coming in v2.0]</code></a></h3>
+<h3 id="list-out-possible-command-code-coming-in-v2-0-code"><a class="link" href="#list-out-possible-command-code-coming-in-v2-0-code">3.39. List out possible command <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>List out possible commands as one types on the command line<br></p>
 </div>
@@ -1418,7 +1451,7 @@ Returns commands started with <code>find</code> such as `find'<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="hint-out-the-possible-command-syntax-code-coming-in-v2-0-code"><a class="link" href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.39. Hint out the possible command syntax <code>[coming in v2.0]</code></a></h3>
+<h3 id="hint-out-the-possible-command-syntax-code-coming-in-v2-0-code"><a class="link" href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.40. Hint out the possible command syntax <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Guide user on the command sytnax<br></p>
 </div>
@@ -1453,7 +1486,7 @@ Returns feedback to input the currency code to be converted to<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.40. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.41. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p><em>{explain how the user can enable/disable data encryption}</em></p>
 </div>
@@ -1484,7 +1517,7 @@ e.g. <code>delete 3</code></p>
 </li>
 <li>
 <p><strong>Delete a person by name</strong> : <code>deletebyname NAME</code><br>
-e.g. <code>delete John Appleseed</code></p>
+e.g. <code>deletebyname John Appleseed</code></p>
 </li>
 <li>
 <p><strong>Edit a person</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
@@ -1594,6 +1627,10 @@ e.g. <code>task-find project agenda</code></p>
 <li>
 <p><strong>List all tasks</strong> : <code>task-list</code></p>
 </li>
+<li>
+<p><strong>Reset a contact&#8217;s picture</strong> : <code>resetpicture  INDEX</code><br>
+e.g. <code>resetpicture 1</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -1601,7 +1638,7 @@ e.g. <code>task-find project agenda</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 12:17:40 UTC
+Last updated 2018-04-11 13:37:11 UTC
 </div>
 </div>
 </body>
