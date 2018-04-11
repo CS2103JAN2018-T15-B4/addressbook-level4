@@ -5,18 +5,18 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.6.1">
-<title>John Doe - Project Portfolio</title>
+<title>Tan Yong He - Project Portfolio</title>
 <link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
 </head>
 <body class="article">
 <div id="header">
-<h1>John Doe - Project Portfolio</h1>
+<h1>Tan Yong He - Project Portfolio</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">PROJECT: AddressBook - Level 4</a></h2>
+<h2 id="project-bizconnect-journal"><a class="link" href="#project-bizconnect-journal">PROJECT: BizConnect Journal</a></h2>
 <div class="sectionbody">
 <hr>
 </div>
@@ -25,7 +25,32 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>BizConnect Journal is a dedicated application catered to busy businessmen, especially those who travel a lot.
+This app helps to manage their wide range of contacts, events and tasks. It also uses Command Line Interface (CLI) as the primary source of input.</p>
+</div>
+<div class="paragraph">
+<p>Businessmen tend to have a lot of meetings and networking sessions with new people which includes the exchange of contacts,
+thus the above features will be useful for them as they can access all of them in one application without the trouble
+of a separate application for each individual purpose.</p>
+</div>
+<div class="paragraph">
+<p>At any point in time, the businessman can refer to the calendar and its event list to keep track of upcoming major events, thereby allowing a clear idea on
+what his current schedule is like. In addition, the task list comes in handy to update the user of pending tasks and the tasks’ urgency.
+This helps them prioritise what needs to be done first.</p>
+</div>
+<div class="paragraph">
+<p>Besides that, traveling in foreign countries also involves the hassle of not knowing the appropriate amount of money to change.
+Hence, the currency converter aims to facilitate the fast and accurate knowledge of the amount to change without the need of a separate online converter application.</p>
+</div>
+<div class="paragraph">
+<p>A simple day-to-day life of a businessman can be packed with many schedules and having a single tool to manage
+all their necessary work information makes things easier, as well as save them valuable time and effort.
+With all these goals in mind, BizConnect Journal is developed to ease the management of the busy schedules of businessmen.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="790">
+</div>
 </div>
 </div>
 </div>
@@ -35,29 +60,37 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement</strong>: Event feature to facilitate <strong>event management</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p><strong>What it does</strong>:
+It allows the businessman to add, delete, find, and list all tasks.
+Each event consists of a title, description, location, date and time.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p><strong>Justification</strong>:
+This feature enhances the product as users are now able to manage their events easily with simple add and delete event commands.
+The user is able to store each event with the vital information like the agenda, location, date and timing of the activity,
+as well as provide a short description of what the event is about. Furthermore, the event list displays all these events alongside the calendar, as the calendar
+is able to visually display the days of a month with events. In addition, each listed event has a visual setting to display which events are coming soon,
+ongoing, or already over. This facilitates convenient event management as the user is able to list down all events and gain a brief overview of his schedule.
+With these functionalities, the user does not need to worry about forgetting an event ever again!</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p><strong>Highlights</strong>: This enhancements involves an Event Book that works hand-in-hand with the Address Book under a single application for businessmen when it comes
+to managing contacts and events. The implementation was difficult as a new Event Book system had to be constructed, which compromised of many classes working together.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Minor enhancement</strong>: Added an Export Command which exports the contacts on the Address Book into either XML or CSV files.
+XML files allows for easy exportability across other platforms requiring the use of contacts stored in XML format, while the
+exported CSV file is designed to help the user import contacts from the Address Book into his Google Contacts.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T15-B4/main/tree/master/collated/functional/x3tsunayh.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T15-B4/main/tree/master/collated/test/x3tsunayh.md">Test code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -70,18 +103,8 @@
 <li>
 <p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
 </li>
-</ul>
-</div>
-</li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Set up Travis and Coveralls</p>
 </li>
 </ul>
 </div>
@@ -91,7 +114,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Wrote use cases for implemented features</p>
+</li>
+<li>
+<p>Wrote user stories, project description in Project Portfolio with team</p>
 </li>
 </ul>
 </div>
@@ -101,29 +127,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/115" class="bare">https://github.com/CS2103JAN2018-W09-B3/main/issues/115</a>, <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/116" class="bare">https://github.com/CS2103JAN2018-W09-B3/main/issues/116</a>, <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/123" class="bare">https://github.com/CS2103JAN2018-W09-B3/main/issues/123</a>)</p>
 </li>
 </ul>
 </div>
@@ -134,13 +138,9 @@
 </ul>
 </div>
 <div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
+<p>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+== Contributions to the User Guide</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -152,24 +152,33 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">Undoing previous command : <code>undo</code></a></h3>
+<h3 id="exporting-addressbook-data-code-export-code-code-since-v1-1-code"><a class="link" href="#exporting-addressbook-data-code-export-code-code-since-v1-1-code">Exporting addressbook data: <code>export</code> <code>[since v1.1]</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
-Format: <code>undo</code></p>
+<p>Exports addressbook data into an XML or CSV file.<br>
+Format: <code>export FILEPATH [MORE_KEYWORDS]</code></p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Addressbook creates XML or CSV file if valid filepath and filename is given.</p>
+</li>
+<li>
+<p>If filename already exists, a warning message is displayed.</p>
+</li>
+<li>
+<p>If file extension is not .xml nor .csv, a warning message is displayed.</p>
+</li>
+<li>
+<p>If filepath not given, the file is auto-created under main folder.</p>
+</li>
+<li>
+<p>If filepath is not found, Addressbook creates folders to support the filepath defined by the user.</p>
+</li>
+</ul>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -177,30 +186,42 @@ Format: <code>undo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>list</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>export C:\Users\John Doe\Documents\addressbook.xml</code><br>
+Creates XML file in the user-defined filepath</p>
 </li>
 <li>
-<p><code>select 1</code><br>
-<code>list</code><br>
-<code>undo</code><br>
-The <code>undo</code> command fails as there are no undoable commands executed previously.</p>
+<p><code>export C:\Users\John Doe\Documents\addressbook.csv</code><br>
+Creates CSV file in the user-defined filepath</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br></p>
+<p><code>export addressbook.xml</code><br>
+Creates XML file in the main folder of the Addressbook</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="adding-an-event-code-addevent-code-code-since-v1-3-code"><a class="link" href="#adding-an-event-code-addevent-code-code-since-v1-3-code">Adding an event: <code>addevent</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
-<p>Reverses the most recent <code>undo</code> command.<br>
-Format: <code>redo</code></p>
+<p>Adds an event into event book.<br>
+Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adds an event if all fields have correct inputs.</p>
+</li>
+<li>
+<p>If there is an empty field, event is not added.</p>
+</li>
+<li>
+<p>If datetime field is detected to be incorrect, no event is added.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -208,30 +229,102 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>redo</code><br>
-The <code>redo</code> command fails as there are no <code>undo</code> commands executed previously.</p>
-</li>
-<li>
-<p><code>delete 1</code><br>
-<code>clear</code><br>
-<code>undo</code> (reverses the <code>clear</code> command)<br>
-<code>undo</code> (reverses the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>clear</code> command)<br></p>
+<p><code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/25-12-2018 1830</code><br>
+Creates an event with the corresponding details and adds it into the event book; displays it on event list.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="deleting-an-event-code-deleteevent-code-code-since-v1-3-code"><a class="link" href="#deleting-an-event-code-deleteevent-code-code-since-v1-3-code">Deleting an event: <code>deleteevent</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Deletes an event in the event book.<br>
+Format: <code>deleteevent INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes an event if given index is valid.</p>
+</li>
+<li>
+<p>Does not delete event if given index is invalid.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>deleteevent 2</code><br>
+Deletes the second event on the displayed event list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-an-event-code-findevent-code-code-since-v1-4-code"><a class="link" href="#finding-an-event-code-findevent-code-code-since-v1-4-code">Finding an event: <code>findevent</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all events matching the given keywords.<br>
+Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for description</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-events-code-listallevents-code-code-since-v1-4-code"><a class="link" href="#listing-all-events-code-listallevents-code-code-since-v1-4-code">Listing all events: <code>listallevents</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all events in the address book.<br>
+Format: <code>listallevents</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switches-between-list-tabs-code-switchtab-code-code-since-v1-4-code"><a class="link" href="#switches-between-list-tabs-code-switchtab-code-code-since-v1-4-code">Switches between list tabs: <code>switchtab</code> <code>[since v1.4]</code></a></h3>
+<div class="paragraph">
+<p>Switches between the Events and Tasks list tabs.<br>
+Format: <code>switchtab</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clears-all-events-code-clearevents-code-code-since-v1-5rc-code"><a class="link" href="#clears-all-events-code-clearevents-code-code-since-v1-5rc-code">Clears all events: <code>clearevents</code> <code>[since v1.5rc]</code></a></h3>
+<div class="paragraph">
+<p>Clears all events in the event list.<br>
+Format: <code>clearevents</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jumps-to-specified-year-and-month-code-jumpto-code-code-since-v1-5rc-code"><a class="link" href="#jumps-to-specified-year-and-month-code-jumpto-code-code-since-v1-5rc-code">Jumps to specified year and month: <code>jumpto</code> <code>[since v1.5rc]</code></a></h3>
+<div class="paragraph">
+<p>Jumps to specified year and month on the calendar.<br>
+Format: <code>jumpto yyyy-mm</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Calendar shows year and month input if valid.</p>
+</li>
+<li>
+<p>Does not change calendar view if given input is invalid.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>jumpto 2018-05</code><br>
+Jumps to 2018 May on the calendar view.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -250,288 +343,50 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="undo-redo-feature"><a class="link" href="#undo-redo-feature">Undo/Redo feature</a></h3>
+<h3 id="import-export-feature"><a class="link" href="#import-export-feature">Import/Export feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p><code>UndoRedoStack</code> only deals with <code>UndoableCommands</code>. Commands that cannot be undone will inherit from <code>Command</code> instead. The following diagram shows the inheritance diagram for commands:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/LogicCommandClassDiagram.png" alt="LogicCommandClassDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>As you can see from the diagram, <code>UndoableCommand</code> adds an extra layer between the abstract <code>Command</code> class and concrete commands that can be undone, such as the <code>DeleteCommand</code>. Note that extra tasks need to be done when executing a command in an <em>undoable</em> way, such as saving the state of the address book before execution. <code>UndoableCommand</code> contains the high-level algorithm for those extra tasks while the child classes implements the details of how to execute the specific command. Note that this technique of putting the high-level algorithm in the parent class and lower-level steps of the algorithm in child classes is also known as the <a href="https://www.tutorialspoint.com/design_pattern/template_pattern.htm">template pattern</a>.</p>
-</div>
-<div class="paragraph">
-<p>Commands that are not undoable are implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ListCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... list logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>With the extra layer, the commands that are undoable are implemented this way:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">abstract</span> <span class="type">class</span> <span class="class">UndoableCommand</span> <span class="directive">extends</span> Command {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult execute() {
-        <span class="comment">// ... undo logic ...</span>
-
-        executeUndoableCommand();
-    }
-}
-
-<span class="directive">public</span> <span class="type">class</span> <span class="class">DeleteCommand</span> <span class="directive">extends</span> UndoableCommand {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> CommandResult executeUndoableCommand() {
-        <span class="comment">// ... delete logic ...</span>
-    }
-}</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Suppose that the user has just launched the application. The <code>UndoRedoStack</code> will be empty at the beginning.</p>
-</div>
-<div class="paragraph">
-<p>The user executes a new <code>UndoableCommand</code>, <code>delete 5</code>, to delete the 5th person in the address book. The current state of the address book is saved before the <code>delete 5</code> command executes. The <code>delete 5</code> command will then be pushed onto the <code>undoStack</code> (the current state is saved together with the command).</p>
+<p>Right now, only Export functionality is implemented.
+It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
+When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
+The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
+The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UndoRedoStartingStackDiagram.png" alt="UndoRedoStartingStackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>As the user continues to use the program, more commands are added into the <code>undoStack</code>. For example, the user may execute <code>add n/David &#8230;&#8203;</code> to add a new person.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand1StackDiagram.png" alt="UndoRedoNewCommand1StackDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not be pushed to the <code>UndoRedoStack</code> at all.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides that adding the person was a mistake, and decides to undo that action using <code>undo</code>.</p>
-</div>
-<div class="paragraph">
-<p>We will pop the most recent command out of the <code>undoStack</code> and push it back to the <code>redoStack</code>. We will restore the address book to the state before the <code>add</code> command executed.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoExecuteUndoStackDiagram.png" alt="UndoRedoExecuteUndoStackDiagram" width="800">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>undoStack</code> is empty, then there are no other commands left to be undone, and an <code>Exception</code> will be thrown when popping the <code>undoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoSequenceDiagram.png" alt="UndoRedoSequenceDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The redo does the exact opposite (pops from <code>redoStack</code>, push to <code>undoStack</code>, and restores the address book to the state after the command is executed).</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>redoStack</code> is empty, then there are no other commands left to be redone, and an <code>Exception</code> will be thrown when popping the <code>redoStack</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The user now decides to execute a new command, <code>clear</code>. As before, <code>clear</code> will be pushed into the <code>undoStack</code>. This time the <code>redoStack</code> is no longer empty. It will be purged as it no longer make sense to redo the <code>add n/David</code> command (this is the behavior that most modern desktop applications follow).</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand2StackDiagram.png" alt="UndoRedoNewCommand2StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Commands that are not undoable are not added into the <code>undoStack</code>. For example, <code>list</code>, which inherits from <code>Command</code> rather than <code>UndoableCommand</code>, will not be added after execution:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoNewCommand3StackDiagram.png" alt="UndoRedoNewCommand3StackDiagram" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarize what happens inside the <code>UndoRedoStack</code> when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/UndoRedoActivityDiagram.png" alt="UndoRedoActivityDiagram" width="650">
+<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-implementation-of-code-undoablecommand-code"><a class="link" href="#aspect-implementation-of-code-undoablecommand-code">Aspect: Implementation of <code>UndoableCommand</code></a></h5>
+<h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code></p>
+<p><strong>Alternative 1(current choice):</strong> Allows option of exporting data into either CSV or XML files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: We will not lose any undone/redone functionality as it is now part of the default behaviour. Classes that deal with <code>Command</code> do not have to know that <code>executeUndoableCommand()</code> exist.</p>
+<p>Pros: Allows greater flexibility as CSV files can be catered to importing of contacts into Google Contacts.</p>
 </li>
 <li>
-<p>Cons: Hard for new developers to understand the template pattern.</p>
+<p>Cons: Need to manually cater to popular file formats and this may require constant maintenance on the developers' end.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Alternative 2:</strong> Just override <code>execute()</code></p>
+<p><strong>Alternative 2:</strong> Only allows exporting of data as XML files.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Does not involve the template pattern, easier for new developers to understand.</p>
+<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
 </li>
 <li>
-<p>Cons: Classes that inherit from <code>UndoableCommand</code> must remember to call <code>super.execute()</code>, or lose the ability to undo/redo.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-type-of-commands-that-can-be-undone-redone"><a class="link" href="#aspect-type-of-commands-that-can-be-undone-redone">Aspect: Type of commands that can be undone/redone</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Only include commands that modifies the address book (<code>add</code>, <code>clear</code>, <code>edit</code>).</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We only revert changes that are hard to change back (the view can easily be re-modified as no data are * lost).</p>
-</li>
-<li>
-<p>Cons: User might think that undo also applies when the list is modified (undoing filtering for example), * only to realize that it does not do that, after executing <code>undo</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Include all commands.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Might be more intuitive for the user.</p>
-</li>
-<li>
-<p>Cons: User have no way of skipping such commands if he or she just want to reset the state of the address * book and not the view.
-<strong>Additional Info:</strong> See our discussion  <a href="https://github.com/se-edu/addressbook-level4/issues/390#issuecomment-298936672">here</a>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use separate stack for undo and redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to understand for new Computer Science student undergraduates to understand, who are likely to be * the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update * both <code>HistoryManager</code> and <code>UndoRedoStack</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate stack, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two * different things.</p>
+<p>Cons: Users may not know the benefits or uses of an XML file.</p>
 </li>
 </ul>
 </div>
@@ -542,26 +397,111 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="calendar-view-feature"><a class="link" href="#calendar-view-feature">Calendar View feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">Add Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">Current Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>The add event feature allows the user to add a new event into the Event Book.
+The event details required: Title, Description, Location, Datetime.
+All of the fields are compulsory, and the user can simply fill in a dummy value for irrelevant fields.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the add event command works under LogicManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>addevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>AddEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>AddEventCommandParser</code> object parses the arguments and create a new <code>AddEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>addevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The event is finally added to the Event list in Address Book and the updated list is then displayed to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The next sequence diagram illustrates how the event is added under ModelManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">Delete Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
+Allows easy deletion of an event according to the event index listed in the Event list.</p>
+</div>
+<div class="paragraph">
+<p>This sequence diagram shows how the delete event command works under LogicManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteEventCommandSequenceDiagram.png" alt="DeleteEventCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>deleteevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>DeleteEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>DeleteEventCommandParser</code> object parses the arguments and create a new <code>DeleteEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>deleteevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The specified event is removed from the Event list in Address Book and the updated list is then displayed to the user.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the event is removed under ModelManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 18:03:47 UTC
+Last updated 2018-04-11 18:26:20 UTC
 </div>
 </div>
 </body>
