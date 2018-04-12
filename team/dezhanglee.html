@@ -1242,86 +1242,6 @@ Resets the picture of the person at index 1 to the default picture.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-address-code-find-a-code-code-coming-in-v1-5-code">Find persons by address: <code>find a/</code> <code>[coming in v1.5]</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose address contain any of the given keywords.<br>
-Format: <code>find a/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the tag is searched.</p>
-</li>
-<li>
-<p>Partial words will be matched e.g. <code>Han</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find a/5TH</code><br>
-Returns <code>5th</code> and <code>5TH</code></p>
-</li>
-<li>
-<p><code>find a/</code><br>
-Returns any person having tags <code>family</code> or <code>friends</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-coming-in-v1-5-code">Find persons by phone: <code>find p/</code> <code>[coming in v1.5]</code></a></h3>
-<div class="paragraph">
-<p>Finds persons whose names contain any of the given value.<br>
-Format: <code>find p/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Only the phone is searched.</p>
-</li>
-<li>
-<p>Partial numbers will be matched e.g. <code>984</code> will match <code>98450293</code></p>
-</li>
-<li>
-<p>Persons matching at least one phone will be returned (i.e. <code>OR</code> search).</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find p/982039</code><br>
-Returns any person having phone <code>98203910</code> or <code>98203950</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
 <h3 id="autocomplete-of-command-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-command-code-coming-in-v2-0-code">Autocomplete of command <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given value.<br></p>
@@ -4360,7 +4280,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-11 18:26:20 UTC
+Last updated 2018-04-11 23:57:54 UTC
 </div>
 </div>
 </body>
