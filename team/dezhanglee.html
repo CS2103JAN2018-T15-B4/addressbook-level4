@@ -915,6 +915,28 @@ Format: <code>listallevents</code></p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="sort-all-events-code-sortevent-code-code-since-v1-5-code"><a class="link" href="#sort-all-events-code-sortevent-code-code-since-v1-5-code">Sort all events: <code>sortevent</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Sorts event list according to the specified parameter.<br>
+Format: <code>sortevent PARAMETER</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sortevent TITLE</code><br>
+Sorts event list according to the event titles in alphabetical order.</p>
+</li>
+<li>
+<p><code>sortevent DATETIME</code><br>
+Sorts event list according to the event datetimes in chronological order from latest to oldest.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="clears-all-events-code-clearevents-code-code-since-v1-5rc-code"><a class="link" href="#clears-all-events-code-clearevents-code-code-since-v1-5rc-code">Clears all events: <code>clearevents</code> <code>[since v1.5rc]</code></a></h3>
 <div class="paragraph">
 <p>Clears all events in the event list.<br>
@@ -1453,6 +1475,10 @@ e.g. <code>deleteevent 2</code></p>
 <li>
 <p><strong>Find an event</strong> : <code>findevent PREFIX/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code><br>
 e.g. <code>findevent et/Christmas CNY Halloween</code></p>
+</li>
+<li>
+<p><strong>Sort event list (case-insensitive)</strong> : <code>sortevent PARAMETER</code><br>
+e.g. <code>sortevent DATETIME</code></p>
 </li>
 <li>
 <p><strong>List all events</strong> : <code>listallevents</code></p>
@@ -4280,7 +4306,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 13:45:38 UTC
+Last updated 2018-04-12 19:32:09 UTC
 </div>
 </div>
 </body>
