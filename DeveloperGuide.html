@@ -67,8 +67,9 @@
 <li><a href="#proposed-edit-an-event">3.21. [Proposed] Edit an Event</a></li>
 <li><a href="#proposed-event-notifications">3.22. [Proposed] Event Notifications</a></li>
 <li><a href="#proposed-data-encryption">3.23. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.24. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.25. Configuration</a></li>
+<li><a href="#proposed-automatically-remove-completed-tasks">3.24. [Proposed] Automatically Remove Completed Tasks</a></li>
+<li><a href="#logging">3.25. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.26. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -106,12 +107,18 @@
 <li><a href="#use-cases">Appendix D: Use Cases</a></li>
 <li><a href="#non-functional-requirements">Appendix E: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix F: Glossary</a></li>
-<li><a href="#product-survey">Appendix G: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">H.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">H.2. Deleting a person</a></li>
-<li><a href="#saving-data">H.3. Saving data</a></li>
+<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
+<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
+<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#sorting-all-persons-by-name">G.4. Sorting all persons by name</a></li>
+<li><a href="#adding-a-task">G.5. Adding a task</a></li>
+<li><a href="#deleting-a-task">G.6. Deleting a task</a></li>
+<li><a href="#editing-a-task">G.7. Editing a task</a></li>
+<li><a href="#finding-tasks-by-name">G.8. Finding tasks by name</a></li>
+<li><a href="#listing-all-tasks">G.9. Listing all tasks</a></li>
+<li><a href="#clearing-all-tasks">G.10. Clearing all tasks</a></li>
 </ul>
 </li>
 </ul>
@@ -1525,13 +1532,13 @@ Some examples are as follows:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-add</code> command and specify the required arguments.</p>
+<p>The user executes the <code>task-add</code> command and specify the required parameters.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command arguments.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command parameters.</p>
 </li>
 <li>
-<p>The <code>TaskAddCommandParser</code> class parses the arguments and create a new <code>TaskAddCommand</code> class.</p>
+<p>The <code>TaskAddCommandParser</code> class parses the parameters and create a new <code>TaskAddCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-add</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1540,6 +1547,14 @@ Some examples are as follows:</p>
 <p>The task is added to the list of tasks in Address Book and displayed to the user.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarise what happens when a user executes the <code>task-add</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TaskAddActivityDiagram.png" alt="TaskAddActivityDiagram" width="700">
+</div>
 </div>
 </div>
 </div>
@@ -1576,13 +1591,13 @@ the task&#8217;s index in the displayed Task List.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-delete</code> command and specify the required argument.</p>
+<p>The user executes the <code>task-delete</code> command and specify the required parameter.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command argument.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command parameter.</p>
 </li>
 <li>
-<p>The <code>TaskDeleteCommandParser</code> class parses the argument and create a new <code>TaskDeleteCommand</code> class.</p>
+<p>The <code>TaskDeleteCommandParser</code> class parses the parameter and create a new <code>TaskDeleteCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-delete</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1616,13 +1631,13 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-edit</code> command and specify the required arguments.</p>
+<p>The user executes the <code>task-edit</code> command and specify the required parameters.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command arguments.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command parameters.</p>
 </li>
 <li>
-<p>The <code>TaskEditCommandParser</code> class parses the arguments and create a new <code>TaskEditCommand</code> class.</p>
+<p>The <code>TaskEditCommandParser</code> class parses the parameters and create a new <code>TaskEditCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-edit</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1631,6 +1646,14 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 <p>The task is updated with the new values and the updated task list is displayed to the user.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarise what happens when a user executes the <code>task-edit</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TaskEditActivityDiagram.png" alt="TaskEditActivityDiagram" width="700">
+</div>
 </div>
 </div>
 </div>
@@ -1656,13 +1679,13 @@ The search is case-insensitive and matches partial keyword.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-find</code> command and specify the required argument(s).</p>
+<p>The user executes the <code>task-find</code> command and specify the required parameter(s).</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command argument(s).</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command parameter(s).</p>
 </li>
 <li>
-<p>The <code>TaskFindCommandParser</code> class parses the argument(s) and create a new <code>TaskFindCommand</code> class.</p>
+<p>The <code>TaskFindCommandParser</code> class parses the parameter(s) and create a new <code>TaskFindCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-find</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -1671,6 +1694,42 @@ The search is case-insensitive and matches partial keyword.</p>
 <p>The list of tasks in Address Book matching the keywords is returned and displayed to the user.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.16.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-findtasks-code-feature"><a class="link" href="#aspect-implementation-of-code-findtasks-code-feature">Aspect: Implementation of <code>FindTasks</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Find task by name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and does not need to make changes for every newly added field</p>
+</li>
+<li>
+<p>Cons: Lack flexibility in finding by other fields</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Find tasks by other fields</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows flexibility in searching</p>
+</li>
+<li>
+<p>Cons: Might be more difficult to implement as changes need to be made for every newly added field to enable searching using those fields</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1742,17 +1801,17 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.18.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.18.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-sorttasks-code-feature"><a class="link" href="#aspect-implementation-of-code-sorttasks-code-feature">Aspect: Implementation of <code>SortTasks</code> feature</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Sort tasks by status &gt; due date &gt; priority</p>
+<p><strong>Alternative 1 (current choice):</strong> Sort tasks by multiple fields (status &gt; due date &gt; priority)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Incomplete tasks are displayed at the top followed by tasks that are due first and those with higher priority</p>
+<p>Pros: Easy identification of tasks to be done as those at the top are incomplete tasks that are due first and with higher priority</p>
 </li>
 <li>
 <p>Cons: Lack flexibility in sorting by other fields</p>
@@ -1915,14 +1974,47 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.24. Logging</a></h3>
+<h3 id="proposed-automatically-remove-completed-tasks"><a class="link" href="#proposed-automatically-remove-completed-tasks">3.24. [Proposed] Automatically Remove Completed Tasks</a></h3>
+<div class="paragraph">
+<p>This feature allows user to set a time limit to remove the completed tasks, so that the task list does not get too lengthy.
+However, the user can also mark completed tasks to be kept in order to retain them.
+After the specified time, the unmarked completed tasks will be removed permanently from the list.</p>
+</div>
+<div class="paragraph">
+<p>Three new fields need to be added to the Task, namely <code>completionDate</code>, <code>timeLimit</code> and <code>markStatus</code>.<br>
+<code>completionDate</code> : Date when the task is completed (i.e. changes status from undone to done), it has a default date when first created
+<code>timeLimit</code> : Number of days to keep a task after its completion before it is removed from the task list.
+<code>markStatus</code> : Indicate whether the completed task needs to be kept after time limit is over</p>
+</div>
+<div class="paragraph">
+<p>This feature can be merged into the current task features (e.g. task-add, task-edit)
+For instance, the user can directly specify the time limit and markStatus during task addition,
+and updates to these fields can be done using task-edit command.</p>
+</div>
+<div class="paragraph">
+<p>This feature works as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When a task changes it status from undone to done, the completionDate is updated.</p>
+</li>
+<li>
+<p>Every time the application is opened, it will check the current date and automatically remove any unmarked
+completed task scheduled for removal on today&#8217;s date.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.25. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.25, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.26, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1953,7 +2045,7 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.25. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.26. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3264,6 +3356,12 @@ a contact&#8217;s details.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove unimportant completed tasks automatically</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep an updated succinct task list without unimportant completed tasks for easy viewing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">subscribe to event</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">get more information about the event</p></td>
 </tr>
@@ -3910,44 +4008,7 @@ should be able to accomplish most of the tasks faster using commands than using 
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix G: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix H: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually.</p>
@@ -3965,7 +4026,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">H.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3977,7 +4038,7 @@ These instructions only provide a starting point for testers to work on; testers
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI with a set of sample contacts, events and tasks. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -4000,7 +4061,7 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4029,7 +4090,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
+<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4044,13 +4105,324 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p><em>{ more test cases &#8230;&#8203; }</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-all-persons-by-name"><a class="link" href="#sorting-all-persons-by-name">G.4. Sorting all persons by name</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting all persons alphabetically by name in ascending order and list them</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+</li>
+<li>
+<p>Test case: <code>sort</code><br>
+Expected: All contacts in the list are sorted alphabetically by name in ascending order.
+Listed all persons sorted alphabetically by name is shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>sort extraString</code><br>
+Expected: All contacts in the list are sorted alphabetically by name in ascending order.</p>
+</li>
+<li>
+<p>Test case: <code>sort 123</code><br>
+Expected: All contacts in the list are sorted alphabetically by name in ascending order.</p>
+</li>
+<li>
+<p>Other correct sort commands: Adding any character or number after the command separated with a whitespace<br>
+Expected: All contacts in the list are sorted alphabetically by name in ascending order.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-task"><a class="link" href="#adding-a-task">G.5. Adding a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adds a new task</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>task-add n/Agenda for meeting p/high d/Discuss proposal details dd/2018-04-29 s/undone c/meeting</code><br>
+Expected: The new task is added to the list. Details of the added contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/undone</code><br>
+Expected: The new task is added to the list. Details of the added contact shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/ p/medium d/Description for task 1 dd/2018-05-10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/ d/Description for task 1 dd/2018-05-10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/randomString d/ dd/2018-05-10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/123 d/ dd/2018-05-10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/ dd/2018-05-10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/ s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018 05 10 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/20180510 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/randomString s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/123 s/undone</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/randomString</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/123</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect task-add commands to try: <code>task-add</code><br>
+Expected: No task is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-add p/medium d/Description for task 1 dd/2018-05-10 s/undone</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 d/Description for task 1 dd/2018-05-10 s/undone</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium dd/2018-05-10 s/undone</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 s/undone</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">G.6. Deleting a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a task while all tasks are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>task-list</code> command. Multiple tasks in the list.</p>
+</li>
+<li>
+<p>Test case: <code>task-delete 1</code><br>
+Expected: First task is deleted from the list. Details of the deleted task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Other incorrect task-delete commands to try: <code>task-delete</code>, <code>task-delete x</code> (where x is larger than the list size)<br>
+Expected: No task is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-delete 0</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">G.7. Editing a task</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a task while all tasks are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>task-list</code> command. Multiple tasks in the list.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 n/Project meeting</code><br>
+Expected: Name of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 p/high</code><br>
+Expected: Priority of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 d/editedDesc</code><br>
+Expected: Description of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 dd/2018-05-10</code><br>
+Expected: Due date of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 s/done</code><br>
+Expected: Status of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 1 c/meeting c/boss</code><br>
+Expected: Category of first task from the list is edited. Details of the edited task shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Other incorrect task-edit commands to try: <code>task-edit</code>, <code>task-edit x</code> (where x is larger than the list size)<br>
+Expected: No task is edited. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-edit 0</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-tasks-by-name"><a class="link" href="#finding-tasks-by-name">G.8. Finding tasks by name</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding tasks whose name contain any of the given keywords</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>task-find project</code><br>
+Expected: Returns any task having names that contain <code>project</code>. X tasks listed shown in the status message (where X is the number of tasks found).</p>
+</li>
+<li>
+<p>Test case: <code>task-find PROJECT</code><br>
+Expected: Returns any task having names that contain <code>project</code> or <code>PROJECT</code>. X tasks listed shown in the status message (where X is the number of tasks found).</p>
+</li>
+<li>
+<p>Test case: <code>task-find pro</code><br>
+Expected: Returns any task having names that contain <code>pro</code> e.g. <code>project</code>. X tasks listed shown in the status message (where X is the number of tasks found).</p>
+</li>
+<li>
+<p>Test case: <code>task-find meet project</code><br>
+Expected: Returns any task having names that contain <code>meet</code> or <code>project</code>. X tasks listed shown in the status message (where X is the number of tasks found).</p>
+</li>
+<li>
+<p>Test case: <code>task-find 123</code><br>
+Expected: Returns any task having names that contain <code>123</code>. X tasks listed shown in the status message (where X is the number of tasks found).</p>
+</li>
+<li>
+<p>Other incorrect task-find commands to try: <code>task-find</code><br>
+Expected: No task is found. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-tasks"><a class="link" href="#listing-all-tasks">G.9. Listing all tasks</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Lists all tasks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>task-list</code><br>
+Expected: All tasks in the list are displayed. Listed all tasks shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>task-list extraString</code><br>
+Expected: All tasks in the list are displayed. Listed all tasks shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>task-list 123</code><br>
+Expected: All tasks in the list are displayed. Listed all tasks shown in the status message.</p>
+</li>
+<li>
+<p>Other correct task-list commands: Adding any character or number after the command separated with a whitespace<br>
+Expected: All tasks in the list are displayed. Listed all tasks shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-tasks"><a class="link" href="#clearing-all-tasks">G.10. Clearing all tasks</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Clears all tasks</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>task-clear</code><br>
+Expected: All tasks removed from the list. Task book has been cleared! shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-clear extraString</code><br>
+Expected: All tasks removed from the list. Task book has been cleared! shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>task-clear 123</code><br>
+Expected: All tasks removed from the list. Task book has been cleared! shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Other correct task-clear commands: Adding any character or number after the command separated with a whitespace<br>
+Expected: All tasks removed from the list. Task book has been cleared! shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 18:31:16 UTC
+Last updated 2018-04-14 20:18:11 UTC
 </div>
 </div>
 </body>

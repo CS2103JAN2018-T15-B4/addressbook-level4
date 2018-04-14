@@ -35,7 +35,7 @@ of a separate application for each individual purpose.</p>
 </div>
 <div class="paragraph">
 <p>At any point in time, the businessman can refer to the calendar and its event list to keep track of upcoming major events, thereby allowing a clear idea on
-what his current schedule is like. In addition, the task list comes in handy to update the user of pending tasks and the tasks’ urgency.
+what his current schedule is like. In addition, the task list comes in handy to update the businessman of pending tasks and the tasks’ urgency.
 This helps them prioritise what needs to be done first.</p>
 </div>
 <div class="paragraph">
@@ -70,20 +70,20 @@ default sorted by status (i.e. undone to done), due date in ascending order and 
 </li>
 <li>
 <p><strong>Justification</strong>:
-This feature improves the product as it allows the user to manage their tasks easily.
-Tasks can contain minor information e.g. remove unnecessary comments in program to nitty-gritty details like
-e.g. agenda for meeting listed explicitly. Sometimes, an implementation idea might just pop up and the businessman
+This feature improves the address book as it allows the businessman to manage their tasks easily.
+Tasks can contain minor details e.g. buy office stationary to nitty-gritty details like
+e.g. listing agenda for meeting explicitly. Sometimes, an implementation idea might just pop up and the businessman
 need to record it down somewhere so that the idea is not forgotten.<br>
 This is where the task management comes into place as it allows the businessman to add any task together with its
-information such as the due date and priority effortlessly to facilitate tracking of tasks, without having to worry
-about forgetting any information.<br>
+details such as the due date and priority effortlessly to facilitate tracking of tasks, without having to worry
+about forgetting any details.<br>
 In addition, other functions like edit and delete enables the businessman to update any task details and remove any
 completed task respectively. This helps to keep the task list up-to-date with the current schedule of the businessman.</p>
 </li>
 <li>
-<p><strong>Highlights</strong>: This enhancement allows for the management of tasks together with other features like contacts and
-events in the same application. Furthermore, after the enhancements to the task display to make it more user-friendly,
-the businessman can quickly identify the incomplete tasks with its due date and status at one glance without having to
+<p><strong>Highlights</strong>: This feature allows for the management of tasks together with other features like contacts and
+events in the same application. Furthermore, with a more user-friendly task display, the businessman can
+quickly identify the incomplete tasks with its due date and status at one glance without having to
 search with difficulty, thus helping to save time in their busy schedule.</p>
 </li>
 </ul>
@@ -101,14 +101,30 @@ multiple contacts spanning across different alphabets in sequential order.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Usage of issue tracker (issues, milestones) to manage project tasks</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
+<p>Updated UI, model and storage component class diagrams</p>
+</li>
+<li>
 <p>Wrote use cases for implemented features</p>
 </li>
 <li>
-<p>Wrote user stories, project description in Project Portfolio with team</p>
+<p>Wrote relevant sections of Testing Manual, User Guide and Developer Guide</p>
+</li>
+<li>
+<p>Wrote project description in Project Portfolio with team</p>
 </li>
 </ul>
 </div>
@@ -218,7 +234,7 @@ appear at the bottom.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/UG_TaskDisplay.PNG" alt="UG TaskDisplay" width="350">
+<img src="../images/UG_TaskDisplay.PNG" alt="UG TaskDisplay" width="300">
 </div>
 </div>
 <div class="paragraph">
@@ -239,10 +255,13 @@ Format: <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/C
 <p>Adds a task if all fields have valid inputs.</p>
 </li>
 <li>
-<p>The valid values of priority are : high, medium and low.</p>
+<p>The valid values of priority are : high, medium and low (only lowercase accepted).</p>
 </li>
 <li>
-<p>The valid values of status are : undone and done.</p>
+<p>The valid values of status are : undone and done (only lowercase accepted).</p>
+</li>
+<li>
+<p>Input for category can be in uppercase or lowercase, but it will be displayed in lowercase.</p>
 </li>
 </ul>
 </div>
@@ -269,7 +288,7 @@ A task can have any number of categories (including 0)
 <p><code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/undone</code></p>
 </li>
 <li>
-<p><code>task-add n/Agenda for meeting p/high d/Discuss proposal details dd/2018-04-29 s/undone c/Meeting</code></p>
+<p><code>task-add n/Agenda for meeting p/high d/Discuss proposal details dd/2018-04-29 s/undone c/meeting</code></p>
 </li>
 </ul>
 </div>
@@ -292,6 +311,9 @@ Format: <code>task-delete INDEX</code></p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+<li>
+<p>The index must not be more than the maximum size of the task list.</p>
 </li>
 </ul>
 </div>
@@ -390,12 +412,16 @@ e.g. <code>Agenda gift</code> will return <code>Agenda for meeting</code>, <code
 <div class="ulist">
 <ul>
 <li>
-<p><code>task-find agenda</code>
-Returns <code>Agenda for meeting</code> and <code>Project agenda</code></p>
+<p><code>task-find agenda</code><br>
+Returns the tasks <code>Agenda for meeting</code> and <code>Project agenda</code></p>
 </li>
 <li>
-<p><code>task-find email agenda project</code>
+<p><code>task-find email agenda project</code><br>
 Returns any task having names <code>email</code>, <code>agenda</code> or <code>project</code></p>
+</li>
+<li>
+<p><code>task-find nt</code><br>
+Returns any task having names containing <code>nt</code> like <code>department</code> or <code>client</code></p>
 </li>
 </ul>
 </div>
@@ -412,6 +438,23 @@ Format: <code>task-list</code></p>
 <div class="paragraph">
 <p>Clears all entries in tasks list from the address book.<br>
 Format: <code>task-clear</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatically-remove-completed-tasks-code-coming-in-v2-0-code"><a class="link" href="#automatically-remove-completed-tasks-code-coming-in-v2-0-code">Automatically remove completed tasks <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Automatically remove any unmarked completed tasks so that the task list does not get too lengthy.
+It will be merged into the <code>task-add</code> and <code>task-edit</code> command with additional parameters.<br></p>
+</div>
+<div class="paragraph">
+<p>New format for task-add: <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS tl/TIME_LIMIT_DAYS ms/MARK_STATUS [c/CATEGORY]&#8230;&#8203;</code><br></p>
+</div>
+<div class="paragraph">
+<p>New format for task-edit: <code>task-edit INDEX [n/NAME] [p/PRIORITY] [d/DESCRIPTION] [dd/DUE_DATE] [s/STATUS] [tl/TIME_LIMIT_DAYS] [ms/MARK_STATUS] [c/CATEGORY]&#8230;&#8203;</code><br></p>
+</div>
+<div class="paragraph">
+<p>TIME_LIMIT_DAYS : Number of days to keep a task after its completion<br>
+MARK_STATUS : Indicate whether the completed task needs to be kept after time limit is over</p>
 </div>
 </div>
 </div>
@@ -563,13 +606,13 @@ Some examples are as follows:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-add</code> command and specify the required arguments.</p>
+<p>The user executes the <code>task-add</code> command and specify the required parameters.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command arguments.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskAddCommandParser</code> class to parse the command parameters.</p>
 </li>
 <li>
-<p>The <code>TaskAddCommandParser</code> class parses the arguments and create a new <code>TaskAddCommand</code> class.</p>
+<p>The <code>TaskAddCommandParser</code> class parses the parameters and create a new <code>TaskAddCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-add</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -578,6 +621,14 @@ Some examples are as follows:</p>
 <p>The task is added to the list of tasks in Address Book and displayed to the user.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarise what happens when a user executes the <code>task-add</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TaskAddActivityDiagram.png" alt="TaskAddActivityDiagram" width="700">
+</div>
 </div>
 </div>
 </div>
@@ -614,13 +665,13 @@ the task&#8217;s index in the displayed Task List.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-delete</code> command and specify the required argument.</p>
+<p>The user executes the <code>task-delete</code> command and specify the required parameter.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command argument.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskDeleteCommandParser</code> class to parse the command parameter.</p>
 </li>
 <li>
-<p>The <code>TaskDeleteCommandParser</code> class parses the argument and create a new <code>TaskDeleteCommand</code> class.</p>
+<p>The <code>TaskDeleteCommandParser</code> class parses the parameter and create a new <code>TaskDeleteCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-delete</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -654,13 +705,13 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-edit</code> command and specify the required arguments.</p>
+<p>The user executes the <code>task-edit</code> command and specify the required parameters.</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command arguments.</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskEditCommandParser</code> class to parse the command parameters.</p>
 </li>
 <li>
-<p>The <code>TaskEditCommandParser</code> class parses the arguments and create a new <code>TaskEditCommand</code> class.</p>
+<p>The <code>TaskEditCommandParser</code> class parses the parameters and create a new <code>TaskEditCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-edit</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -669,6 +720,14 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 <p>The task is updated with the new values and the updated task list is displayed to the user.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarise what happens when a user executes the <code>task-edit</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TaskEditActivityDiagram.png" alt="TaskEditActivityDiagram" width="700">
+</div>
 </div>
 </div>
 </div>
@@ -694,13 +753,13 @@ The search is case-insensitive and matches partial keyword.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The user executes the <code>task-find</code> command and specify the required argument(s).</p>
+<p>The user executes the <code>task-find</code> command and specify the required parameter(s).</p>
 </li>
 <li>
-<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command argument(s).</p>
+<p>The <code>AddressBookParser</code> class creates a new <code>TaskFindCommandParser</code> class to parse the command parameter(s).</p>
 </li>
 <li>
-<p>The <code>TaskFindCommandParser</code> class parses the argument(s) and create a new <code>TaskFindCommand</code> class.</p>
+<p>The <code>TaskFindCommandParser</code> class parses the parameter(s) and create a new <code>TaskFindCommand</code> class.</p>
 </li>
 <li>
 <p>The <code>task-find</code> command is executed and handled by the <code>ModelManager</code> class.</p>
@@ -709,6 +768,42 @@ The search is case-insensitive and matches partial keyword.</p>
 <p>The list of tasks in Address Book matching the keywords is returned and displayed to the user.</p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-implementation-of-code-findtasks-code-feature"><a class="link" href="#aspect-implementation-of-code-findtasks-code-feature">Aspect: Implementation of <code>FindTasks</code> feature</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Find task by name</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and does not need to make changes for every newly added field</p>
+</li>
+<li>
+<p>Cons: Lack flexibility in finding by other fields</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Find tasks by other fields</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Allows flexibility in searching</p>
+</li>
+<li>
+<p>Cons: Might be more difficult to implement as changes need to be made for every newly added field to enable searching using those fields</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -780,17 +875,17 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-sorttasks-code-feature"><a class="link" href="#aspect-implementation-of-code-sorttasks-code-feature">Aspect: Implementation of <code>SortTasks</code> feature</a></h5>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Alternative 1 (current choice):</strong> Sort tasks by status &gt; due date &gt; priority</p>
+<p><strong>Alternative 1 (current choice):</strong> Sort tasks by multiple fields (status &gt; due date &gt; priority)</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Incomplete tasks are displayed at the top followed by tasks that are due first and those with higher priority</p>
+<p>Pros: Easy identification of tasks to be done as those at the top are incomplete tasks that are due first and with higher priority</p>
 </li>
 <li>
 <p>Cons: Lack flexibility in sorting by other fields</p>
@@ -850,12 +945,45 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="proposed-automatically-remove-completed-tasks"><a class="link" href="#proposed-automatically-remove-completed-tasks">[Proposed] Automatically Remove Completed Tasks</a></h3>
+<div class="paragraph">
+<p>This feature allows user to set a time limit to remove the completed tasks, so that the task list does not get too lengthy.
+However, the user can also mark completed tasks to be kept in order to retain them.
+After the specified time, the unmarked completed tasks will be removed permanently from the list.</p>
+</div>
+<div class="paragraph">
+<p>Three new fields need to be added to the Task, namely <code>completionDate</code>, <code>timeLimit</code> and <code>markStatus</code>.<br>
+<code>completionDate</code> : Date when the task is completed (i.e. changes status from undone to done), it has a default date when first created
+<code>timeLimit</code> : Number of days to keep a task after its completion before it is removed from the task list.
+<code>markStatus</code> : Indicate whether the completed task needs to be kept after time limit is over</p>
+</div>
+<div class="paragraph">
+<p>This feature can be merged into the current task features (e.g. task-add, task-edit)
+For instance, the user can directly specify the time limit and markStatus during task addition,
+and updates to these fields can be done using task-edit command.</p>
+</div>
+<div class="paragraph">
+<p>This feature works as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When a task changes it status from undone to done, the completionDate is updated.</p>
+</li>
+<li>
+<p>Every time the application is opened, it will check the current date and automatically remove any unmarked
+completed task scheduled for removal on today&#8217;s date.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 18:31:16 UTC
+Last updated 2018-04-14 20:18:11 UTC
 </div>
 </div>
 </body>
