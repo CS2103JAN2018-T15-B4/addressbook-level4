@@ -70,7 +70,9 @@
 <li><a href="#autocomplete-of-command-code-coming-in-v2-0-code">3.40. Autocomplete of command <code>[coming in v2.0]</code></a></li>
 <li><a href="#list-out-possible-command-code-coming-in-v2-0-code">3.41. List out possible command <code>[coming in v2.0]</code></a></li>
 <li><a href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">3.42. Hint out the possible command syntax <code>[coming in v2.0]</code></a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.43. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#editing-an-event-code-coming-in-v2-0-code">3.43. Editing an event <code>[coming in v2.0]</code></a></li>
+<li><a href="#setting-event-notifications-code-coming-in-v2-0-code">3.44. Setting event notifications <code>[coming in v2.0]</code></a></li>
+<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.45. Encrypting data files <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -640,7 +642,7 @@ Format: <code>export FILEPATH [MORE_KEYWORDS]</code></p>
 <p>If file extension is not .xml nor .csv, a warning message is displayed.</p>
 </li>
 <li>
-<p>If filepath not given, the file is auto-created under main folder.</p>
+<p>If filepath not given, the file is auto-generated in the same filepath as the JAR file.</p>
 </li>
 <li>
 <p>If filepath is not found, Addressbook creates folders to support the filepath defined by the user.</p>
@@ -664,7 +666,7 @@ Creates CSV file in the user-defined filepath</p>
 </li>
 <li>
 <p><code>export addressbook.xml</code><br>
-Creates XML file in the main folder of the Addressbook</p>
+Creates XML file in the same folder as the JAR file</p>
 </li>
 </ul>
 </div>
@@ -972,7 +974,7 @@ Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/25-12-2018 1830</code><br>
+<p><code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/2018-12-25 1830</code><br>
 Creates an event with the corresponding details and adds it into the event book; displays it on event list.</p>
 </li>
 </ul>
@@ -1488,9 +1490,75 @@ Returns feedback to input the currency code to be converted to<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.43. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<h3 id="editing-an-event-code-coming-in-v2-0-code"><a class="link" href="#editing-an-event-code-coming-in-v2-0-code">3.43. Editing an event <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Edits an existing event in the event list.<br>
+Format: <code>editevent 3 et/NEW_TITLE edt/NEW_DATETIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits event is given index and prefix is valid</p>
+</li>
+<li>
+<p>Error message if given index or prefix is invalid</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="setting-event-notifications-code-coming-in-v2-0-code"><a class="link" href="#setting-event-notifications-code-coming-in-v2-0-code">3.44. Setting event notifications <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>A notification for the indexed event will pop up at the specified datetime.<br>
+Format: <code>eventnotify INDEX DATETIME</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Sets notification for event if given index and datetime is valid</p>
+</li>
+<li>
+<p>Error message if given index or datetime is invalid</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.45. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Encrypts all data files until user logs in with correct credentials.<br>
+Format: `login u/USERNAME p/PASSWORD</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>All data files are encrypted until the user logs in</p>
+</li>
+<li>
+<p>Files are decrypted and accessible by the user and the app if the credentials are correct</p>
+</li>
+<li>
+<p>Error message appears if credentials are incorrect</p>
+</li>
+<li>
+<p>Before logging in, user features are restricted</p>
+</li>
+<li>
+<p>User is logged out if the user exits the app</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1591,7 +1659,7 @@ e.g. <code>convert 10000 JPY USD</code></p>
 </li>
 <li>
 <p><strong>Add an event</strong> : <code>addevent et/TITLE ed/DESCRIPTION el/LOCATION edt/DATETIME</code><br>
-e.g. <code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/25-12-2018 1830</code></p>
+e.g. <code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/2018-12-25 1830</code></p>
 </li>
 <li>
 <p><strong>Delete an event</strong> : <code>deleteevent INDEX</code><br>
@@ -1654,7 +1722,7 @@ e.g. <code>resetpicture 1</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:14:39 UTC
+Last updated 2018-04-14 17:37:48 UTC
 </div>
 </div>
 </body>

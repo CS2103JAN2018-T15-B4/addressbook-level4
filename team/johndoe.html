@@ -231,7 +231,31 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Encrypts all data files until user logs in with correct credentials.<br>
+Format: `login u/USERNAME p/PASSWORD</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>All data files are encrypted until the user logs in</p>
+</li>
+<li>
+<p>Files are decrypted and accessible by the user and the app if the credentials are correct</p>
+</li>
+<li>
+<p>Error message appears if credentials are incorrect</p>
+</li>
+<li>
+<p>Before logging in, user features are restricted</p>
+</li>
+<li>
+<p>User is logged out if the user exits the app</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -544,7 +568,28 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect2">
 <h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
+User&#8217;s access is restricted until the user logs in with the username and password.
+Upon correct credential input, data files are decrypted and the user will have full access to the app&#8217;s features.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>login</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>LogInCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>LogInCommandParser</code> object parses the arguments and create a new <code>LogInCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>login</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> class will then check for the validity of the credentials and return the corresponding command message.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -561,7 +606,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:14:39 UTC
+Last updated 2018-04-14 17:37:48 UTC
 </div>
 </div>
 </body>

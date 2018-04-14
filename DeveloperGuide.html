@@ -49,21 +49,24 @@
 <li><a href="#add-profile-picture-feature">3.3. Add Profile Picture feature</a></li>
 <li><a href="#find-feature">3.4. Find feature</a></li>
 <li><a href="#add-tag-to-contact">3.5. Add Tag to Contact</a></li>
-<li><a href="#import-export-feature">3.6. Import/Export feature</a></li>
+<li><a href="#export-feature">3.6. Export feature</a></li>
 <li><a href="#calendar-view-feature">3.7. Calendar View feature</a></li>
 <li><a href="#add-event-feature">3.8. Add Event feature</a></li>
 <li><a href="#delete-event-feature">3.9. Delete Event feature</a></li>
-<li><a href="#add-task-feature">3.10. Add Task feature</a></li>
-<li><a href="#delete-task-feature">3.11. Delete Task feature</a></li>
-<li><a href="#edit-task-feature">3.12. Edit Task feature</a></li>
-<li><a href="#find-tasks-feature">3.13. Find Tasks feature</a></li>
-<li><a href="#list-tasks-feature">3.14. List Tasks feature</a></li>
-<li><a href="#sort-tasks-feature">3.15. Sort Tasks feature</a></li>
-<li><a href="#clear-tasks-feature">3.16. Clear Tasks feature</a></li>
-<li><a href="#convert-currency-feature">3.17. Convert currency feature</a></li>
-<li><a href="#proposed-data-encryption">3.18. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.19. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.20. Configuration</a></li>
+<li><a href="#switch-tab-feature">3.10. Switch Tab feature</a></li>
+<li><a href="#add-task-feature">3.11. Add Task feature</a></li>
+<li><a href="#delete-task-feature">3.12. Delete Task feature</a></li>
+<li><a href="#edit-task-feature">3.13. Edit Task feature</a></li>
+<li><a href="#find-tasks-feature">3.14. Find Tasks feature</a></li>
+<li><a href="#list-tasks-feature">3.15. List Tasks feature</a></li>
+<li><a href="#sort-tasks-feature">3.16. Sort Tasks feature</a></li>
+<li><a href="#clear-tasks-feature">3.17. Clear Tasks feature</a></li>
+<li><a href="#convert-currency-feature">3.18. Convert currency feature</a></li>
+<li><a href="#proposed-edit-an-event">3.19. [Proposed] Edit an Event</a></li>
+<li><a href="#proposed-event-notifications">3.20. [Proposed] Event Notifications</a></li>
+<li><a href="#proposed-data-encryption">3.21. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.22. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.23. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1166,12 +1169,11 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-feature"><a class="link" href="#import-export-feature">3.6. Import/Export feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">3.6. Export feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>Right now, only Export functionality is implemented.
-It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
+<p>It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
 When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
 The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
 The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
@@ -1206,7 +1208,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
+<p>Pros: Simplified export into a file that is readable and understandable by users, is completely compatible with Java and 100% portable.</p>
 </li>
 <li>
 <p>Cons: Users may not know the benefits or uses of an XML file.</p>
@@ -1320,9 +1322,43 @@ Allows easy deletion of an event according to the event index listed in the Even
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.10. Add Task feature</a></h3>
+<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">3.10. Switch Tab feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.10.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The switch tab functionality allows the user to use CLI to switch between the Event and Task tabs as shown below.
+This provides additional support for users who prefer CLI to mouse controls.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>switchtab</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SwitchTab.PNG" alt="SwitchTab" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p>And this is how SwitchTab works!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>switchtab</code> command.</p>
+</li>
+<li>
+<p>The <code>SwitchTabCommand</code> class creates a new <code>SingleSelectionModel&lt;Tab&gt;</code> object using the TabPane displaying Events and Tasks list.</p>
+</li>
+<li>
+<p>The selected tab-index for the <code>SingleSelectionModel&lt;Tab&gt;</code> object is updated and displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.11. Add Task feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add task feature allows user to add a new task into the Address Book by specifying the required parameters.</p>
 </div>
@@ -1391,9 +1427,9 @@ Some examples are as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.11. Delete Task feature</a></h3>
+<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.12. Delete Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete task feature allows user to delete any done, overdue or unwanted task from the Address Book by specifying
 the task&#8217;s index in the displayed Task List.</p>
@@ -1442,9 +1478,9 @@ the task&#8217;s index in the displayed Task List.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.12. Edit Task feature</a></h3>
+<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.13. Edit Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The edit task feature allows user to edit any fields of an existing task in the AddressBook by specifying
 the task&#8217;s index in the displayed Task List followed by the parameters of the fields to be edited.</p>
@@ -1482,9 +1518,9 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.13. Find Tasks feature</a></h3>
+<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.14. Find Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find tasks feature allows user to search for any task whose names contains any of the specified keywords in the Address Book.
 The search is case-insensitive and matches partial keyword.</p>
@@ -1522,9 +1558,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.14. List Tasks feature</a></h3>
+<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.15. List Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
 </div>
@@ -1558,9 +1594,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.15. Sort Tasks feature</a></h3>
+<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.16. Sort Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
+<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is implemented as a default behaviour of the task list display, rather than as a command.</p>
 </div>
@@ -1589,7 +1625,7 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.15.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.16.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-sorttasks-code-feature"><a class="link" href="#aspect-implementation-of-code-sorttasks-code-feature">Aspect: Implementation of <code>SortTasks</code> feature</a></h5>
 <div class="ulist">
@@ -1627,9 +1663,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.16. Clear Tasks feature</a></h3>
+<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.17. Clear Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
+<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The clear tasks feature allows user to clear all the tasks in the Address Book.</p>
 </div>
@@ -1660,9 +1696,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.17. Convert currency feature</a></h3>
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.18. Convert currency feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
+<h4 id="current-implementation-17"><a class="link" href="#current-implementation-17">3.18.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -1693,20 +1729,83 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.18. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-edit-an-event"><a class="link" href="#proposed-edit-an-event">3.19. [Proposed] Edit an Event</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The edit event feature allows user to edit an event in the Event Book by specifying the index of the displayed Event List.
+Allows easy editing of an event just by using the event index given in the Event list.</p>
+</div>
+<div class="paragraph">
+<p>This is how the edit event command will work under LogicManager.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EditEventCommandSequenceDiagram.png" alt="EditEventCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>editevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>EditEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>EditEventCommandParser</code> object parses the arguments and create a new <code>EditEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>editevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The specified event is updated from the Event list in Address Book and the updated details are then displayed to the user.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.19. Logging</a></h3>
+<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">3.20. [Proposed] Event Notifications</a></h3>
+<div class="paragraph">
+<p>The app will send out notifications for an event, if the user sets the datetime for that particular event.
+The <code>eventnotify</code> command takes in the event index shown on the list, and the datetime for the app to send the notification.
+Using the same command again with a datetime will reset the notification datetime (i.e. only one notification for each event).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.21. [Proposed] Data Encryption</a></h3>
+<div class="paragraph">
+<p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
+User&#8217;s access is restricted until the user logs in with the username and password.
+Upon correct credential input, data files are decrypted and the user will have full access to the app&#8217;s features.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>login</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>LogInCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>LogInCommandParser</code> object parses the arguments and create a new <code>LogInCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>login</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The <code>ModelManager</code> class will then check for the validity of the credentials and return the corresponding command message.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.22. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.20, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.23, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1737,7 +1836,7 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.20. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.23. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2810,10 +2909,13 @@ note down the tasks to be done, as well as a calendar for them to record importa
 </ul>
 </div>
 <div class="paragraph">
-<p>Major: Calendar view feature to check summarised schedule for the month.</p>
+<p>Major: Implemented Event features to aid event managements
+Major: Calendar view that provides visuals to users, as well as work hand-in-hand with Event features when clicked on</p>
 </div>
 <div class="paragraph">
-<p>Minor: Export and Import features for address book portability to google contacts.</p>
+<p>Minor: Export functionality for address book portability to Google Contacts or other address books
+Minor: Google Search function for users to know more about a particular person in the contacts list
+Minor: Addition of LinkedIn and Google Chrome pages for easier accessibility to social networking sites.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2912,27 +3014,39 @@ a contact&#8217;s details.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventful businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add event to my calender</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">receive a reminder on those dates (eg. Birthdays, Meetings)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventful businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit event</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">so that it is up-to-date</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">receive email notification</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get reminded before the event is about to occur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventful businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to remove unwanted events</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">receive in-app notification</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get reminder before the event is about to occur</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventful businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find events with keywords</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">so that it is easier to search for an event or related events</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eventful businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive in-app notifications</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to get reminders for incoming events</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">well-prepared businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">google search about a particular contact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to understand more about that person&#8217;s background</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -3051,8 +3165,8 @@ a contact&#8217;s details.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">display a motivational code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keeps motivated and going</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">display a motivational quote</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keeps user motivated and going</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
@@ -3064,19 +3178,10 @@ a contact&#8217;s details.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">careful businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">export data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">to keep as emergency backup</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">impatient businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">import data</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">to port over different devices easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to keep as emergency backup or import to external facilities like Google Contacts</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -3174,7 +3279,7 @@ a contact&#8217;s details.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1b1. XML file is exported to Addressbook&#8217;s main folder.</p>
+<p>1b1. XML file is exported to Addressbook&#8217;s folder (same location as the JAR file).</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3203,6 +3308,165 @@ a contact&#8217;s details.</p>
 <p>1d1. AddressBook warns the user with an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-adding-an-event" class="discrete">Use case: Adding an event</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new event</p>
+</li>
+<li>
+<p>User enters command with required parameters</p>
+</li>
+<li>
+<p>AddressBook adds the new event and updates the event list</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The command is incorrectly entered.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-deleting-an-event" class="discrete">Use case: Deleting an event</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all events</p>
+</li>
+<li>
+<p>AddressBook shows a list of events</p>
+</li>
+<li>
+<p>User requests to delete a specific event in the list</p>
+</li>
+<li>
+<p>AddressBook deletes the event</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-sort-all-events-by-a-specific-field" class="discrete">Use case: Sort all events by a specific field</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort all events in AddressBook via a specific field</p>
+</li>
+<li>
+<p>AddressBook sorts the list of events</p>
+</li>
+<li>
+<p>AddressBook shows the list of sorted events</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-jumping-to-specified-year-month-of-calendar" class="discrete">Use case: Jumping to specified year-month of calendar</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests calendar to jump to specific year-month</p>
+</li>
+<li>
+<p>Calendar view shows that year-month</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The given year-month is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
 </div>
 </li>
 </ul>
@@ -3484,9 +3748,6 @@ a contact&#8217;s details.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -3505,12 +3766,12 @@ a contact&#8217;s details.</p>
 should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
-<p>Command query should not take too long to execute (i.e. more than 10 seconds.</p>
+<p>Command query should not take too long to execute (i.e. more than 10 seconds).</p>
+</li>
+<li>
+<p>User should not have to remember frequently used command formats (i.e. can refer to command examples for easy reminder).</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -3620,9 +3881,6 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">H.2. Deleting a person</a></h3>
@@ -3652,9 +3910,6 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="saving-data"><a class="link" href="#saving-data">H.3. Saving data</a></h3>
@@ -3672,16 +3927,13 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:14:39 UTC
+Last updated 2018-04-14 17:37:48 UTC
 </div>
 </div>
 </body>

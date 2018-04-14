@@ -171,7 +171,7 @@ Format: <code>export FILEPATH [MORE_KEYWORDS]</code></p>
 <p>If file extension is not .xml nor .csv, a warning message is displayed.</p>
 </li>
 <li>
-<p>If filepath not given, the file is auto-created under main folder.</p>
+<p>If filepath not given, the file is auto-generated in the same filepath as the JAR file.</p>
 </li>
 <li>
 <p>If filepath is not found, Addressbook creates folders to support the filepath defined by the user.</p>
@@ -195,7 +195,7 @@ Creates CSV file in the user-defined filepath</p>
 </li>
 <li>
 <p><code>export addressbook.xml</code><br>
-Creates XML file in the main folder of the Addressbook</p>
+Creates XML file in the same folder as the JAR file</p>
 </li>
 </ul>
 </div>
@@ -229,7 +229,7 @@ Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p
 <div class="ulist">
 <ul>
 <li>
-<p><code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/25-12-2018 1830</code><br>
+<p><code>addevent et/Christmas Party ed/Celebrating Christmas 2018 el/Samuel&#8217;s House edt/2018-12-25 1830</code><br>
 Creates an event with the corresponding details and adds it into the event book; displays it on event list.</p>
 </li>
 </ul>
@@ -343,12 +343,11 @@ Jumps to 2018 May on the calendar view.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="import-export-feature"><a class="link" href="#import-export-feature">Import/Export feature</a></h3>
+<h3 id="export-feature"><a class="link" href="#export-feature">Export feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>Right now, only Export functionality is implemented.
-It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
+<p>It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
 When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
 The <code>ModelManager</code> then invokes methods involving <code>Storage</code> under the <code>Model</code> instance in order to store the data into a user-defined location. If such a location was not well-defined, then the XML file exported will be directly saved in your local repository&#8217;s main folder.
 The 'StorageManager' will then call the <code>exportAddressBook</code> method under <code>XmlAddressBookStorage</code> to store the data as an XML file into a user-defined location.</p>
@@ -383,7 +382,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 <div class="ulist">
 <ul>
 <li>
-<p>Pros: Simplified export into a file that is readable and understandable by humans, is completely compatible with Java and 100% portable.</p>
+<p>Pros: Simplified export into a file that is readable and understandable by users, is completely compatible with Java and 100% portable.</p>
 </li>
 <li>
 <p>Cons: Users may not know the benefits or uses of an XML file.</p>
@@ -501,7 +500,7 @@ Allows easy deletion of an event according to the event index listed in the Even
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 12:14:39 UTC
+Last updated 2018-04-14 17:37:48 UTC
 </div>
 </div>
 </body>
