@@ -47,26 +47,28 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#sort-persons-feature">3.2. Sort Persons feature</a></li>
 <li><a href="#add-profile-picture-feature">3.3. Add Profile Picture feature</a></li>
-<li><a href="#find-feature">3.4. Find feature</a></li>
-<li><a href="#add-tag-to-contact">3.5. Add Tag to Contact</a></li>
-<li><a href="#export-feature">3.6. Export feature</a></li>
-<li><a href="#calendar-view-feature">3.7. Calendar View feature</a></li>
-<li><a href="#add-event-feature">3.8. Add Event feature</a></li>
-<li><a href="#delete-event-feature">3.9. Delete Event feature</a></li>
-<li><a href="#switch-tab-feature">3.10. Switch Tab feature</a></li>
-<li><a href="#add-task-feature">3.11. Add Task feature</a></li>
-<li><a href="#delete-task-feature">3.12. Delete Task feature</a></li>
-<li><a href="#edit-task-feature">3.13. Edit Task feature</a></li>
-<li><a href="#find-tasks-feature">3.14. Find Tasks feature</a></li>
-<li><a href="#list-tasks-feature">3.15. List Tasks feature</a></li>
-<li><a href="#sort-tasks-feature">3.16. Sort Tasks feature</a></li>
-<li><a href="#clear-tasks-feature">3.17. Clear Tasks feature</a></li>
-<li><a href="#convert-currency-feature">3.18. Convert currency feature</a></li>
-<li><a href="#proposed-edit-an-event">3.19. [Proposed] Edit an Event</a></li>
-<li><a href="#proposed-event-notifications">3.20. [Proposed] Event Notifications</a></li>
-<li><a href="#proposed-data-encryption">3.21. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.22. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.23. Configuration</a></li>
+<li><a href="#reset-profile-picture-feature">3.4. Reset Profile Picture feature</a></li>
+<li><a href="#find-feature">3.5. Find feature</a></li>
+<li><a href="#add-tag-to-contact">3.6. Add Tag to Contact</a></li>
+<li><a href="#delete-contact-by-name">3.7. Delete Contact by Name</a></li>
+<li><a href="#export-feature">3.8. Export feature</a></li>
+<li><a href="#calendar-view-feature">3.9. Calendar View feature</a></li>
+<li><a href="#add-event-feature">3.10. Add Event feature</a></li>
+<li><a href="#delete-event-feature">3.11. Delete Event feature</a></li>
+<li><a href="#switch-tab-feature">3.12. Switch Tab feature</a></li>
+<li><a href="#add-task-feature">3.13. Add Task feature</a></li>
+<li><a href="#delete-task-feature">3.14. Delete Task feature</a></li>
+<li><a href="#edit-task-feature">3.15. Edit Task feature</a></li>
+<li><a href="#find-tasks-feature">3.16. Find Tasks feature</a></li>
+<li><a href="#list-tasks-feature">3.17. List Tasks feature</a></li>
+<li><a href="#sort-tasks-feature">3.18. Sort Tasks feature</a></li>
+<li><a href="#clear-tasks-feature">3.19. Clear Tasks feature</a></li>
+<li><a href="#convert-currency-feature">3.20. Convert currency feature</a></li>
+<li><a href="#proposed-edit-an-event">3.21. [Proposed] Edit an Event</a></li>
+<li><a href="#proposed-event-notifications">3.22. [Proposed] Event Notifications</a></li>
+<li><a href="#proposed-data-encryption">3.23. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.24. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.25. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -1027,12 +1029,85 @@ No space requirement to store the images locally<br>
 <strong>Cons:</strong><br>
 Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Putting a limit on profile picture size<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Chosen Implementation:</strong><br>
+Set a limit of 5mb for each picture
+<strong>Pros:</strong><br>
+Prevents a malicious user from trying to crash the app by putting a large image.
+<strong>Cons:</strong><br>
+Some pictures may be larger than 5mb. But there are various image compression services available.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative:</strong><br>
+Not put a limit<br>
+<strong>Pros:</strong><br>
+User can upload any image.<br>
+<strong>Cons:</strong><br>
+App may be unstable if too many large images.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-feature"><a class="link" href="#find-feature">3.4. Find feature</a></h3>
+<h3 id="reset-profile-picture-feature"><a class="link" href="#reset-profile-picture-feature">3.4. Reset Profile Picture feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">3.4.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>We implemented a feature which allows a user to reset the profile picture back to default.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the <code>resetpicture</code> command works</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ResetPictureCommandSequenceDiagram.PNG" alt="ResetPictureCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>resetpicture INDEX</code> command, with parameters <code>INDEX</code></p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>ResetPictureCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>ResetPicture</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>A new <code>Picture</code> object is created, containing the default image.</p>
+</li>
+<li>
+<p>The new <code>Picture</code> is attached to the <code>Person</code> at <code>INDEX</code></p>
+</li>
+<li>
+<p>The new picture is displayed</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Reset mechanism - Reset path of the existing Picture object
+or create a new Picture object altogether.</p>
+</div>
+<div class="paragraph">
+<p><strong>Chosen Implementation:</strong><br>
+Create a new picture object.<br>
+<strong>Pros:</strong><br>
+Easier if developer decides to change the path of the default picture, or the properties of the Picture class<br>
+<strong>Cons:</strong><br>
+Creating a new object each time may incur some overhead, but probably insignificant on a modern PC.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-feature"><a class="link" href="#find-feature">3.5. Find feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.5.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, find feature is limited to finding by name.</p>
 </div>
@@ -1041,7 +1116,7 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-search-by-name"><a class="link" href="#implementation-search-by-name">3.4.2. Implementation - Search by Name</a></h4>
+<h4 id="implementation-search-by-name"><a class="link" href="#implementation-search-by-name">3.5.2. Implementation - Search by Name</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1063,7 +1138,7 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-search-by-tag"><a class="link" href="#implementation-search-by-tag">3.4.3. Implementation - Search by Tag</a></h4>
+<h4 id="implementation-search-by-tag"><a class="link" href="#implementation-search-by-tag">3.5.3. Implementation - Search by Tag</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1085,7 +1160,7 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-search-by-address"><a class="link" href="#implementation-search-by-address">3.4.4. Implementation - Search by Address</a></h4>
+<h4 id="implementation-search-by-address"><a class="link" href="#implementation-search-by-address">3.5.4. Implementation - Search by Address</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1107,7 +1182,7 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-search-by-phone"><a class="link" href="#implementation-search-by-phone">3.4.5. Implementation - Search by Phone</a></h4>
+<h4 id="implementation-search-by-phone"><a class="link" href="#implementation-search-by-phone">3.5.5. Implementation - Search by Phone</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1130,7 +1205,7 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-tag-to-contact"><a class="link" href="#add-tag-to-contact">3.5. Add Tag to Contact</a></h3>
+<h3 id="add-tag-to-contact"><a class="link" href="#add-tag-to-contact">3.6. Add Tag to Contact</a></h3>
 <div class="paragraph">
 <p>The add tag command inherits from <code>UndoableCommand</code>.</p>
 </div>
@@ -1169,9 +1244,51 @@ Need to ensure that the image is not deleted, or it won&#8217;t display.<br></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-feature"><a class="link" href="#export-feature">3.6. Export feature</a></h3>
+<h3 id="delete-contact-by-name"><a class="link" href="#delete-contact-by-name">3.7. Delete Contact by Name</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">3.6.1. Current Implementation</a></h4>
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The Delete Contact by Name command inherits from <code>UndoableCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>logic</code> component parses user inputs, while the <code>model</code> component removes the person in the address book.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the Delete By Name command works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeletePersonByNameSequenceDiagram.png" alt="DeletePersonByNameSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>deletebyname name</code> command, with parameter <code>nane</code></p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and create a new <code>DeleteByNameCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>DeleteByNameCommand</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The person refered to by <code>name</code> is searched using the <code>searchForPersonByName()</code> method.</p>
+</li>
+<li>
+<p>If the person is found, that person is deleted</p>
+</li>
+<li>
+<p><code>ModelManager</code> removes the person from the addressbook.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="export-feature"><a class="link" href="#export-feature">3.8. Export feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>It makes use of <code>ExportCommand</code> which extends <code>UndoableCommand</code>.
 When the Export functionality is called on the <code>AddressBookParser</code>, it parses the given input as a FILEPATH using <code>ExportCommandParser</code> which eventually creates the <code>ExportCommand</code> instance.
@@ -1185,7 +1302,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-usages-of-exported-data"><a class="link" href="#aspect-usages-of-exported-data">Aspect: Usages of Exported Data</a></h5>
 <div class="ulist">
@@ -1222,18 +1339,18 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-view-feature"><a class="link" href="#calendar-view-feature">3.7. Calendar View feature</a></h3>
+<h3 id="calendar-view-feature"><a class="link" href="#calendar-view-feature">3.9. Calendar View feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">3.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Right now, the Calendar can be viewed on the homepage of BizConnect Journal as a summarized list of events on different days of a specified month.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.8. Add Event feature</a></h3>
+<h3 id="add-event-feature"><a class="link" href="#add-event-feature">3.10. Add Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">3.8.1. Current Implementation</a></h4>
+<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.10.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add event feature allows the user to add a new event into the Event Book.
 The event details required: Title, Description, Location, Datetime.
@@ -1277,9 +1394,9 @@ All of the fields are compulsory, and the user can simply fill in a dummy value 
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.9. Delete Event feature</a></h3>
+<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">3.11. Delete Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-8"><a class="link" href="#current-implementation-8">3.9.1. Current Implementation</a></h4>
+<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.11.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete event feature allows user to delete an event in the Event Book by specifying the index of the displayed Event List.
 Allows easy deletion of an event according to the event index listed in the Event list.</p>
@@ -1322,9 +1439,9 @@ Allows easy deletion of an event according to the event index listed in the Even
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">3.10. Switch Tab feature</a></h3>
+<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">3.12. Switch Tab feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-9"><a class="link" href="#current-implementation-9">3.10.1. Current Implementation</a></h4>
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switch tab functionality allows the user to use CLI to switch between the Event and Task tabs as shown below.
 This provides additional support for users who prefer CLI to mouse controls.</p>
@@ -1356,9 +1473,9 @@ This provides additional support for users who prefer CLI to mouse controls.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.11. Add Task feature</a></h3>
+<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.13. Add Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-10"><a class="link" href="#current-implementation-10">3.11.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add task feature allows user to add a new task into the Address Book by specifying the required parameters.</p>
 </div>
@@ -1427,9 +1544,9 @@ Some examples are as follows:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.12. Delete Task feature</a></h3>
+<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.14. Delete Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete task feature allows user to delete any done, overdue or unwanted task from the Address Book by specifying
 the task&#8217;s index in the displayed Task List.</p>
@@ -1478,9 +1595,9 @@ the task&#8217;s index in the displayed Task List.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.13. Edit Task feature</a></h3>
+<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.15. Edit Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The edit task feature allows user to edit any fields of an existing task in the AddressBook by specifying
 the task&#8217;s index in the displayed Task List followed by the parameters of the fields to be edited.</p>
@@ -1518,9 +1635,9 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.14. Find Tasks feature</a></h3>
+<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.16. Find Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
+<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find tasks feature allows user to search for any task whose names contains any of the specified keywords in the Address Book.
 The search is case-insensitive and matches partial keyword.</p>
@@ -1558,9 +1675,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.15. List Tasks feature</a></h3>
+<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.17. List Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
+<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
 </div>
@@ -1594,9 +1711,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.16. Sort Tasks feature</a></h3>
+<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.18. Sort Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
+<h4 id="current-implementation-17"><a class="link" href="#current-implementation-17">3.18.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is implemented as a default behaviour of the task list display, rather than as a command.</p>
 </div>
@@ -1625,7 +1742,7 @@ The sort mechanism is implemented using a custom comparator in JavaFX Observable
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.16.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.18.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-sorttasks-code-feature"><a class="link" href="#aspect-implementation-of-code-sorttasks-code-feature">Aspect: Implementation of <code>SortTasks</code> feature</a></h5>
 <div class="ulist">
@@ -1663,9 +1780,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.17. Clear Tasks feature</a></h3>
+<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.19. Clear Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
+<h4 id="current-implementation-18"><a class="link" href="#current-implementation-18">3.19.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The clear tasks feature allows user to clear all the tasks in the Address Book.</p>
 </div>
@@ -1696,9 +1813,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.18. Convert currency feature</a></h3>
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.20. Convert currency feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-17"><a class="link" href="#current-implementation-17">3.18.1. Current Implementation</a></h4>
+<h4 id="current-implementation-19"><a class="link" href="#current-implementation-19">3.20.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -1729,7 +1846,7 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-edit-an-event"><a class="link" href="#proposed-edit-an-event">3.19. [Proposed] Edit an Event</a></h3>
+<h3 id="proposed-edit-an-event"><a class="link" href="#proposed-edit-an-event">3.21. [Proposed] Edit an Event</a></h3>
 <div class="paragraph">
 <p>The edit event feature allows user to edit an event in the Event Book by specifying the index of the displayed Event List.
 Allows easy editing of an event just by using the event index given in the Event list.</p>
@@ -1763,7 +1880,7 @@ Allows easy editing of an event just by using the event index given in the Event
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">3.20. [Proposed] Event Notifications</a></h3>
+<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">3.22. [Proposed] Event Notifications</a></h3>
 <div class="paragraph">
 <p>The app will send out notifications for an event, if the user sets the datetime for that particular event.
 The <code>eventnotify</code> command takes in the event index shown on the list, and the datetime for the app to send the notification.
@@ -1771,7 +1888,7 @@ Using the same command again with a datetime will reset the notification datetim
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.21. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.23. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
 User&#8217;s access is restricted until the user logs in with the username and password.
@@ -1798,14 +1915,14 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.22. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.24. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.23, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.25, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1836,7 +1953,7 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.23. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.25. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3933,7 +4050,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 17:37:48 UTC
+Last updated 2018-04-14 17:42:07 UTC
 </div>
 </div>
 </body>
