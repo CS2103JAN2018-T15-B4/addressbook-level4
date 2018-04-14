@@ -660,7 +660,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries in contacts list and task list from the address book.<br>
+<p>Clears all entries in contacts list from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -1048,6 +1048,14 @@ appear at the bottom.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/UG_TaskDisplay.PNG" alt="UG TaskDisplay" width="350">
+</div>
+</div>
+<div class="paragraph">
+<p>The task due dates displayed are computed based on the current date of 2018-04-14.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-task-code-task-add-code-code-since-v1-3-code"><a class="link" href="#adding-a-task-code-task-add-code-code-since-v1-3-code">Adding a task: <code>task-add</code> <code>[since v1.3]</code></a></h3>
@@ -1229,6 +1237,13 @@ Returns any task having names <code>email</code>, <code>agenda</code> or <code>p
 <div class="paragraph">
 <p>Shows a list of all tasks in the address book.<br>
 Format: <code>task-list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clearing-all-tasks-code-task-clear-code-code-since-v1-5-code"><a class="link" href="#clearing-all-tasks-code-task-clear-code-code-since-v1-5-code">Clearing all tasks : <code>task-clear</code> <code>[since v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries in tasks list from the address book.<br>
+Format: <code>task-clear</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -1514,6 +1529,9 @@ e.g. <code>task-find project agenda</code></p>
 </li>
 <li>
 <p><strong>List all tasks</strong> : <code>task-list</code></p>
+</li>
+<li>
+<p><strong>Clear all tasks</strong> : <code>task-clear</code></p>
 </li>
 <li>
 <p><strong>Reset a contact&#8217;s picture</strong> : <code>resetpicture  INDEX</code><br>
@@ -2046,6 +2064,37 @@ Allows easy deletion of an event according to the event index listed in the Even
 All of the fields are compulsory except category.</p>
 </div>
 <div class="paragraph">
+<p>Format: <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/CATEGORY]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>Validations are performed for each of the fields to ensure that invalid values will result in appropriate error messages.
+Some examples are as follows:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DG_AddTask_1.PNG" alt="DG AddTask 1" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Task with invalid priority value.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DG_AddTask_2.PNG" alt="DG AddTask 2" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Task with invalid due date format.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, if the task to be added already exist in the Address Book, it will result in the following error message.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DG_AddTask_3.PNG" alt="DG AddTask 3" width="800">
+</div>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the add task operation works.</p>
 </div>
 <div class="imageblock">
@@ -2081,6 +2130,20 @@ All of the fields are compulsory except category.</p>
 <div class="paragraph">
 <p>The delete task feature allows user to delete any done, overdue or unwanted task from the Address Book by specifying
 the task&#8217;s index in the displayed Task List.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>task-delete INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Similarly, validation is performed on the supplied index to ensure its validity.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DG_DeleteTask_1.PNG" alt="DG DeleteTask 1" width="350">
+</div>
+</div>
+<div class="paragraph">
+<p>There are 7 tasks in the list for this case.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the delete task operation works.</p>
@@ -2120,6 +2183,9 @@ the task&#8217;s index in the displayed Task List.</p>
 the task&#8217;s index in the displayed Task List followed by the parameters of the fields to be edited.</p>
 </div>
 <div class="paragraph">
+<p>Format: <code>task-edit INDEX [n/NAME] [p/PRIORITY] [d/DESCRIPTION] [dd/DUE_DATE] [s/STATUS] [c/CATEGORY]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the edit task operation works.</p>
 </div>
 <div class="imageblock">
@@ -2157,6 +2223,9 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 The search is case-insensitive and matches partial keyword.</p>
 </div>
 <div class="paragraph">
+<p>Format: <code>task-find KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
 <p>The following sequence diagram shows how the find tasks operation works.</p>
 </div>
 <div class="imageblock">
@@ -2191,6 +2260,9 @@ The search is case-insensitive and matches partial keyword.</p>
 <h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>task-list</code></p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the list tasks operation works.</p>
@@ -2288,9 +2360,42 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">Convert currency feature</a></h3>
+<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">Clear Tasks feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The clear tasks feature allows user to clear all the tasks in the Address Book.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the clear tasks operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TaskClearSequenceDiagram.png" alt="TaskClearSequenceDiagram" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>task-clear</code> command.</p>
+</li>
+<li>
+<p>The <code>AddressBookParser</code> class parses the command and creates a new <code>TaskClearCommand</code> class.</p>
+</li>
+<li>
+<p>The <code>task-clear</code> command is executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>The tasks are removed from the Address Book and an empty list is displayed to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">Convert currency feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -3631,8 +3736,8 @@ a contact&#8217;s details.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort all tasks by priority</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">easily view all the tasks by importance.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see all tasks sorted according to status, due date and priority by default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">easily view all the tasks by importance level.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -3645,6 +3750,12 @@ a contact&#8217;s details.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">edit a task</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep it updated.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">traveler and businessman</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">clear all tasks</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">conveniently remove all the tasks at once and start with a new list.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -4076,20 +4187,17 @@ a contact&#8217;s details.</p>
 </li>
 </ul>
 </div>
-<h3 id="use-case-sort-all-tasks-by-priority" class="discrete">Use case: Sort all tasks by priority</h3>
+<h3 id="use-case-clear-all-tasks" class="discrete">Use case: Clear all tasks</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to sort all tasks in AddressBook</p>
+<p>User requests to clear tasks</p>
 </li>
 <li>
-<p>AddressBook sorts the list of tasks by priority in decreasing order of importance (i.e. high &gt; medium &gt; low)</p>
-</li>
-<li>
-<p>AddressBook shows a list of sorted tasks</p>
+<p>AddressBook clears all the tasks</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -4306,7 +4414,7 @@ Expected: Similar to previous.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-12 19:32:09 UTC
+Last updated 2018-04-14 04:34:32 UTC
 </div>
 </div>
 </body>
