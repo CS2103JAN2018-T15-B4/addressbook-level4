@@ -1084,7 +1084,7 @@ Format: <code>switchtab</code></p>
 <div class="sect2">
 <h3 id="task-display-code-since-v1-5rc-code"><a class="link" href="#task-display-code-since-v1-5rc-code">3.30. Task Display <code>[since v1.5rc]</code></a></h3>
 <div class="paragraph">
-<p>Enhances the task display to make it more user-friendly such as easily identifying the undone tasks
+<p>Enhances the task display to make it more user-friendly such as easily and quickly identifying the undone tasks
 and its due date and status.</p>
 </div>
 <div class="sidebarblock">
@@ -1149,11 +1149,11 @@ appear at the bottom.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/UG_TaskDisplay.PNG" alt="UG TaskDisplay" width="300">
+<img src="images/UG_TaskDisplay.PNG" alt="UG TaskDisplay" width="250">
 </div>
 </div>
 <div class="paragraph">
-<p>The task due dates displayed are computed based on the current date of 2018-04-14.</p>
+<p>The task due dates displayed are computed against the current date of 2018-04-14.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1225,10 +1225,7 @@ Format: <code>task-delete INDEX</code></p>
 <p>The index refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>The index must not be more than the maximum size of the task list.</p>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203; that is not more than the maximum task list size.</p>
 </li>
 </ul>
 </div>
@@ -1259,7 +1256,10 @@ Format: <code>task-edit INDEX [n/NAME] [p/PRIORITY] [d/DESCRIPTION] [dd/DUE_DATE
 <ul>
 <li>
 <p>Edits the task at the specified <code>INDEX</code>.
-The index refers to the index number shown in the last task listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+The index refers to the index number shown in the last task listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203; that is not more than the maximum task list size.</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -1750,7 +1750,7 @@ e.g. <code>task-find project agenda</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 20:18:11 UTC
+Last updated 2018-04-15 06:52:16 UTC
 </div>
 </div>
 </body>

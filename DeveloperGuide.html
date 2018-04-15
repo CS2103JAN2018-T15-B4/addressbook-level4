@@ -901,26 +901,16 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 <div class="sect3">
 <h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">3.2.1. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The sort mechanism sorts the persons list alphabetically by name. It currently supports sorting in ascending order.</p>
-</div>
-<div class="paragraph">
-<p>The internal details of the sort mechanism is handled by the <code>sort</code> method in <code>UniquePersonList</code> class.
-The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> sort() {
-    internalList.sort((person1, person2) -&gt; person1.getName().toString()
-            .compareToIgnoreCase(person2.getName().toString()));
-}</code></pre>
-</div>
+<p>The sort mechanism sorts the persons list alphabetically by name. It currently supports sorting in ascending order.
+The internal details of the sort mechanism is handled by the <code>sort</code> method in <code>UniquePersonList</code> class.
+The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the sort persons operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortingSequenceDiagram.png" alt="SortingSequenceDiagram" width="800">
+<img src="images/SortingSequenceDiagram.png" alt="SortingSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1494,39 +1484,11 @@ All of the fields are compulsory except category.</p>
 <p>Format: <code>task-add n/NAME p/PRIORITY d/DESCRIPTION dd/DUE_DATE s/STATUS [c/CATEGORY]&#8230;&#8203;</code></p>
 </div>
 <div class="paragraph">
-<p>Validations are performed for each of the fields to ensure that invalid values will result in appropriate error messages.
-Some examples are as follows:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DG_AddTask_1.PNG" alt="DG AddTask 1" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Task with invalid priority value.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DG_AddTask_2.PNG" alt="DG AddTask 2" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Task with invalid due date format.</p>
-</div>
-<div class="paragraph">
-<p>Furthermore, if the task to be added already exist in the Address Book, it will result in the following error message.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DG_AddTask_3.PNG" alt="DG AddTask 3" width="800">
-</div>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram shows how the add task operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskAddSequenceDiagram.png" alt="TaskAddSequenceDiagram" width="800">
+<img src="images/TaskAddSequenceDiagram.png" alt="TaskAddSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1548,14 +1510,6 @@ Some examples are as follows:</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>The following activity diagram summarise what happens when a user executes the <code>task-add</code> command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/TaskAddActivityDiagram.png" alt="TaskAddActivityDiagram" width="700">
-</div>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1570,22 +1524,11 @@ the task&#8217;s index in the displayed Task List.</p>
 <p>Format: <code>task-delete INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Similarly, validation is performed on the supplied index to ensure its validity.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DG_DeleteTask_1.PNG" alt="DG DeleteTask 1" width="350">
-</div>
-</div>
-<div class="paragraph">
-<p>There are 7 tasks in the list for this case.</p>
-</div>
-<div class="paragraph">
 <p>The following sequence diagram shows how the delete task operation works.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskDeleteSequenceDiagram.png" alt="TaskDeleteSequenceDiagram" width="800">
+<img src="images/TaskDeleteSequenceDiagram.png" alt="TaskDeleteSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1625,7 +1568,7 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskEditSequenceDiagram.png" alt="TaskEditSequenceDiagram" width="800">
+<img src="images/TaskEditSequenceDiagram.png" alt="TaskEditSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1652,7 +1595,7 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskEditActivityDiagram.png" alt="TaskEditActivityDiagram" width="700">
+<img src="images/TaskEditActivityDiagram.png" alt="TaskEditActivityDiagram" width="410">
 </div>
 </div>
 </div>
@@ -1673,7 +1616,7 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskFindSequenceDiagram.png" alt="TaskFindSequenceDiagram" width="800">
+<img src="images/TaskFindSequenceDiagram.png" alt="TaskFindSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1748,7 +1691,7 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskListSequenceDiagram.png" alt="TaskListSequenceDiagram" width="800">
+<img src="images/TaskListSequenceDiagram.png" alt="TaskListSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1778,11 +1721,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 <div class="paragraph">
 <p>The sort mechanism sorts the tasks list based on status (i.e. undone to done), due date in ascending order
-and priority level (i.e. high &gt; medium &gt; low).</p>
-</div>
-<div class="paragraph">
-<p>The internal details of the sort mechanism is handled by the <code>sortByStatusDueDateAndPriority</code> method in <code>UniqueTaskList</code> class.
-The sort mechanism is implemented using a custom comparator in JavaFX ObservableList <code>sort</code> method as follows:</p>
+and priority level (i.e. high &gt; medium &gt; low). The internal details of the sort mechanism is handled by the
+<code>sortByStatusDueDateAndPriority</code> method in <code>UniqueTaskList</code> class. The sort mechanism is implemented using a
+custom comparator in JavaFX ObservableList <code>sort</code> method as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1850,7 +1791,7 @@ not possible for user to sort by multiple criteria</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TaskClearSequenceDiagram.png" alt="TaskClearSequenceDiagram" width="800">
+<img src="images/TaskClearSequenceDiagram.png" alt="TaskClearSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1981,9 +1922,9 @@ However, the user can also mark completed tasks to be kept in order to retain th
 After the specified time, the unmarked completed tasks will be removed permanently from the list.</p>
 </div>
 <div class="paragraph">
-<p>Three new fields need to be added to the Task, namely <code>completionDate</code>, <code>timeLimit</code> and <code>markStatus</code>.<br>
+<p>Three new fields need to be added to the Task class, namely <code>completionDate</code>, <code>timeLimit</code> and <code>markStatus</code>.<br>
 <code>completionDate</code> : Date when the task is completed (i.e. changes status from undone to done), it has a default date when first created
-<code>timeLimit</code> : Number of days to keep a task after its completion before it is removed from the task list.
+<code>timeLimit</code> : Number of days to keep a task after its completion before it is removed from the task list.<br>
 <code>markStatus</code> : Indicate whether the completed task needs to be kept after time limit is over</p>
 </div>
 <div class="paragraph">
@@ -1997,7 +1938,7 @@ and updates to these fields can be done using task-edit command.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>When a task changes it status from undone to done, the completionDate is updated.</p>
+<p>When a task changes its status from undone to done, the completionDate is updated.</p>
 </li>
 <li>
 <p>Every time the application is opened, it will check the current date and automatically remove any unmarked
@@ -3043,6 +2984,9 @@ note down the tasks to be done, as well as a calendar for them to record importa
 <p>has a need to manage a significant number of contacts</p>
 </li>
 <li>
+<p>has a need to manage many events and tasks</p>
+</li>
+<li>
 <p>prefer desktop apps over other types</p>
 </li>
 <li>
@@ -3062,7 +3006,7 @@ note down the tasks to be done, as well as a calendar for them to record importa
 <div class="ulist">
 <ul>
 <li>
-<p>manage contacts faster than a typical mouse/GUI driven app</p>
+<p>manage contacts, tasks and events faster than a typical mouse/GUI driven app</p>
 </li>
 <li>
 <p>manage contacts, tasks and events from one place to save time for the businessmen with busy schedule</p>
@@ -4118,9 +4062,6 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
-</li>
-<li>
 <p>Test case: <code>sort</code><br>
 Expected: All contacts in the list are sorted alphabetically by name in ascending order.
 Listed all persons sorted alphabetically by name is shown in the status message.</p>
@@ -4422,7 +4363,7 @@ Expected: All tasks removed from the list. Task book has been cleared! shown in 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-14 20:18:11 UTC
+Last updated 2018-04-15 06:52:16 UTC
 </div>
 </div>
 </body>
