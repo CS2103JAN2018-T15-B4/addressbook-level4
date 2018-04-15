@@ -55,23 +55,25 @@
 <li><a href="#calendar-view-feature">3.9. Calendar View feature</a></li>
 <li><a href="#add-event-feature">3.10. Add Event feature</a></li>
 <li><a href="#delete-event-feature">3.11. Delete Event feature</a></li>
-<li><a href="#clear-events-feature">3.12. Clear Events feature</a></li>
-<li><a href="#jump-to-year-month-feature">3.13. Jump To Year-Month feature</a></li>
-<li><a href="#switch-tab-feature">3.14. Switch Tab feature</a></li>
-<li><a href="#add-task-feature">3.15. Add Task feature</a></li>
-<li><a href="#delete-task-feature">3.16. Delete Task feature</a></li>
-<li><a href="#edit-task-feature">3.17. Edit Task feature</a></li>
-<li><a href="#find-tasks-feature">3.18. Find Tasks feature</a></li>
-<li><a href="#list-tasks-feature">3.19. List Tasks feature</a></li>
-<li><a href="#sort-tasks-feature">3.20. Sort Tasks feature</a></li>
-<li><a href="#clear-tasks-feature">3.21. Clear Tasks feature</a></li>
-<li><a href="#convert-currency-feature">3.22. Convert currency feature</a></li>
-<li><a href="#proposed-edit-an-event">3.23. [Proposed] Edit an Event</a></li>
-<li><a href="#proposed-event-notifications">3.24. [Proposed] Event Notifications</a></li>
-<li><a href="#proposed-data-encryption">3.25. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-automatically-remove-completed-tasks">3.26. [Proposed] Automatically Remove Completed Tasks</a></li>
-<li><a href="#logging">3.27. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.28. Configuration</a></li>
+<li><a href="#find-event-feature">3.12. Find Event feature</a></li>
+<li><a href="#find-event-feature-2">3.13. Find Event feature</a></li>
+<li><a href="#clear-events-feature">3.14. Clear Events feature</a></li>
+<li><a href="#jump-to-year-month-feature">3.15. Jump To Year-Month feature</a></li>
+<li><a href="#switch-tab-feature">3.16. Switch Tab feature</a></li>
+<li><a href="#add-task-feature">3.17. Add Task feature</a></li>
+<li><a href="#delete-task-feature">3.18. Delete Task feature</a></li>
+<li><a href="#edit-task-feature">3.19. Edit Task feature</a></li>
+<li><a href="#find-tasks-feature">3.20. Find Tasks feature</a></li>
+<li><a href="#list-tasks-feature">3.21. List Tasks feature</a></li>
+<li><a href="#sort-tasks-feature">3.22. Sort Tasks feature</a></li>
+<li><a href="#clear-tasks-feature">3.23. Clear Tasks feature</a></li>
+<li><a href="#convert-currency-feature">3.24. Convert currency feature</a></li>
+<li><a href="#proposed-edit-an-event">3.25. [Proposed] Edit an Event</a></li>
+<li><a href="#proposed-event-notifications">3.26. [Proposed] Event Notifications</a></li>
+<li><a href="#proposed-data-encryption">3.27. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-automatically-remove-completed-tasks">3.28. [Proposed] Automatically Remove Completed Tasks</a></li>
+<li><a href="#logging">3.29. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.30. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -115,12 +117,15 @@
 <li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
 <li><a href="#saving-data">G.3. Saving data</a></li>
 <li><a href="#sorting-all-persons-by-name">G.4. Sorting all persons by name</a></li>
-<li><a href="#adding-a-task">G.5. Adding a task</a></li>
-<li><a href="#deleting-a-task">G.6. Deleting a task</a></li>
-<li><a href="#editing-a-task">G.7. Editing a task</a></li>
-<li><a href="#finding-tasks-by-name">G.8. Finding tasks by name</a></li>
-<li><a href="#listing-all-tasks">G.9. Listing all tasks</a></li>
-<li><a href="#clearing-all-tasks">G.10. Clearing all tasks</a></li>
+<li><a href="#adding-an-event">G.5. Adding an event</a></li>
+<li><a href="#deleting-an-event">G.6. Deleting an event</a></li>
+<li><a href="#listing-all-events">G.7. Listing all events</a></li>
+<li><a href="#adding-a-task">G.8. Adding a task</a></li>
+<li><a href="#deleting-a-task">G.9. Deleting a task</a></li>
+<li><a href="#editing-a-task">G.10. Editing a task</a></li>
+<li><a href="#finding-tasks-by-name">G.11. Finding tasks by name</a></li>
+<li><a href="#listing-all-tasks">G.12. Listing all tasks</a></li>
+<li><a href="#clearing-all-tasks">G.13. Clearing all tasks</a></li>
 </ul>
 </li>
 </ul>
@@ -462,7 +467,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
-<img src="images/UiClassDiagram.png" alt="UiClassDiagram" width="800">
+<img src="images/UiClassDiagram.jpeg" alt="UiClassDiagram" width="800">
 </div>
 <div class="title">Figure 5. Structure of the UI Component</div>
 </div>
@@ -1296,7 +1301,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+<img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="590">
 </div>
 </div>
 </div>
@@ -1360,7 +1365,7 @@ All of the fields are compulsory, and the user can simply fill in a dummy value 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="800">
+<img src="images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1387,7 +1392,7 @@ All of the fields are compulsory, and the user can simply fill in a dummy value 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
+<img src="images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="590">
 </div>
 </div>
 </div>
@@ -1405,7 +1410,7 @@ Allows easy deletion of an event according to the event index listed in the Even
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteEventCommandSequenceDiagram.png" alt="DeleteEventCommandSequenceDiagram" width="800">
+<img src="images/DeleteEventCommandSequenceDiagram.png" alt="DeleteEventCommandSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1432,14 +1437,15 @@ Allows easy deletion of an event according to the event index listed in the Even
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+<img src="images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="590">
 </div>
 </div>
-<div class="paragraph">
-<p>@@@
-=== Find Event feature
-==== Current Implementation</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="find-event-feature"><a class="link" href="#find-event-feature">3.12. Find Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find event feature allows the user to search all events in the Event Book for a particular keyword.
 The user specifies the field to search under (Title, Location, Datetime) and the keyword argument(s).</p>
@@ -1466,9 +1472,38 @@ The user specifies the field to search under (Title, Location, Datetime) and the
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-events-feature"><a class="link" href="#clear-events-feature">3.12. Clear Events feature</a></h3>
+<h3 id="find-event-feature-2"><a class="link" href="#find-event-feature-2">3.13. Find Event feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-11"><a class="link" href="#current-implementation-11">3.12.1. Current Implementation</a></h4>
+<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
+<div class="paragraph">
+<p>The sort event feature allows user to sort event list according to one specified parameter.
+Parameters: Title, Location, Datetime.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>sortevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>SortEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>SortEventCommandParser</code> object parses the arguments and create a new <code>SortEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>sortevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>Events in event list will be sorted accordingly, and updated list will be shown to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="clear-events-feature"><a class="link" href="#clear-events-feature">3.14. Clear Events feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The clear events feature allows the user to clear all events in the Event Book.
 It extends UndoableCommand in case the command was unintentionally called.</p>
@@ -1489,15 +1524,12 @@ It extends UndoableCommand in case the command was unintentionally called.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p>@@@</p>
-</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="jump-to-year-month-feature"><a class="link" href="#jump-to-year-month-feature">3.13. Jump To Year-Month feature</a></h3>
+<h3 id="jump-to-year-month-feature"><a class="link" href="#jump-to-year-month-feature">3.15. Jump To Year-Month feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-12"><a class="link" href="#current-implementation-12">3.13.1. Current Implementation</a></h4>
+<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Aside from using the mouse cursor, users can jump to a particular year-month using the CLI.
 This saves a lot of time, especially when the user wishes to jump a few months back or forth.</p>
@@ -1530,9 +1562,9 @@ This saves a lot of time, especially when the user wishes to jump a few months b
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">3.14. Switch Tab feature</a></h3>
+<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">3.16. Switch Tab feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-13"><a class="link" href="#current-implementation-13">3.14.1. Current Implementation</a></h4>
+<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The switch tab functionality allows the user to use CLI to switch between the Event and Task tabs as shown below.
 This provides additional support for users who prefer CLI to mouse controls.</p>
@@ -1542,7 +1574,7 @@ This provides additional support for users who prefer CLI to mouse controls.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SwitchTab.PNG" alt="SwitchTab" width="200">
+<img src="images/SwitchTab.PNG" alt="SwitchTab" width="490">
 </div>
 </div>
 <div class="paragraph">
@@ -1564,9 +1596,9 @@ This provides additional support for users who prefer CLI to mouse controls.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.15. Add Task feature</a></h3>
+<h3 id="add-task-feature"><a class="link" href="#add-task-feature">3.17. Add Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-14"><a class="link" href="#current-implementation-14">3.15.1. Current Implementation</a></h4>
+<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The add task feature allows user to add a new task into the Address Book by specifying the required parameters.</p>
 </div>
@@ -1607,9 +1639,9 @@ All of the fields are compulsory except category.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.16. Delete Task feature</a></h3>
+<h3 id="delete-task-feature"><a class="link" href="#delete-task-feature">3.18. Delete Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-15"><a class="link" href="#current-implementation-15">3.16.1. Current Implementation</a></h4>
+<h4 id="current-implementation-17"><a class="link" href="#current-implementation-17">3.18.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The delete task feature allows user to delete any done, overdue or unwanted task from the Address Book by specifying
 the task&#8217;s index in the displayed Task List.</p>
@@ -1647,9 +1679,9 @@ the task&#8217;s index in the displayed Task List.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.17. Edit Task feature</a></h3>
+<h3 id="edit-task-feature"><a class="link" href="#edit-task-feature">3.19. Edit Task feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-16"><a class="link" href="#current-implementation-16">3.17.1. Current Implementation</a></h4>
+<h4 id="current-implementation-18"><a class="link" href="#current-implementation-18">3.19.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The edit task feature allows user to edit any fields of an existing task in the AddressBook by specifying
 the task&#8217;s index in the displayed Task List followed by the parameters of the fields to be edited.</p>
@@ -1695,9 +1727,9 @@ the task&#8217;s index in the displayed Task List followed by the parameters of 
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.18. Find Tasks feature</a></h3>
+<h3 id="find-tasks-feature"><a class="link" href="#find-tasks-feature">3.20. Find Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-17"><a class="link" href="#current-implementation-17">3.18.1. Current Implementation</a></h4>
+<h4 id="current-implementation-19"><a class="link" href="#current-implementation-19">3.20.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The find tasks feature allows user to search for any task whose names contains any of the specified keywords in the Address Book.
 The search is case-insensitive and matches partial keyword.</p>
@@ -1734,7 +1766,7 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.18.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.20.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-findtasks-code-feature"><a class="link" href="#aspect-implementation-of-code-findtasks-code-feature">Aspect: Implementation of <code>FindTasks</code> feature</a></h5>
 <div class="ulist">
@@ -1771,9 +1803,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.19. List Tasks feature</a></h3>
+<h3 id="list-tasks-feature"><a class="link" href="#list-tasks-feature">3.21. List Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-18"><a class="link" href="#current-implementation-18">3.19.1. Current Implementation</a></h4>
+<h4 id="current-implementation-20"><a class="link" href="#current-implementation-20">3.21.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The list tasks feature allows user to display all the tasks in the Address Book.</p>
 </div>
@@ -1807,9 +1839,9 @@ The search is case-insensitive and matches partial keyword.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.20. Sort Tasks feature</a></h3>
+<h3 id="sort-tasks-feature"><a class="link" href="#sort-tasks-feature">3.22. Sort Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-19"><a class="link" href="#current-implementation-19">3.20.1. Current Implementation</a></h4>
+<h4 id="current-implementation-21"><a class="link" href="#current-implementation-21">3.22.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>This feature is implemented as a default behaviour of the task list display, rather than as a command.</p>
 </div>
@@ -1836,7 +1868,7 @@ custom comparator in JavaFX ObservableList <code>sort</code> method as follows:<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.20.2. Design Considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.22.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-implementation-of-code-sorttasks-code-feature"><a class="link" href="#aspect-implementation-of-code-sorttasks-code-feature">Aspect: Implementation of <code>SortTasks</code> feature</a></h5>
 <div class="ulist">
@@ -1874,9 +1906,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.21. Clear Tasks feature</a></h3>
+<h3 id="clear-tasks-feature"><a class="link" href="#clear-tasks-feature">3.23. Clear Tasks feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-20"><a class="link" href="#current-implementation-20">3.21.1. Current Implementation</a></h4>
+<h4 id="current-implementation-22"><a class="link" href="#current-implementation-22">3.23.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The clear tasks feature allows user to clear all the tasks in the Address Book.</p>
 </div>
@@ -1907,9 +1939,9 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.22. Convert currency feature</a></h3>
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">3.24. Convert currency feature</a></h3>
 <div class="sect3">
-<h4 id="current-implementation-21"><a class="link" href="#current-implementation-21">3.22.1. Current Implementation</a></h4>
+<h4 id="current-implementation-23"><a class="link" href="#current-implementation-23">3.24.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The convert currency feature allows user to convert from one currency to another.</p>
 </div>
@@ -1940,7 +1972,7 @@ not possible for user to sort by multiple criteria</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-edit-an-event"><a class="link" href="#proposed-edit-an-event">3.23. [Proposed] Edit an Event</a></h3>
+<h3 id="proposed-edit-an-event"><a class="link" href="#proposed-edit-an-event">3.25. [Proposed] Edit an Event</a></h3>
 <div class="paragraph">
 <p>The edit event feature allows user to edit an event in the Event Book by specifying the index of the displayed Event List.
 Allows easy editing of an event just by using the event index given in the Event list.</p>
@@ -1950,7 +1982,7 @@ Allows easy editing of an event just by using the event index given in the Event
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/EditEventCommandSequenceDiagram.png" alt="EditEventCommandSequenceDiagram" width="800">
+<img src="images/EditEventCommandSequenceDiagram.png" alt="EditEventCommandSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -1974,7 +2006,7 @@ Allows easy editing of an event just by using the event index given in the Event
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">3.24. [Proposed] Event Notifications</a></h3>
+<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">3.26. [Proposed] Event Notifications</a></h3>
 <div class="paragraph">
 <p>The app will send out notifications for an event, if the user sets the datetime for that particular event.
 The <code>eventnotify</code> command takes in the event index shown on the list, and the datetime for the app to send the notification.
@@ -1982,7 +2014,7 @@ Using the same command again with a datetime will reset the notification datetim
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.25. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.27. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
 User&#8217;s access is restricted until the user logs in with the username and password.
@@ -2009,7 +2041,7 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-automatically-remove-completed-tasks"><a class="link" href="#proposed-automatically-remove-completed-tasks">3.26. [Proposed] Automatically Remove Completed Tasks</a></h3>
+<h3 id="proposed-automatically-remove-completed-tasks"><a class="link" href="#proposed-automatically-remove-completed-tasks">3.28. [Proposed] Automatically Remove Completed Tasks</a></h3>
 <div class="paragraph">
 <p>This feature allows user to set a time limit to remove the completed tasks, so that the task list does not get too lengthy.
 However, the user can also mark completed tasks to be kept in order to retain them.
@@ -2042,14 +2074,14 @@ completed task scheduled for removal on today&#8217;s date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.27. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.29. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.28, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.30, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2080,7 +2112,7 @@ completed task scheduled for removal on today&#8217;s date.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.28. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.30. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3156,13 +3188,19 @@ note down the tasks to be done, as well as a calendar for them to record importa
 </ul>
 </div>
 <div class="paragraph">
-<p>Major: Implemented Event features to aid event managements
-Major: Calendar view that provides visuals to users, as well as work hand-in-hand with Event features when clicked on</p>
+<p>Major: Implemented Event features to aid event managements</p>
 </div>
 <div class="paragraph">
-<p>Minor: Export functionality for address book portability to Google Contacts or other address books
-Minor: Google Search function for users to know more about a particular person in the contacts list
-Minor: Addition of LinkedIn and Google Chrome pages for easier accessibility to social networking sites.</p>
+<p>Major: Calendar view that provides visuals to users, as well as work hand-in-hand with Event features when clicked on</p>
+</div>
+<div class="paragraph">
+<p>Minor: Export functionality for address book portability to Google Contacts or other address books</p>
+</div>
+<div class="paragraph">
+<p>Minor: Google Search function for users to know more about a particular person in the contacts list</p>
+</div>
+<div class="paragraph">
+<p>Minor: Addition of LinkedIn and Google Chrome pages for easier accessibility to social networking sites.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -4327,7 +4365,135 @@ Expected: All contacts in the list are sorted alphabetically by name in ascendin
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-task"><a class="link" href="#adding-a-task">G.5. Adding a task</a></h3>
+<h3 id="adding-an-event"><a class="link" href="#adding-an-event">G.5. Adding an event</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adds a new event</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther el/Suntec City GV edt/2018-04-22 1630</code><br>
+Expected: The new event is added to the list. Details of the added event shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Christmas Party ed/Christmas Event 2018 el/Samantha&#8217;s House edt/2017-12-24 1830</code><br>
+Expected: The new event is added to the list. Details of the added event shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther el/Suntec City GV edt/2018-04-22-1630</code><br>
+Expected: No event is added due to incorrect DATETIME format. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther el/Suntec City GV edt/2018-02-31 1630</code><br>
+Expected: No event is added due to invalid date in DATETIME. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther el/Suntec City GV edt/2018-04-22 16300</code><br>
+Expected: No event is added due to invalid time in DATETIME. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Other incorrect addevent commands to try: <code>addevent</code><br></p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther el/Suntec City GV</code><br>
+Expected: No event is added. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing ed/Watching Black Panther edt/2018-04-22 1630</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing el/Suntec City GV edt/2018-04-22 1630</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>addevent ed/Watching Black Panther el/Suntec City GV edt/2018-04-22 1630</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>addevent et/Movie Outing</code><br>
+Expected: Similar to previous</p>
+</li>
+<li>
+<p>Test case: <code>addevent ed/Watching Black Panther edt/2018-04-22 1630</code><br>
+Expected: Similar to previous</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-event"><a class="link" href="#deleting-an-event">G.6. Deleting an event</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an event while all events are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all tasks using the <code>listevents</code> or <code>listallevents</code> command with multiple events in the list.</p>
+</li>
+<li>
+<p>Test case: <code>deleteevent 1</code><br>
+Expected: First event is deleted from the list. Details of the deleted event is shown in the status message. Timestamp in the status bar is updated.</p>
+</li>
+<li>
+<p>Other incorrect deleteevent commands to try: <code>deleteevent</code>, <code>deleteevent x</code> (where x is larger than the list size)<br>
+Expected: No event is deleted. Error details shown in the status message. Status bar remains the same.</p>
+</li>
+<li>
+<p>Test case: <code>task-delete 0</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>task-delete -3</code><br>
+Expected: Similar to previous.</p>
+</li>
+<li>
+<p>Test case: <code>task-delete 3.0</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-events"><a class="link" href="#listing-all-events">G.7. Listing all events</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>List all events</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test case: <code>listallevents</code> or <code>listevents</code><br>
+Expected: All events in the list are displayed. Listed all events shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>listallevents randomstring</code> or <code>listevents randomstring</code><br>
+Expected: All events in the list are displayed. Listed all events shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>listallevents 123</code> or <code>listevents 123</code><br>
+Expected: All events in the list are displayed. Listed all events shown in the status message.</p>
+</li>
+<li>
+<p>Other correct <code>listallevents</code> or <code>listevents</code> commands: Adding any character or number after the command separated with a whitespace<br>
+Expected: All events in the list are displayed. Listed all events shown in the status message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-task"><a class="link" href="#adding-a-task">G.8. Adding a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4336,11 +4502,11 @@ Expected: All contacts in the list are sorted alphabetically by name in ascendin
 <ol class="loweralpha" type="a">
 <li>
 <p>Test case: <code>task-add n/Agenda for meeting p/high d/Discuss proposal details dd/2018-04-29 s/undone c/meeting</code><br>
-Expected: The new task is added to the list. Details of the added contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: The new task is added to the list. Details of the added task shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>task-add n/Task 1 p/medium d/Description for task 1 dd/2018-05-10 s/undone</code><br>
-Expected: The new task is added to the list. Details of the added contact shown in the status message. Timestamp in the status bar is updated.</p>
+Expected: The new task is added to the list. Details of the added task shown in the status message. Timestamp in the status bar is updated.</p>
 </li>
 <li>
 <p>Test case: <code>task-add n/ p/medium d/Description for task 1 dd/2018-05-10 s/undone</code><br>
@@ -4425,7 +4591,7 @@ Expected: Similar to previous</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">G.6. Deleting a task</a></h3>
+<h3 id="deleting-a-task"><a class="link" href="#deleting-a-task">G.9. Deleting a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4454,7 +4620,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-task"><a class="link" href="#editing-a-task">G.7. Editing a task</a></h3>
+<h3 id="editing-a-task"><a class="link" href="#editing-a-task">G.10. Editing a task</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4503,7 +4669,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="finding-tasks-by-name"><a class="link" href="#finding-tasks-by-name">G.8. Finding tasks by name</a></h3>
+<h3 id="finding-tasks-by-name"><a class="link" href="#finding-tasks-by-name">G.11. Finding tasks by name</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4541,7 +4707,7 @@ Expected: No task is found. Error details shown in the status message. Status ba
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-tasks"><a class="link" href="#listing-all-tasks">G.9. Listing all tasks</a></h3>
+<h3 id="listing-all-tasks"><a class="link" href="#listing-all-tasks">G.12. Listing all tasks</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4571,7 +4737,7 @@ Expected: All tasks in the list are displayed. Listed all tasks shown in the sta
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-tasks"><a class="link" href="#clearing-all-tasks">G.10. Clearing all tasks</a></h3>
+<h3 id="clearing-all-tasks"><a class="link" href="#clearing-all-tasks">G.13. Clearing all tasks</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4605,7 +4771,7 @@ Expected: All tasks removed from the list. Task book has been cleared! shown in 
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:11:18 UTC
+Last updated 2018-04-15 16:02:07 UTC
 </div>
 </div>
 </body>

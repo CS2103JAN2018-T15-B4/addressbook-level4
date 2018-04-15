@@ -25,32 +25,13 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>BizConnect Journal is a dedicated application catered to busy businessmen, especially those who travel a lot.
-This app helps to manage their wide range of contacts, events and tasks. It also uses Command Line Interface (CLI) as the primary source of input.</p>
+<p>BizConnect Journal is a dedicated application catered to busy businessmen, especially those who travel a lot. This app helps to manage their wide range of contacts, events and tasks.
+It also uses Command Line Interface (CLI) as the primary source of input, with visual graphics as additional supported functionality for users.</p>
 </div>
 <div class="paragraph">
-<p>Businessmen tend to have a lot of meetings and networking sessions with new people which includes the exchange of contacts,
-thus the above features will be useful for them as they can access all of them in one application without the trouble
-of a separate application for each individual purpose.</p>
-</div>
-<div class="paragraph">
-<p>At any point in time, the businessman can refer to the calendar and its event list to keep track of upcoming major events, thereby allowing a clear idea on
-what his current schedule is like. In addition, the task list comes in handy to update the user of pending tasks and the tasks’ urgency.
-This helps them prioritise what needs to be done first.</p>
-</div>
-<div class="paragraph">
-<p>Besides that, traveling in foreign countries also involves the hassle of not knowing the appropriate amount of money to change.
-Hence, the currency converter aims to facilitate the fast and accurate knowledge of the amount to change without the need of a separate online converter application.</p>
-</div>
-<div class="paragraph">
-<p>A simple day-to-day life of a businessman can be packed with many schedules and having a single tool to manage
-all their necessary work information makes things easier, as well as save them valuable time and effort.
-With all these goals in mind, BizConnect Journal is developed to ease the management of the busy schedules of businessmen.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Ui.png" alt="Ui" width="790">
-</div>
+<p>The everyday life of a businessman can be packed with many events, tasks and network contacts, thus having a single tool to manage all their necessary work information makes things easier,
+as well as save them valuable time and effort. With these goals in mind, BizConnect Journal is designed to provide one central application without the trouble
+of having different applications for each individual purpose.</p>
 </div>
 </div>
 </div>
@@ -60,7 +41,9 @@ With all these goals in mind, BizConnect Journal is developed to ease the manage
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: Event feature to facilitate <strong>event management</strong> (PRs <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/58">#58</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/61">#61</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/69">#69</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/80">#80</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/139">#139</a>)</p>
+<p><strong>Major enhancement</strong>: Event feature to facilitate <strong>event management</strong> (PRs <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/58">#58</a>,
+<a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/61">#61</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/69">#69</a>,
+<a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/80">#80</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/139">#139</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -72,10 +55,8 @@ Each event consists of a title, description, location, date and time.</p>
 <p><strong>Justification</strong>:
 This feature enhances the product as users are now able to manage their events easily with simple add and delete event commands.
 The user is able to store each event with the vital information like the agenda, location, date and timing of the activity,
-as well as provide a short description of what the event is about. Furthermore, the event list displays all these events alongside the calendar, as the calendar
-is able to visually display the days of a month with events. In addition, each listed event has a visual setting to display which events are coming soon,
-ongoing, or already over. This facilitates convenient event management as the user is able to list down all events and gain a brief overview of his schedule.
-With these functionalities, the user does not need to worry about forgetting an event ever again!</p>
+as well as provide a short description of what the event is about. In addition, each listed event has a visual setting to display which events are coming soon,
+ongoing, or already over. With these functionalities, the user does not need to worry about forgetting an event ever again!</p>
 </li>
 <li>
 <p><strong>Highlights</strong>: This epic enhancement involves an Event Book that works hand-in-hand with the Address Book under a single application for businessmen when it comes
@@ -85,19 +66,32 @@ to managing contacts and events. The implementation was difficult as a new Event
 </div>
 </li>
 <li>
+<p><strong>Major enhancement</strong>: Calendar feature for visuals (PRs <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/37">#37</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/61">#61</a>)</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:
+A calendar is displayed with several visual benefits. It shows a brief overview on days of the month with ongoing events by providing a darker shaded colour on the calendar.
+The user can either use CLI or a mouse cursor to change the year and month displayed. Clicking on the shaded days functions like FindEventCommand for that day.</p>
+</li>
+<li>
+<p><strong>Justification</strong>:
+The visual benefits provide more functionality options for businessmen who work better with visual aids, or prefer to have a combination of visuals and commandline.
+This works well together with the Events feature without over-reliance on either visual or commandline techniques.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This calendar enhancement was made using a combination of GridPane and setOnAction buttons, and has to be updated in accordance to
+CLI commands that changes the displayed event list, to support constant visual aid for the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Minor enhancement</strong>: Added an Export Command which exports the contacts on the Address Book into either XML or CSV files. (PRs <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/12" class="bare">https://github.com/CS2103JAN2018-T15-B4/main/pull/12</a> [#12], <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/93">#93</a>)
-XML files allows for easy exportability across other platforms requiring the use of contacts stored in XML format, while the
-exported CSV file is designed to help the user import contacts from the Address Book into his Google Contacts.</p>
+XML files allows for easy exportability across other platforms while the exported CSV is designed to help the user import contacts into Google Contacts.</p>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Enabled Google searching for contact names. (PR <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/124" class="bare">https://github.com/CS2103JAN2018-T15-B4/main/pull/124</a> [#124])
-Many well-known businessmen often have online media reports and biographies available on the Internet,
-therefore a Google search command was added to ease that process when the user wants to know more about a certain contact in his Address Book.</p>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>: Added hotkeys for LinkedIn and Google Chrome pages. (PR <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/124" class="bare">https://github.com/CS2103JAN2018-T15-B4/main/pull/124</a> [#124])
-LinkedIn is a popular alternative for social networking to the traditional form of exchanging namecards. This functionality allows easy access to the widely-used
-social media for businessmen at the press of a button. A browser has also been added to aid the user when he needs to search for something online.</p>
+<p><strong>Minor enhancement</strong>: Enabled Google searching for contact names. (PR <a href="https://github.com/CS2103JAN2018-T15-B4/main/pull/124" class="bare">https://github.com/CS2103JAN2018-T15-B4/main/pull/124</a> [#124])</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103JAN2018-T15-B4/main/tree/master/collated/functional/x3tsunayh.md">Functional code</a>] [<a href="https://github.com/CS2103JAN2018-T15-B4/main/tree/master/collated/test/x3tsunayh.md">Test code</a>]</p>
@@ -127,10 +121,7 @@ social media for businessmen at the press of a button. A browser has also been a
 <div class="ulist">
 <ul>
 <li>
-<p>Wrote use cases for implemented features</p>
-</li>
-<li>
-<p>Wrote user stories, project description in Project Portfolio with team</p>
+<p>Wrote use cases, user stories, project description in Project Portfolio with team</p>
 </li>
 </ul>
 </div>
@@ -143,8 +134,7 @@ social media for businessmen at the press of a button. A browser has also been a
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/115">#115</a>, <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/116">#116</a>, <a href="https://github.com/CS2103JAN2018-W09-B3/main/issues/123">#123</a>)</p>
 </li>
 <li>
-<p>Addressed all bugs collected during the peer review testing session (
-== Contributions to the User Guide</p>
+<p>Addressed all bugs collected during the peer review testing session (examples:  <a href="https://github.com/CS2103JAN2018-T15-B4/main/issues/124">#124</a>, <a href="https://github.com/CS2103JAN2018-T15-B4/main/issues/130">#130</a>)</p>
 </li>
 </ul>
 </div>
@@ -154,6 +144,11 @@ social media for businessmen at the press of a button. A browser has also been a
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 100%;">
@@ -217,7 +212,9 @@ Creates XML file in the same folder as the JAR file</p>
 <h3 id="adding-an-event-code-addevent-code-code-since-v1-3-code"><a class="link" href="#adding-an-event-code-addevent-code-code-since-v1-3-code">Adding an event: <code>addevent</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Adds an event into event book.<br>
-Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p>
+Format: <code>addevent et/TITLE ed/DESCRIPTION el/LOCATION edt/DATETIME</code>
+If arguments like TITLE or DESCRIPTION are too long, it may be cut off in the event list.
+Event details should not be too wordy!</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -284,7 +281,14 @@ Deletes the second event on the displayed event list.</p>
 <h3 id="finding-an-event-code-findevent-code-code-since-v1-4-code"><a class="link" href="#finding-an-event-code-findevent-code-code-since-v1-4-code">Finding an event: <code>findevent</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all events matching the given keywords.<br>
-Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for description</code></p>
+Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for description</code>
+For DATETIME, it will try to match datetimes containing the input argument, so try to be as accurate as possible!</p>
+</div>
+<div class="paragraph">
+<p>Example:
+* <code>findevent edt/01</code><br>
+Returns all events with the argument '01' inside the datetime field.
+This includes dates like 2018-XX-XX, 2017-XX-XX since '01' is inside '2018' and '2017'.</p>
 </div>
 </div>
 <div class="sect2">
@@ -299,13 +303,6 @@ Format: <code>listallevents</code></p>
 <div class="paragraph">
 <p>Switches between the Events and Tasks list tabs.<br>
 Format: <code>switchtab</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="clears-all-events-code-clearevents-code-code-since-v1-5rc-code"><a class="link" href="#clears-all-events-code-clearevents-code-code-since-v1-5rc-code">Clears all events: <code>clearevents</code> <code>[since v1.5rc]</code></a></h3>
-<div class="paragraph">
-<p>Clears all events in the event list.<br>
-Format: <code>clearevents</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -341,20 +338,6 @@ Jumps to 2018 May on the calendar view.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-event-code-f2-code-code-since-v1-5rc-code"><a class="link" href="#adding-an-event-code-f2-code-code-since-v1-5rc-code">Adding an event: <code>F2</code> <code>[since v1.5rc]</code></a></h3>
-<div class="paragraph">
-<p>Displays a LinkedIn page.<br>
-Format: Press <code>F2</code> hotkey on keyboard</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-an-event-code-f3-code-code-since-v1-5rc-code"><a class="link" href="#adding-an-event-code-f3-code-code-since-v1-5rc-code">Adding an event: <code>F3</code> <code>[since v1.5rc]</code></a></h3>
-<div class="paragraph">
-<p>Displays a Google Chrome browser page.<br>
-Format: Press <code>F3</code> hotkey on keyboard</p>
-</div>
-</div>
-<div class="sect2">
 <h3 id="editing-an-event-code-coming-in-v2-0-code"><a class="link" href="#editing-an-event-code-coming-in-v2-0-code">Editing an event <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing event in the event list.<br>
@@ -375,57 +358,6 @@ Format: <code>editevent 3 et/NEW_TITLE edt/NEW_DATETIME</code></p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="setting-event-notifications-code-coming-in-v2-0-code"><a class="link" href="#setting-event-notifications-code-coming-in-v2-0-code">Setting event notifications <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>A notification for the indexed event will pop up at the specified datetime.<br>
-Format: <code>eventnotify INDEX DATETIME</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Sets notification for event if given index and datetime is valid</p>
-</li>
-<li>
-<p>Error message if given index or datetime is invalid</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">Encrypting data files <code>[coming in v2.0]</code></a></h3>
-<div class="paragraph">
-<p>Encrypts all data files until user logs in with correct credentials.<br>
-Format: `login u/USERNAME p/PASSWORD</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>All data files are encrypted until the user logs in</p>
-</li>
-<li>
-<p>Files are decrypted and accessible by the user and the app if the credentials are correct</p>
-</li>
-<li>
-<p>Error message appears if credentials are incorrect</p>
-</li>
-<li>
-<p>Before logging in, user features are restricted</p>
-</li>
-<li>
-<p>User is logged out if the user exits the app</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -437,7 +369,7 @@ Format: `login u/USERNAME p/PASSWORD</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are my contributions to the Developer Guide. They showcase my ability to write technical documentation and depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -453,7 +385,7 @@ The 'StorageManager' will then call the <code>exportAddressBook</code> method un
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="590">
 </div>
 </div>
 </div>
@@ -517,7 +449,7 @@ All of the fields are compulsory, and the user can simply fill in a dummy value 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="800">
+<img src="../images/AddEventCommandSequenceDiagram.png" alt="AddEventCommandSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -544,53 +476,135 @@ All of the fields are compulsory, and the user can simply fill in a dummy value 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="800">
+<img src="../images/AddEventSequenceDiagram.png" alt="AddEventSequenceDiagram" width="590">
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-event-feature"><a class="link" href="#delete-event-feature">Delete Event feature</a></h3>
+<h3 id="find-event-feature"><a class="link" href="#find-event-feature">Find Event feature</a></h3>
 <div class="sect3">
 <h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The delete event feature allows the user to delete an event in the Event Book by specifying the index of the displayed Event List.
-Allows easy deletion of an event according to the event index listed in the Event list.</p>
-</div>
-<div class="paragraph">
-<p>This sequence diagram shows how the delete event command works under LogicManager.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/DeleteEventCommandSequenceDiagram.png" alt="DeleteEventCommandSequenceDiagram" width="800">
-</div>
+<p>The find event feature allows the user to search all events in the Event Book for a particular keyword.
+The user specifies the field to search under (Title, Location, Datetime) and the keyword argument(s).</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>deleteevent</code> command with the required arguments.</p>
+<p>User executes <code>findevent</code> command with the required arguments.</p>
 </li>
 <li>
-<p><code>AddressBookParser</code> class creates a new <code>DeleteEventCommandParser</code> object to parse the command arguments.</p>
+<p><code>AddressBookParser</code> class creates a new <code>FindEventCommandParser</code> object to parse the command arguments.</p>
 </li>
 <li>
-<p>This <code>DeleteEventCommandParser</code> object parses the arguments and create a new <code>DeleteEventCommand</code> object.</p>
+<p>This <code>FindEventCommandParser</code> object parses the arguments and create a new <code>FindEventCommand</code> object.</p>
 </li>
 <li>
-<p>The <code>deleteevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+<p>The <code>findevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
 </li>
 <li>
-<p>The specified event is removed from the Event list in Address Book and the updated list is then displayed to the user.</p>
+<p>Events with matching keywords under the specified field will be updated in the displayed event list and shown to the user.</p>
 </li>
 </ol>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-event-feature-2"><a class="link" href="#find-event-feature-2">Find Event feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how the event is removed under ModelManager.</p>
+<p>The sort event feature allows user to sort event list according to one specified parameter.
+Parameters: Title, Location, Datetime.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>sortevent</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>SortEventCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>SortEventCommandParser</code> object parses the arguments and create a new <code>SortEventCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>sortevent</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
+</li>
+<li>
+<p>Events in event list will be sorted accordingly, and updated list will be shown to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="jump-to-year-month-feature"><a class="link" href="#jump-to-year-month-feature">Jump To Year-Month feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-6"><a class="link" href="#current-implementation-6">Current Implementation</a></h4>
+<div class="paragraph">
+<p>Aside from using the mouse cursor, users can jump to a particular year-month using the CLI.
+This saves a lot of time, especially when the user wishes to jump a few months back or forth.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>jumpto yyyy-mm</code></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes <code>jumpto</code> command with the required arguments.</p>
+</li>
+<li>
+<p><code>AddressBookParser</code> class creates a new <code>JumpToCommandParser</code> object to parse the command arguments.</p>
+</li>
+<li>
+<p>This <code>JumpToCommandParser</code> object parses the arguments and create a new <code>JumpToCommand</code> object.</p>
+</li>
+<li>
+<p>The <code>jumpto</code> command is then executed by creating a new <code>JumpToCalendarRequestEvent</code> that triggers the <code>EventsCenter</code>.</p>
+</li>
+<li>
+<p><code>EventsCenter</code> dispatches the event to be handled by <code>CalendarView</code> because it has to <code>populateCalendar</code> method that displays the calendar by taking <code>YearMonth</code> as an input.</p>
+</li>
+<li>
+<p><code>popularCalendar</code> finally displays the new <code>CalendarView</code> state to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switch-tab-feature"><a class="link" href="#switch-tab-feature">Switch Tab feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-7"><a class="link" href="#current-implementation-7">Current Implementation</a></h4>
+<div class="paragraph">
+<p>The switch tab functionality allows the user to use CLI to switch between the Event and Task tabs as shown below.
+This provides additional support for users who prefer CLI to mouse controls.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>switchtab</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/DeleteEventSequenceDiagram.png" alt="DeleteEventSequenceDiagram" width="800">
+<img src="../images/SwitchTab.PNG" alt="SwitchTab" width="490">
 </div>
+</div>
+<div class="paragraph">
+<p>And this is how SwitchTab works!</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user executes the <code>switchtab</code> command.</p>
+</li>
+<li>
+<p>The <code>SwitchTabCommand</code> class creates a new <code>SingleSelectionModel&lt;Tab&gt;</code> object using the TabPane displaying Events and Tasks list.</p>
+</li>
+<li>
+<p>The selected tab-index for the <code>SingleSelectionModel&lt;Tab&gt;</code> object is updated and displayed to the user.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -605,7 +619,7 @@ Allows easy editing of an event just by using the event index given in the Event
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/EditEventCommandSequenceDiagram.png" alt="EditEventCommandSequenceDiagram" width="800">
+<img src="../images/EditEventCommandSequenceDiagram.png" alt="EditEventCommandSequenceDiagram" width="590">
 </div>
 </div>
 <div class="olist arabic">
@@ -628,47 +642,12 @@ Allows easy editing of an event just by using the event index given in the Event
 </ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="proposed-event-notifications"><a class="link" href="#proposed-event-notifications">[Proposed] Event Notifications</a></h3>
-<div class="paragraph">
-<p>The app will send out notifications for an event, if the user sets the datetime for that particular event.
-The <code>eventnotify</code> command takes in the event index shown on the list, and the datetime for the app to send the notification.
-Using the same command again with a datetime will reset the notification datetime (i.e. only one notification for each event).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
-<div class="paragraph">
-<p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
-User&#8217;s access is restricted until the user logs in with the username and password.
-Upon correct credential input, data files are decrypted and the user will have full access to the app&#8217;s features.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User executes <code>login</code> command with the required arguments.</p>
-</li>
-<li>
-<p><code>AddressBookParser</code> class creates a new <code>LogInCommandParser</code> object to parse the command arguments.</p>
-</li>
-<li>
-<p>This <code>LogInCommandParser</code> object parses the arguments and create a new <code>LogInCommand</code> object.</p>
-</li>
-<li>
-<p>The <code>login</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
-</li>
-<li>
-<p>The <code>ModelManager</code> class will then check for the validity of the credentials and return the corresponding command message.</p>
-</li>
-</ol>
-</div>
-</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:11:18 UTC
+Last updated 2018-04-15 16:02:07 UTC
 </div>
 </div>
 </body>

@@ -113,7 +113,7 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103JAN2018-T15-B4/main/releases">here</a>.</p>
+<p>Download the latest <code>[T15-B4][BizConnect Journal].jar</code> <a href="https://github.com/CS2103JAN2018-T15-B4/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -951,7 +951,9 @@ Format: Press <code>F3</code> hotkey on keyboard</p>
 <h3 id="adding-an-event-code-addevent-code-code-since-v1-3-code"><a class="link" href="#adding-an-event-code-addevent-code-code-since-v1-3-code">3.24. Adding an event: <code>addevent</code> <code>[since v1.3]</code></a></h3>
 <div class="paragraph">
 <p>Adds an event into event book.<br>
-Format: <code>addevent et/NAME ed/DESCRIPTION el/LOCATION edt/DATETIME</code></p>
+Format: <code>addevent et/TITLE ed/DESCRIPTION el/LOCATION edt/DATETIME</code>
+If arguments like TITLE or DESCRIPTION are too long, it may be cut off in the event list.
+Event details should not be too wordy!</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1018,7 +1020,14 @@ Deletes the second event on the displayed event list.</p>
 <h3 id="finding-an-event-code-findevent-code-code-since-v1-4-code"><a class="link" href="#finding-an-event-code-findevent-code-code-since-v1-4-code">3.26. Finding an event: <code>findevent</code> <code>[since v1.4]</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all events matching the given keywords.<br>
-Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for description</code></p>
+Format: <code>findevent et/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for title OR ed/KEYWORD [MORE_KEYWORDS]&#8230;&#8203; for description</code>
+For DATETIME, it will try to match datetimes containing the input argument, so try to be as accurate as possible!</p>
+</div>
+<div class="paragraph">
+<p>Example:
+* <code>findevent edt/01</code><br>
+Returns all events with the argument '01' inside the datetime field.
+This includes dates like 2018-XX-XX, 2017-XX-XX since '01' is inside '2018' and '2017'.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1771,7 +1780,7 @@ e.g. <code>task-find project agenda</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 15:11:18 UTC
+Last updated 2018-04-15 16:02:07 UTC
 </div>
 </div>
 </body>
