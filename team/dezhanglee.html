@@ -149,24 +149,24 @@ was required to ensure the functionality of this feature</p>
 <div class="sect2">
 <h3 id="deleting-a-person-by-name-code-deletebyname-code-code-since-v1-1-code"><a class="link" href="#deleting-a-person-by-name-code-deletebyname-code-code-since-v1-1-code">Deleting a person by name: <code>deletebyname</code> <code>[since v1.1]</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book by name.<br>
-Format: <code>deletebyname NAME</code></p>
+<p>Deletes the specified person from the address book by their fullname.<br>
+Format: <code>deletebyname FULLNAME</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>NAME</code>.</p>
+<p>Deletes the person at the specified <code>FULLNAME</code>.</p>
 </li>
 <li>
 <p>The index refers to the name of the contact shown in the most recent listing.</p>
 </li>
 <li>
-<p>NAME is not case sensitive.</p>
+<p>FULLNAME is not case sensitive.</p>
 </li>
 <li>
-<p>However, the spelling must exatly match the name of the contact to be deleted.</p>
+<p>The spelling of the FULLNAME must match the name on contact that is to be deleted on the list</p>
 </li>
 <li>
 <p>If there are more than one contacts with the same name, use delete command instead.</p>
@@ -527,7 +527,7 @@ Creating a new object each time may incur some overhead, but probably insignific
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:38:57 UTC
+Last updated 2018-04-15 10:53:53 UTC
 </div>
 </div>
 </body>

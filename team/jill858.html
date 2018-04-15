@@ -68,19 +68,33 @@ With all these goals in mind, BizConnect Journal is developed to ease the manage
 </li>
 <li>
 <p>Justification: User will be able to get the standard exchange rate or convert from one currency to another currency easily without
-having to leave the application.</p>
+having to leave the application. This provides convenience to the user. In addition, rates are live and are updated daily!</p>
 </li>
 <li>
-<p>Highlights: Able to convert up to 17 different currencies!</p>
+<p>Highlights: Able to convert up to 16 different currencies!</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
 <p><strong>Minor enhancement</strong>: Modify find function such that able to find partial words instead of keywords</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: Instead of finding keywords, finding by partial words able to help users to narrow down their search, providing flexibility in searching.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Minor enhancement</strong>: Modify find function such that able to find specifically by name, by tag, by address, or by phone</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Justification: Search is being categorized. This helps to narrow down their search based on the category.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -91,7 +105,7 @@ having to leave the application.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Provide feedback and suggestion to team members</p>
+<p>Provide feedback and suggestions to team members</p>
 </li>
 </ul>
 </div>
@@ -112,6 +126,16 @@ having to leave the application.</p>
 <ul>
 <li>
 <p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com/CS2103JAN2018-W09-B4/main/issues/164" class="bare">https://github.com/CS2103JAN2018-W09-B4/main/issues/164</a>, <a href="https://github.com/CS2103JAN2018-W09-B4/main/issues/159" class="bare">https://github.com/CS2103JAN2018-W09-B4/main/issues/159</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (Fixer) to the project (<a href="https://fixer.io/">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -182,8 +206,8 @@ Returns <code>john</code> and <code>John Doe</code></p>
 Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
 </li>
 <li>
-<p><code>find n/J<br>
-Returns any person having names `John</code>, <code>Jack</code>, or <code>Joanna</code></p>
+<p><code>find n/J</code><br>
+Returns any person having names <code>John</code>, <code>Jack</code>, or <code>Joanna</code></p>
 </li>
 </ul>
 </div>
@@ -238,6 +262,55 @@ Returns any person having tag(s) <code>Friends</code>, or <code>Family</code></p
 </div>
 </div>
 <div class="sect2">
+<h3 id="find-persons-by-address-code-find-a-code-code-since-in-v1-5-code"><a class="link" href="#find-persons-by-address-code-find-a-code-code-since-in-v1-5-code">Find persons by address: <code>find a/</code> <code>[since in v1.5]</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose address contain any of the given keywords.<br>
+Format: <code>find a/KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>avenue</code> will match <code>Avenue</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Loop Avenue</code> will match <code>Avenue Loop</code></p>
+</li>
+<li>
+<p>Only the address is searched.</p>
+</li>
+<li>
+<p>Partial words will be matched e.g. <code>Ave</code> will match <code>Avenue</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Loop Avenue</code> will return <code>Loop Street</code>, <code>5th Avenue</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find a/5TH</code><br>
+Returns any person having address with <code>5th</code> and <code>5TH</code></p>
+</li>
+<li>
+<p><code>find a/Sixth Avenue</code><br>
+Returns any person having address <code>Sixth</code> or <code>Avenue</code></p>
+</li>
+<li>
+<p><code>find a/s</code><br>
+Returns any person having address <code>street</code> or <code>sixth</code> or `square'</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
 <h3 id="find-persons-by-phone-code-find-p-code-code-since-in-v1-5-code"><a class="link" href="#find-persons-by-phone-code-find-p-code-code-since-in-v1-5-code">Find persons by phone: <code>find p/</code> <code>[since in v1.5]</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose phone contain any of the given value.<br>
@@ -283,13 +356,16 @@ Format: <code>convert [VALUE] SRC_CURRENCY_CODE DST_CURRENCY_CODE</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Rates are fixed</p>
+<p>Rates are updated daily (except on the weekends)</p>
+</li>
+<li>
+<p>Rates are accompanied with the date of which it is being retrieved/converted</p>
 </li>
 <li>
 <p>Comma is use as a thousand separtor and to 2 decimal places, eg 1,000.00</p>
 </li>
 <li>
-<p>17 currencies available to be converted from one to another</p>
+<p>16 currencies available to be converted from one to another</p>
 </li>
 <li>
 <p>List of currency codes available (according to ISO 4217):</p>
@@ -310,7 +386,6 @@ PHP - Philippine piso
 SEK - Swedish krona/kronor
 SGD - Singapore dollar
 THB - Thai baht
-TWD - New Taiwan dollar
 USD - United States dollar</pre>
 </div>
 </div>
@@ -339,17 +414,116 @@ Value can be empty to get the standard rate of 1 unit of a particular currency t
 <li>
 <p><code>convert 1 SGD MYR</code><br>
 Converts 1 SGD into MYR<br>
-Returns <code>Converted 1 SGD to MYR 2.96</code><br></p>
+Returns <code>Converted 1 SGD to MYR 2.95 as of 13-Apr-2018</code><br></p>
 </li>
 <li>
 <p><code>convert 10000 JPY USD</code><br>
 Converts 10,000 JPY to USD<br>
-Returns <code>Converted 10,000 JPY to USD 94.50</code></p>
+Returns <code>Converted 10,000 JPY to USD 92.86 as of 13-Apr-2018</code></p>
 </li>
 <li>
 <p><code>convert SGD MYR</code><br>
 Get the rate of MYR given one unit of SGD<br>
-Returns <code>Converted 1 SGD to MYR 2.96</code></p>
+Returns <code>Converted 1 SGD to MYR 2.95 as of 13-Apr-2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="autocomplete-of-command-code-coming-in-v2-0-code"><a class="link" href="#autocomplete-of-command-code-coming-in-v2-0-code">Autocomplete of command <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose names contain any of the given value.<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Command will autocomplete if left one possible command remaining</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>fin</code><br>
+Returns any command <code>find</code><br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="list-out-possible-command-code-coming-in-v2-0-code"><a class="link" href="#list-out-possible-command-code-coming-in-v2-0-code">List out possible command <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>List out possible commands as one types on the command line<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Possible commands will be listed</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Empty command line<br>
+Returns all of commands<br></p>
+</li>
+<li>
+<p><code>f</code><br>
+Returns commands started with <code>f</code> such as <code>findEvent</code>, `find'<br></p>
+</li>
+<li>
+<p><code>find</code><br>
+Returns commands started with <code>find</code> such as `find'<br></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="hint-out-the-possible-command-syntax-code-coming-in-v2-0-code"><a class="link" href="#hint-out-the-possible-command-syntax-code-coming-in-v2-0-code">Hint out the possible command syntax <code>[coming in v2.0]</code></a></h3>
+<div class="paragraph">
+<p>Guide user on the command sytnax<br></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Syntax will be shown to guide thru till the command is completely written</p>
+</li>
+<li>
+<p>Check for each parameter, the value conforming to</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/</code><br>
+Return feedback to ask user to input name<br></p>
+</li>
+<li>
+<p><code>convert 10 SGD</code><br>
+Returns feedback to input the currency code to be converted to<br></p>
 </li>
 </ul>
 </div>
@@ -470,28 +644,33 @@ Returns <code>Converted 1 SGD to MYR 2.96</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">[Proposed] Data Encryption</a></h3>
+<h3 id="convert-currency-feature"><a class="link" href="#convert-currency-feature">Convert currency feature</a></h3>
+<div class="sect3">
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The login feature helps to protect data files by encrypting them with the user&#8217;s password as the secret key.
-User&#8217;s access is restricted until the user logs in with the username and password.
-Upon correct credential input, data files are decrypted and the user will have full access to the app&#8217;s features.</p>
+<p>The convert currency feature allows user to convert from one currency to another.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the converting of currency feature operation works.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ConvertCurrencySequenceDiagram.png" alt="ConvertCurrencySequenceDiagram" width="800">
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User executes <code>login</code> command with the required arguments.</p>
+<p>The user executes the <code>convert</code> command.</p>
 </li>
 <li>
-<p><code>AddressBookParser</code> class creates a new <code>LogInCommandParser</code> object to parse the command arguments.</p>
+<p>The <code>AddressBookParser</code> class parses the command creates a new <code>ConvertCommand</code> class.</p>
 </li>
 <li>
-<p>This <code>LogInCommandParser</code> object parses the arguments and create a new <code>LogInCommand</code> object.</p>
+<p>The <code>convert</code> command is executed and assisted by the <code>Currency</code> class.</p>
 </li>
 <li>
-<p>The <code>login</code> command is then executed and handled by the <code>ModelManager</code> class.</p>
-</li>
-<li>
-<p>The <code>ModelManager</code> class will then check for the validity of the credentials and return the corresponding command message.</p>
+<p>The converted value is returned and displayed to the user.</p>
 </li>
 </ol>
 </div>
@@ -499,9 +678,10 @@ Upon correct credential input, data files are decrypted and the user will have f
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-04-15 10:38:57 UTC
+Last updated 2018-04-15 10:53:53 UTC
 </div>
 </div>
 </body>
